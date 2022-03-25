@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/point_shop_nav"
+    app:startDestination="@id/pointShopNewFragment">
+
+    <fragment
+        android:id="@+id/pointShopNewFragment"
+        android:name="com.jotangi.nickyen.pointshop.renew.ui.PointShopNewFragment"
+        android:label="fragment_point_shop_new"
+        tools:layout="@layout/fragment_point_shop_new">
+        <action
+            android:id="@+id/action_pointShopNewFragment_to_shoppingCartFragment"
+            app:destination="@id/shoppingCartFragment" />
+        <action
+            android:id="@+id/action_pointShopNewFragment_to_pointShopItemFragment"
+            app:destination="@id/pointShopItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pointShopPaymentFragment"
+        android:name="com.jotangi.nickyen.pointshop.renew.ui.PointShopPaymentFragment"
+        android:label="fragment_point_shop_payment"
+        tools:layout="@layout/fragment_point_shop_payment" >
+        <action
+            android:id="@+id/action_pointShopPaymentFragment_to_shoppingCartFragment"
+            app:destination="@id/shoppingCartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pointShopItemFragment"
+        android:name="com.jotangi.nickyen.pointshop.renew.ui.PointShopItemFragment"
+        android:label="fragment_point_shop_item"
+        tools:layout="@layout/fragment_point_shop_item" >
+        <action
+            android:id="@+id/action_pointShopItemFragment_to_shoppingCartFragment"
+            app:destination="@id/shoppingCartFragment" />
+        <action
+            android:id="@+id/action_pointShopItemFragment_to_pointShopPaymentFragment"
+            app:destination="@id/pointShopPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingCartFragment"
+        android:name="com.jotangi.nickyen.pointshop.renew.ui.ShoppingCartFragment"
+        android:label="fragment_shopping_cart"
+        tools:layout="@layout/fragment_shopping_cart" >
+        <action
+            android:id="@+id/action_shoppingCartFragment_to_pointShopPaymentFragment"
+            app:destination="@id/pointShopPaymentFragment" />
+        <action
+            android:id="@+id/action_shoppingCartFragment_to_pointShopNewFragment"
+            app:destination="@id/pointShopNewFragment" />
+    </fragment>
+</navigation>

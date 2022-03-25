@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".member.MemberSelectActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/typeRed"
+            app:navigationIcon="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="會員註冊"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_member"
+        android:layout_width="320dp"
+        android:layout_height="63dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="230dp"
+        android:background="@color/typeRed"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一般會員"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_shop"
+        android:layout_width="320dp"
+        android:layout_height="63dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@color/typeRed"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="63dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_scan" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="掃碼註冊"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_shop"-->
+    <!--        android:layout_width="320dp"-->
+    <!--        android:layout_height="63dp"-->
+    <!--        android:layout_gravity="center_horizontal"-->
+    <!--        android:background="@drawable/main_background"-->
+    <!--        android:layout_marginTop="28dp"-->
+    <!--        android:text="店家掃碼註冊"-->
+    <!--        android:textSize="16sp"-->
+    <!--        android:textStyle="bold"/>-->
+
+</LinearLayout>

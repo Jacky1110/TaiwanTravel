@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="首頁"
+        android:icon="@drawable/ic_home"
+        android:id="@+id/homeFragment"
+        />
+    <item
+        android:title="優惠好康"
+        
+        android:icon="@drawable/ic_discount"
+        android:id="@id/discountFragment"/>
+    <item
+        android:title="掃描"
+        android:icon="@drawable/ic_scanner"
+        android:id="@+id/scanFragment"
+        />
+
+    <item
+        android:title="附近店家"
+        android:icon="@drawable/ic_shopping"
+        android:id="@+id/shopFragment"/>
+    <item
+        android:title="會員中心"
+        android:icon="@drawable/ic_account"
+        android:id="@+id/memberFragment"/>
+</menu>

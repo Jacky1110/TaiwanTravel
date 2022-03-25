@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="8dp">
+
+    <ImageView
+        android:id="@+id/ivCheckBox"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/shape_cube_line_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvAnswer"
+        app:layout_constraintBottom_toBottomOf="@id/tvAnswer"/>
+
+    <TextView
+        android:id="@+id/tvAnswer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:paddingStart="32dp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="其他" />
+
+    <TextView
+        android:id="@+id/tvOther"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:background="@drawable/underline_gray"
+        android:layout_marginStart="32dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/tvAnswer"
+        app:layout_constraintEnd_toEndOf="@id/tvAnswer"
+        app:layout_constraintTop_toBottomOf="@id/tvAnswer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

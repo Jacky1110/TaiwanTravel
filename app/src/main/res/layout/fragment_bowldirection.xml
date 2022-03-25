@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/guiHua">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="@dimen/dp_600"
+        android:background="@drawable/bg_ar_store"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_gold_title" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="20dp"
+                    android:text="活動方式"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    style="@style/txt_direction"
+                    android:text="	遊戲時間：111年04月01日~05月01日"
+                   />
+
+                <TextView
+                    style="@style/txt_direction"
+                    android:text="遊戲地點：魅力金三角商圈" />
+
+                <TextView
+                    style="@style/txt_direction"
+                    android:text="遊戲方式" />
+                <TextView
+                    style="@style/txt_direction"
+                    android:text="1.點選「魅力金三角商圈_忠貞八大碗美食饗宴」活動" />
+                <TextView
+                    style="@style/txt_direction"
+                android:text="2.依據八大碗美食地圖的提示，尋找商圈內對應的特色店家，找到特色店家掃描店家的門面照片，就會出現該店家推薦的特色菜餚，並可蒐集一個大碗勳章"
+                 />
+                <TextView
+                    style="@style/txt_direction"
+                    android:text="3.蒐集到四個大碗勳章(含以上)就可以獲得一份禮品兌換券(每個帳號限領一份)" />
+                <TextView
+                    style="@style/txt_direction"
+                    android:text="到指定地點「黑山銀花」兌換禮品" />
+                <TextView
+                    style="@style/txt_direction"
+                    android:text="黑山銀花 (桃園市平鎮區中山路46號，忠貞新村文創園區內，由中山路44-1號巷子進入）" />
+<Space
+    android:layout_width="match_parent"
+    android:layout_height="100dp"/>
+                <Button
+                    android:id="@+id/bdBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_ar_back"
+                    android:text="返回" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

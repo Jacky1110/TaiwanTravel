@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/tv_taiwanShop"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/typeRed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_more"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_25"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_dot_font"
+                android:visibility="visible" />
+
+            <!--        <ImageView-->
+            <!--            android:id="@+id/iv_more"-->
+            <!--            android:layout_width="40dp"-->
+            <!--            android:layout_height="45dp"-->
+            <!--            android:layout_alignParentStart="true"-->
+            <!--            android:layout_centerVertical="true"-->
+            <!--            android:layout_marginStart="8dp"-->
+            <!--            android:scaleType="fitXY"-->
+            <!--            android:visibility="visible"-->
+            <!--            android:src="@drawable/ic_more" />-->
+
+            <ImageView
+                android:id="@+id/iv_notify"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_notify" />
+
+            <ImageView
+                android:id="@+id/iv_remind"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="9dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_pending_white"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_scan"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_toLeftOf="@+id/iv_notify"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_qrcode_1223"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_taiwanShop">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!--                <androidx.cardview.widget.CardView-->
+                    <!--                    android:id="@+id/cv_slider_mainActivity"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="0dp"-->
+                    <!--                    android:background="@drawable/shadow"-->
+                    <!--                    app:layout_constraintDimensionRatio="1:0.8"-->
+                    <!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+                    <!--                    <androidx.viewpager.widget.ViewPager-->
+                    <!--                        android:id="@+id/viewPager"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_gravity="center_horizontal" />-->
+
+                    <!--                </androidx.cardview.widget.CardView>-->
+
+                    <!--                <me.relex.circleindicator.CircleIndicator-->
+                    <!--                    android:id="@+id/circleIndicator"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="36dp"-->
+                    <!--                    android:elevation="2dp"-->
+                    <!--                    app:layout_constraintBottom_toBottomOf="parent" />-->
+                    <com.stx.xhb.xbanner.XBanner
+                        android:id="@+id/xBanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:AutoPlayTime="5000"
+                        app:layout_constraintDimensionRatio="h,1:.8"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:pageChangeDuration="800"
+                        app:pointNormal="@drawable/carousel_gray"
+                        app:pointSelect="@drawable/carousel_wh" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <HorizontalScrollView
+                    android:id="@id/horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/layout_banner">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorSeparator">
+
+                        <LinearLayout
+                            android:id="@+id/layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@color/colorSeparator"
+                            android:orientation="horizontal"
+                            app:layout_constraintDimensionRatio="1:0.2"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cl_point"
+                                android:layout_width="@dimen/dp_128"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_15"
+                                android:layout_marginTop="@dimen/dp_11"
+                                android:layout_marginEnd="@dimen/dp_10">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/ic_point" />
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/guideline1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    app:layout_constraintGuide_percent="0.85" />
+
+                                <TextView
+                                    android:id="@+id/tv_point"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/typeRed"
+                                    android:textSize="22sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/guideline1"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <ImageView
+                                android:id="@+id/iv_point_mall"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/dp_11"
+                                android:src="@drawable/ic_mall" />
+
+                            <ImageView
+                                android:id="@+id/iv_discount"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_11"
+                                android:src="@drawable/ic_discount" />
+
+                            <ImageView
+                                android:id="@+id/iv_member_card"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_11"
+                                android:src="@drawable/ic_membercard" />
+
+                            <ImageView
+                                android:id="@+id/iv_salons"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_9"
+                                android:layout_marginTop="@dimen/dp_11"
+                                android:layout_marginEnd="10dp"
+                                android:src="@drawable/ic_salons" />
+<!--                            <LinearLayout-->
+<!--                                android:id="@+id/iv_constellation"-->
+<!--                                android:layout_width="@dimen/dp_63"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_marginStart="@dimen/dp_9"-->
+<!--                                android:layout_marginTop="@dimen/dp_11"-->
+<!--                                android:layout_marginEnd="10dp"-->
+<!--                                android:gravity="center"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <ImageView-->
+<!--                                    android:layout_width="@dimen/dp_48"-->
+<!--                                    android:layout_height="@dimen/dp_53"-->
+<!--                                    android:layout_marginBottom="@dimen/dp_1"-->
+<!--                                    android:src="@drawable/ic_constellation" />-->
+<!--                            </LinearLayout>-->
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layout2"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@color/colorSeparator"
+                            android:orientation="horizontal"
+                            app:layout_constraintDimensionRatio="1:0.2"
+                            app:layout_constraintTop_toBottomOf="@id/layout">
+
+                            <ImageView
+                                android:id="@+id/iv_store_area"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_9"
+                                android:layout_marginTop="@dimen/dp_5"
+                                android:layout_marginBottom="10dp"
+                                android:src="@drawable/ic_store_area" />
+
+                            <!--                        <ImageView-->
+                            <!--                            android:layout_width="@dimen/dp_63"-->
+                            <!--                            android:layout_height="match_parent"-->
+                            <!--                            android:layout_marginStart="@dimen/dp_10"-->
+                            <!--                            android:layout_marginTop="@dimen/dp_5"-->
+                            <!--                            android:layout_marginBottom="10dp"-->
+                            <!--                            android:src="@drawable/ic_constellation" />-->
+                            <!--                        <LinearLayout-->
+                            <!--                            android:id="@+id/iv_constellation"-->
+                            <!--                            android:layout_width="@dimen/dp_63"-->
+                            <!--                            android:layout_height="match_parent"-->
+                            <!--                            android:layout_marginStart="@dimen/dp_10"-->
+                            <!--                            android:layout_marginTop="@dimen/dp_5"-->
+                            <!--                            android:layout_marginBottom="10dp"-->
+                            <!--                           android:gravity="center"-->
+                            <!--                            android:orientation="vertical">-->
+
+                            <!--                            <ImageView-->
+                            <!--                                android:layout_width="@dimen/dp_48"-->
+                            <!--                                android:layout_height="@dimen/dp_53"-->
+                            <!--                                android:layout_marginBottom="@dimen/dp_1"-->
+                            <!--                                android:src="@drawable/ic_constellation" />-->
+                            <!--                        </LinearLayout>-->
+
+                            <ImageView
+                                android:id="@+id/iv_nearby_store"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_5"
+                                android:layout_marginBottom="10dp"
+                                android:src="@drawable/ic_nearby_store" />
+
+                            <!--                <ImageView-->
+                            <!--                    android:id="@+id/iv_carefully_select"-->
+                            <!--                    android:layout_width="0dp"-->
+                            <!--                    android:layout_height="match_parent"-->
+                            <!--                    android:layout_marginTop="10dp"-->
+                            <!--                    android:layout_marginBottom="10dp"-->
+                            <!--                    android:layout_weight="1"-->
+                            <!--                    android:src="@drawable/ic_carefully_select" />-->
+
+                            <ImageView
+                                android:id="@+id/iv_industry"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_8"
+                                android:layout_marginTop="@dimen/dp_5"
+                                android:layout_marginBottom="10dp"
+                                android:src="@drawable/ic_industry" />
+
+                            <ImageView
+                                android:id="@+id/iv_ar_game"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_5"
+                                android:layout_marginBottom="10dp"
+                                android:src="@drawable/ic_ar_game" />
+
+                            <ImageView
+                                android:id="@+id/iv_questionnaire"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_9"
+                                android:layout_marginTop="@dimen/dp_5"
+                                android:layout_marginBottom="10dp"
+                                android:src="@drawable/ic_questionnaire" />
+
+                            <ImageView
+                                android:id="@+id/iv_festival"
+                                android:layout_width="@dimen/dp_63"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_5"
+                                android:layout_marginEnd="@dimen/dp_10"
+                                android:layout_marginBottom="10dp"
+                                android:src="@drawable/ic_festival" />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:id="@+id/layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/horizontal">
+
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:text="點點推薦"
+                        android:textColor="@color/black"
+                        android:textSize="22sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_shop_all"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/ic_search"
+                        app:layout_constraintStart_toEndOf="@id/text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_designer"
+                    android:layout_width="match_parent"
+                    android:layout_height="182dp"
+                    android:background="@drawable/bg_map2"
+                    app:layout_constraintTop_toBottomOf="@id/layout3">
+
+                    <!--                <androidx.viewpager.widget.ViewPager-->
+                    <!--                    android:id="@+id/shop_viewPager"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="150dp"-->
+                    <!--                    android:layout_marginStart="16dp"-->
+                    <!--                    android:layout_marginTop="16dp"-->
+                    <!--                    android:clipToPadding="false"-->
+                    <!--                    android:foregroundGravity="center"-->
+                    <!--                    android:overScrollMode="never"-->
+                    <!--                    android:paddingEnd="235dp" />-->
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/shop_viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:paddingEnd="@dimen/dp_200" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_designer">
+
+                    <TextView
+                        android:id="@+id/text2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:text="最新消息"
+                        android:textColor="@color/black"
+                        android:textSize="22sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_news_all"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/ic_search"
+                        app:layout_constraintStart_toEndOf="@id/text"
+                        app:layout_constraintTop_toBottomOf="@id/layout2" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/home_news_recycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="56dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_news" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+    <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:id="@+id/homeLayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@color/white"-->
+    <!--android:clickable="true"-->
+    <!--tools:context=".home.HomeFragment">-->
+
+    <!--<RelativeLayout-->
+    <!--    android:id="@+id/tv_taiwanShop"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="50dp"-->
+    <!--    android:background="@color/typeRed"-->
+    <!--    app:layout_constraintStart_toStartOf="parent"-->
+    <!--    app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/iv_more"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:layout_centerVertical="true"-->
+    <!--        android:layout_margin="5dp"-->
+    <!--        android:scaleType="fitCenter"-->
+    <!--        android:visibility="visible"-->
+    <!--        android:src="@drawable/ic_dot" />-->
+
+    <!--    &lt;!&ndash;        <ImageView&ndash;&gt;-->
+    <!--    &lt;!&ndash;            android:id="@+id/iv_more"&ndash;&gt;-->
+    <!--    &lt;!&ndash;            android:layout_width="40dp"&ndash;&gt;-->
+    <!--    &lt;!&ndash;            android:layout_height="45dp"&ndash;&gt;-->
+    <!--    &lt;!&ndash;            android:layout_alignParentStart="true"&ndash;&gt;-->
+    <!--    &lt;!&ndash;            android:layout_centerVertical="true"&ndash;&gt;-->
+    <!--    &lt;!&ndash;            android:layout_marginStart="8dp"&ndash;&gt;-->
+    <!--    &lt;!&ndash;            android:scaleType="fitXY"&ndash;&gt;-->
+    <!--    &lt;!&ndash;            android:visibility="visible"&ndash;&gt;-->
+    <!--    &lt;!&ndash;            android:src="@drawable/ic_more" />&ndash;&gt;-->
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/iv_notify"-->
+    <!--        android:layout_width="45dp"-->
+    <!--        android:layout_height="45dp"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_centerVertical="true"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:scaleType="fitXY"-->
+    <!--        android:src="@drawable/ic_notify" />-->
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/iv_scan"-->
+    <!--        android:layout_width="36dp"-->
+    <!--        android:layout_height="36dp"-->
+    <!--        android:layout_centerVertical="true"-->
+    <!--        android:layout_marginEnd="4dp"-->
+    <!--        android:layout_toLeftOf="@+id/iv_notify"-->
+    <!--        android:scaleType="fitXY"-->
+    <!--        android:src="@drawable/ic_scan" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<androidx.core.widget.NestedScrollView-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="0dp"-->
+    <!--    android:fillViewport="true"-->
+    <!--    app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--    app:layout_constraintTop_toBottomOf="@id/tv_taiwanShop">-->
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:id="@+id/layout_banner"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            &lt;!&ndash;                <androidx.cardview.widget.CardView&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:id="@+id/cv_slider_mainActivity"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_height="0dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:background="@drawable/shadow"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    app:layout_constraintDimensionRatio="1:0.8"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    app:layout_constraintTop_toTopOf="parent">&ndash;&gt;-->
+
+    <!--            &lt;!&ndash;                    <androidx.viewpager.widget.ViewPager&ndash;&gt;-->
+    <!--            &lt;!&ndash;                        android:id="@+id/viewPager"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                        android:layout_gravity="center_horizontal" />&ndash;&gt;-->
+
+    <!--            &lt;!&ndash;                </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+    <!--            &lt;!&ndash;                <me.relex.circleindicator.CircleIndicator&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:id="@+id/circleIndicator"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_height="36dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:elevation="2dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    app:layout_constraintBottom_toBottomOf="parent" />&ndash;&gt;-->
+    <!--            <com.stx.xhb.xbanner.XBanner-->
+    <!--                android:id="@+id/xBanner"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="0dp"-->
+    <!--                app:AutoPlayTime="5000"-->
+    <!--                app:layout_constraintDimensionRatio="h,1:.8"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:pointNormal="@drawable/carousel_gray"-->
+    <!--                app:pointSelect="@drawable/carousel_wh"-->
+    <!--                app:pageChangeDuration="800"/>-->
+
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/layout"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            android:background="@color/colorSeparator"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            app:layout_constraintDimensionRatio="1:0.2"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/layout_banner">-->
+
+    <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--                android:id="@+id/cl_point"-->
+    <!--                android:layout_width="@dimen/dp_128"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="10dp"-->
+    <!--                android:layout_marginTop="20dp"-->
+    <!--                android:layout_marginEnd="10dp"-->
+    <!--                android:background="@drawable/ic_point">-->
+
+    <!--                <androidx.constraintlayout.widget.Guideline-->
+    <!--                    android:id="@+id/guideline1"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:orientation="vertical"-->
+    <!--                    app:layout_constraintGuide_percent="0.85" />-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tv_point"-->
+    <!--                    android:layout_width="0dp"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:textColor="@color/typeRed"-->
+    <!--                    android:textSize="22sp"-->
+    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                    app:layout_constraintEnd_toStartOf="@id/guideline1"-->
+    <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_point_mall"-->
+    <!--                android:layout_width="@dimen/dp_63"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginTop="20dp"-->
+    <!--                android:src="@drawable/ic_mall" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_discount"-->
+    <!--                android:layout_width="@dimen/dp_63"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="10dp"-->
+    <!--                android:layout_marginTop="20dp"-->
+    <!--                android:src="@drawable/ic_discount" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_member_card"-->
+    <!--                android:layout_width="@dimen/dp_63"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="10dp"-->
+    <!--                android:layout_marginTop="20dp"-->
+    <!--                android:layout_marginEnd="10dp"-->
+    <!--                android:src="@drawable/ic_membercard" />-->
+
+    <!--        </LinearLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/layout2"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            android:background="@color/colorSeparator"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            app:layout_constraintDimensionRatio="1:0.2"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/layout">-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_store_area"-->
+    <!--                android:layout_width="@dimen/dp_63"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="9dp"-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:layout_marginBottom="10dp"-->
+    <!--                android:src="@drawable/ic_store_area" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_nearby_store"-->
+    <!--                android:layout_width="@dimen/dp_63"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="7dp"-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:layout_marginBottom="10dp"-->
+    <!--                android:src="@drawable/ic_nearby_store" />-->
+
+    <!--            &lt;!&ndash;                <ImageView&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:id="@+id/iv_carefully_select"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_marginTop="10dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_marginBottom="10dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_weight="1"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:src="@drawable/ic_carefully_select" />&ndash;&gt;-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_ar_game"-->
+    <!--                android:layout_width="@dimen/dp_63"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="4dp"-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:layout_marginBottom="10dp"-->
+    <!--                android:src="@drawable/ic_ar_game" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_questionnaire"-->
+    <!--                android:layout_width="@dimen/dp_63"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="10dp"-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:layout_marginBottom="10dp"-->
+    <!--                android:src="@drawable/ic_questionnaire" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_salons"-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="10dp"-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:layout_marginEnd="10dp"-->
+    <!--                android:layout_marginBottom="10dp"-->
+    <!--                android:layout_weight="1"-->
+    <!--                android:src="@drawable/ic_salons" />-->
+
+    <!--            &lt;!&ndash;                <ImageView&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:id="@+id/iv_transfer"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_marginStart="10dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_marginTop="10dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_marginEnd="10dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_marginBottom="10dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_weight="1"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:src="@drawable/ic_transfer" />&ndash;&gt;-->
+
+    <!--        </LinearLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/layout3"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="50dp"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/layout2">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/text"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center_vertical"-->
+    <!--                android:layout_marginStart="16dp"-->
+    <!--                android:text="點點推薦"-->
+    <!--                android:textColor="@color/black"-->
+    <!--                android:textSize="22sp" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_shop_all"-->
+    <!--                android:layout_width="45dp"-->
+    <!--                android:layout_height="45dp"-->
+    <!--                android:layout_gravity="center_vertical"-->
+    <!--                android:background="@drawable/ic_search"-->
+    <!--                app:layout_constraintStart_toEndOf="@id/text"-->
+    <!--                app:layout_constraintTop_toBottomOf="@id/layout2" />-->
+
+    <!--        </LinearLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/layout_designer"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="182dp"-->
+    <!--            android:background="@drawable/bg_map2"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/layout3">-->
+
+    <!--            &lt;!&ndash;                <androidx.viewpager.widget.ViewPager&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:id="@+id/shop_viewPager"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_height="150dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_marginStart="16dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:layout_marginTop="16dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:clipToPadding="false"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:foregroundGravity="center"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:overScrollMode="never"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                    android:paddingEnd="235dp" />&ndash;&gt;-->
+
+    <!--            <androidx.viewpager.widget.ViewPager-->
+    <!--                android:id="@+id/shop_viewPager"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="150dp"-->
+    <!--                android:layout_marginStart="16dp"-->
+    <!--                android:layout_marginTop="16dp"-->
+    <!--                android:paddingEnd="@dimen/dp_200" />-->
+
+    <!--        </LinearLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/layout_news"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="50dp"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/layout_designer">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/text2"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center_vertical"-->
+    <!--                android:layout_marginStart="16dp"-->
+    <!--                android:text="最新消息"-->
+    <!--                android:textColor="@color/black"-->
+    <!--                android:textSize="22sp" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_news_all"-->
+    <!--                android:layout_width="45dp"-->
+    <!--                android:layout_height="45dp"-->
+    <!--                android:layout_gravity="center_vertical"-->
+    <!--                android:background="@drawable/ic_search"-->
+    <!--                app:layout_constraintStart_toEndOf="@id/text"-->
+    <!--                app:layout_constraintTop_toBottomOf="@id/layout2" />-->
+
+    <!--        </LinearLayout>-->
+
+    <!--        <androidx.recyclerview.widget.RecyclerView-->
+    <!--            android:id="@+id/home_news_recycle"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginBottom="56dp"-->
+    <!--            android:background="@color/white"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/layout_news" />-->
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--</androidx.core.widget.NestedScrollView>-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

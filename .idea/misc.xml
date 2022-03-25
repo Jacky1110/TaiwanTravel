@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/activity_ar_camera.xml" value="0.13958333333333334" />
+        <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/activity_ar_find.xml" value="0.13958333333333334" />
+        <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/activity_ar_game.xml" value="0.13958333333333334" />
+        <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/activity_golden_triangle.xml" value="0.3333333333333333" />
+        <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/dialog_ar_success.xml" value="0.16197916666666667" />
+        <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/dialog_ar_triangle.xml" value="0.16354166666666667" />
+        <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/dialog_bowl_triangle.xml" value="0.22" />
+        <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/dialog_gold_recipe.xml" value="0.22" />
+        <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/fragment_bowldirection.xml" value="0.38264738598442716" />
+      </map>
+    </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="kotlinx.android.parcel.Parcelize" />
+    </list>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

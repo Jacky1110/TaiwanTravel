@@ -1,0 +1,136 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+}
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file('../key/Untitled')
+            storePassword '123456'
+            keyPassword '123456'
+            keyAlias 'key0'
+        }
+        release {
+            storeFile file('../key/Untitled')
+            storePassword '123456'
+            keyPassword '123456'
+            keyAlias 'key0'
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.jotangi.nickyen"
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 66
+        versionName "1.65"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildFeatures {
+            dataBinding true
+            viewBinding true
+        }
+        signingConfig signingConfigs.release
+        multiDexEnabled true
+    }
+    flavorDimensions "default"
+    productFlavors {
+        dev {
+            applicationIdSuffix ".dev"
+        }
+        beta {
+            applicationIdSuffix ".beta"
+        }
+        production {
+        }
+    }
+
+    buildTypes {
+        release {
+//            lintOptions {
+//                checkReleaseBuilds false
+//            }
+            debuggable false
+            resValue("string", "API_KEY", GoogleMapKey)
+            minifyEnabled false
+            shrinkResources false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            resValue("string", "API_KEY", GoogleMapKey)
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'me.relex:circleindicator:2.1.6'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+    implementation 'com.google.android.gms:play-services-location:17.1.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+    implementation 'com.jakewharton:butterknife:6.1.0'
+    implementation 'com.hjq:toast:8.8'
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    //掃描QRcode
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+
+    implementation 'com.google.firebase:firebase-dynamic-links'
+    implementation platform('com.google.firebase:firebase-bom:28.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    //獲取崩潰
+    implementation 'com.google.firebase:firebase-crashlytics'
+    //FCM推播
+    implementation 'com.google.firebase:firebase-messaging-directboot:20.2.0'
+
+    //okhttp解決忽略https憑證的一組 不能太新也不能太舊
+    implementation 'com.squareup.okhttp:okhttp:2.2.0'
+    implementation 'com.squareup.okhttp:okhttp-urlconnection:2.2.0'
+    implementation 'com.squareup.picasso:picasso:2.4.0'
+
+    //banner
+    implementation 'com.github.xiaohaibin:XBanner:1.7.5'
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.github.kizitonwose:CalendarView:1.0.4'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+    implementation 'androidx.core:core-ktx:1.0.0'
+
+    implementation 'com.github.loperSeven:DateTimePicker:0.5.0'// 需要依赖google material庫
+}

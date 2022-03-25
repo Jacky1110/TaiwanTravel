@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".member.RegisterActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/typeRed"
+            app:navigationIcon="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="修改會員資料"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:textColor="@color/black"
+                    android:id="@+id/et_modifyName"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/shape_line"
+                    android:hint="  姓名"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#7e7e7e"
+                    android:textCursorDrawable="@null" />
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_modifyPhone"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="44dp"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginTop="14dp"-->
+<!--                    android:background="@drawable/shape_line_typered"-->
+<!--                    android:ems="10"-->
+<!--                    android:hint="  聯絡電話"-->
+<!--                    android:imeOptions="actionDone"-->
+<!--                    android:inputType="number"-->
+<!--                    android:textColor="#FFFFFFFF"-->
+<!--                    android:textColorHint="#7e7e7e"-->
+<!--                    android:textCursorDrawable="@null" />-->
+
+                <EditText
+                    android:id="@+id/et_modifyEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/shape_line"
+                    android:ems="10"
+                    android:hint="  電子信箱"
+                    android:imeOptions="actionDone"
+                    android:inputType="textVisiblePassword"
+                    android:textColor="@color/black"
+                    android:textColorHint="#7e7e7e"
+                    android:textCursorDrawable="@null" />
+
+                <EditText
+                    android:id="@+id/et_modifyAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/shape_line"
+                    android:ems="10"
+                    android:hint="  聯絡地址"
+                    android:imeOptions="actionDone"
+                    android:textColor="@color/black"
+                    android:textColorHint="#7e7e7e"
+                    android:textCursorDrawable="@null" />
+
+                <EditText
+                    android:id="@+id/et_ModifyBirthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/shape_line"
+                    android:ems="10"
+                    android:hint="  出生日期 範例:1990-01-01"
+                    android:imeOptions="actionDone"
+                    android:inputType="textVisiblePassword"
+                    android:textColor="@color/black"
+                    android:textColorHint="#7e7e7e"
+                    android:textCursorDrawable="@null" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_male"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:textSize="24sp"
+                        android:text="男"
+                        android:backgroundTint="@drawable/gender_button"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_female"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:textSize="24sp"
+                        android:text="女"
+                        android:backgroundTint="@drawable/gender_button"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_round_light_typered"
+                    android:text="會員資料確認修改"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_ModifyPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/shape_line"
+                    android:ems="10"
+                    android:hint="  請輸入舊密碼"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textColorHint="#7e7e7e"
+                    android:textCursorDrawable="@null" />
+
+                <EditText
+                    android:id="@+id/et_ModifyPassword2"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/shape_line"
+                    android:ems="10"
+                    android:hint="  請輸入新密碼(須包含英文數字)"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textColorHint="#7e7e7e"
+                    android:textCursorDrawable="@null" />
+
+                <EditText
+                    android:id="@+id/et_ModifyPassword3"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/shape_line"
+                    android:ems="10"
+                    android:hint="  請再次輸入新密碼"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textColorHint="#7e7e7e"
+                    android:textCursorDrawable="@null" />
+
+                <Button
+                    android:id="@+id/btn_send2"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/shape_round_light_typered"
+                    android:text="密碼確認修改"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

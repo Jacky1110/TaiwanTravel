@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".member.RegisterTermsActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/typeRed"
+            app:navigationIcon="@drawable/ic_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="會員說明"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="會員公告與隱私權條款"
+                android:textSize="22sp"
+                android:textColor="#7e7e7e"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="『依德科技股份有限公司』非常重視會員的隱私權且遵循「個人資料保護法」之規定，因此制訂了隱私權保護政策，您可參考下列隱私權保護政策的內容。請詳細閱讀以下條款，當您申請成為依德會員時，即表示您已經了解並同意遵守條款之所有約定。\n \n會員註冊認知與條款 \n當您下載並完成加入點點 ddot APP，表示您已詳細閱讀並同意遵守會員條款。未滿十八歲之未成年人，應由家長或監護人確認並同意所有條款以及其修改變更後，方可申請成為點點 ddot APP會員並享有相關權益。\n \n申請加入成為依德會員均須同意以下事項:\n1. 會員本人必須依照申請流程登錄正確、真實及完整之個人資料，並且無利用偽造資料作為申請或是重複註冊。\n2. 若會員個人資料有所變更或是錯誤，會員本人應即時更新/修正，無法自行更新/修正的部分需即時與依德客服聯絡以維持會員個人資料之正確、真時及完整。若有任何錯誤或是不實的資料，或所提供之個人資料違反或破壞依德服務宗旨或有任何誤導之疑慮者，依德有權立即停止或取消您的會員資格。\n3. 不為任何非法目的或以任何非法方式使用點點 ddot APP與您的會員權限，並遵守中華民國相關法性，並且不得以點點 ddot APP或您的會員資格從事侵害他人權益或任何之違法行為，如以下：\n    (1)冒用他人之點點 ddot APP會員資格\n    (2)公佈或傳送具有誹謗、侮辱、具威脅性、攻擊性、不雅、猥褻、不實、或其他不法之文字、圖片或任何形式的檔案。\n    (3)侵害或毀損依德或他人包括名譽、隱私權、營業機密、智慧財產權、所有未經依德事前授權的商業行為與其他權益。\n    (4)違反依法律或契約所應負之保密義務。\n    (5)傳送或散佈APP/網路病毒。\n    (6)其他不符合會員所提供的服務或是依德有正當理由認為不適當之行為。\n    (7)若因您登錄不實資料或以任何非法方式以致於侵害他人之權利或違法時，應自行負擔法律責任，如因此造成依德損害，應負賠償之責任。\n4. 當下列情況之一發生時，依德有權可以停止、中斷提供APP內所有服務，所有權益為依德提供會員之消費獎勵，會員不得以點數權益受損要求依德賠償或補償：\n    (1)APP系統、版本進行例行之保養與維修、更新時。\n    (2)電子通信服務被停止或因其他原因無法提供服務時。\n    (3)於天災等不可抗之力因素或所有不可歸責於依德之原因致使依德無法提供APP服務時。\n5. 您同意依德基於維護交易安全之考量，以任何理由，停止或取消您的會員資格，並刪除您申請加入會員時所提供的個人資料與所留存之個人內容，依德對您或任何人均不承擔責任。\n6. 會員於使用會員優惠、權益、點數時，本人需出示會員APP畫面，以確保會員之各項福利，若無法出示證明畫面，依德得不受理。\n \n個人資料之安全 \n保護會員的個人隱私是依德重要的經營理念之一，在未經會員同意之下，我們絕不會將會員的個人資料提供予任何與本線上網站服務無關之第三人。會員權益均供會員本人使用與享有，會員應妥善保密自己的帳號密碼及個人資料，不得轉借、轉讓他人或與他人共用。所有依照系統規定方式登入您個人會員帳號並使用依德APP者，無論是否是您本人親自操作，所有權益與點數使用均視為您本人之行為並須由您負完全的責任。點點 ddot APP會員所提供的個人與所有資料，皆受到個人資料保護法的保護與規範。若您的會員帳號或密碼遭到盜用或有任何其他安全問題發生時，您應立即通知依德客服中心。若您的會員身份遭盜用、不當使用或是其他依德無法辨識是否為會員本人所親自使用之情況時，依德對此所致之損害概不負責。\n \n個人資料的蒐集、處理、利用 \n當會員提出會員註冊時，表示已瞭解並同意依德得在下述目的範圍內依個人資料保護法之相關規定蒐集、處理、利用、傳輸本人之個人資料，並確任依德公司已告知相關權益。依德相關網站所取得的個人資料，都僅供依德於其內部、依照原來所說明的使用目的和範圍，除非事先說明、或依照相關法律規定，否則依德不會將資料提供給第三人、或移作其他目的使用。\n \n蒐集之目的： \n蒐集之目的在於進行會計管理、行銷業務、消費者、客戶管理與服務、線上購物、提供服務、會員識別、會員權益通知、消費獎勵、優惠、郵寄、發送簡訊、及其他電子商務服務及與調查、統計與研究分析(法定特定目的項目編號為Ｏ四Ｏ、Ｏ九Ｏ、一四八、一五七)。依德將藉由加入會員之過程或進行交易之過程來蒐集個人資料。\n \n蒐集之個人資料類別： \n依德於網站內蒐集的個人資料包括，\n1. 辨識個人者，如：會員之姓名、密碼、地址、電話、電子郵件、性別、出生年月日、婚姻狀況、收入、學歷、行業、興趣等資訊。\n2. 辨識財務者，如：信用卡或金融機構帳戶資訊。\n3. 個人描述，如：性別、出生年月日等。\n4. 期間：會員當事人要求停止使用或依德停止提供服務之日為止。\n5. 地區：會員之個人資料將用於台灣地區等。\n6. 利用對象及方式：會員之個人資料蒐集除用於依德之會員管理、客戶管理之檢索查詢等功能外，亦將利用於辨識身份、金流服務、物流服務、行銷廣宣等。\n7. 會員本人就所提供之個人資料得透過致電依德客服方式使下列權利：\n    (1)查詢或請求閱覽\n    (2)請求製給複製本\n    (3)請求補充或更正\n    (4)請求停止蒐集、處理或利用\n    (5)請求刪除\n \nCOOKIE\n為了便利會員使用，點點 ddot APP會使用COOKIE技術，以便於提供會員所需要的服務；COOKIE是網站伺服器用來和會員瀏覽器進行溝通的一種技術，它可能在會員的電腦中隨機儲存字串，用以辨識區別使用者，若關閉COOKIE有可能導致無法順利登入網站或無法使用購物車等狀況。\n \n隱私權保護政策修訂 \n依德保留隨時變更、暫停或終止會員點數使用與權益之累積規則之權利，最新規範將於依德官方網站上公佈時立即生效，恕不個別通知。如果對於依德隱私權聲明、個人資料有關之相關事項有任何疑問，可以利用電子郵件與依德客服中心聯絡。若您不同意會員規定或是任何變更，請與依德客服中心聯絡以便協助您退出會員資格。\n \n智慧財產權 \n依德APP內所有內容均屬依德所有，所有非經依德事前書面同意，任何人不得擅自有使用。若有依德會員違反以上規範，應負擔責任並對依德做為賠償，依德同時擁有終止與刪除您會員資格的權限。"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                android:textColor="#7e7e7e"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "207730501712",
+    "project_id": "taiwantravelshop",
+    "storage_bucket": "taiwantravelshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207730501712:android:69c9a56c83cd31b7690955",
+        "android_client_info": {
+          "package_name": "com.jotangi.nickyen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207730501712-b17i2v2msu7gqsh7ikjsgiil6mn3vim6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATm6LMvcqpPiGTxKiXhvY_HSefD2RTnnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207730501712-b17i2v2msu7gqsh7ikjsgiil6mn3vim6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207730501712:android:002f8030134b83ed690955",
+        "android_client_info": {
+          "package_name": "com.jotangi.nickyen.beta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207730501712-b17i2v2msu7gqsh7ikjsgiil6mn3vim6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATm6LMvcqpPiGTxKiXhvY_HSefD2RTnnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207730501712-b17i2v2msu7gqsh7ikjsgiil6mn3vim6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

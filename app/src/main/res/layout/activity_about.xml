@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".member.AboutActivity"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/typeRed"
+        android:gravity="center"
+        android:text="關於我們"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ib_go_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:elevation="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_back" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/textview"
+        android:textColor="@color/black"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        android:text="「點點」是以消費者購物習慣為出發點，所設想的一套購物優惠積點與紅利回饋的APP。透過「點點」消費，幫助消費者賺取點數折返現金，還可以享有購物優惠活動。
+「點點」更要與全台各大商圈及民生服務業、旅宿業等多個產業共同合作，為消費者提供各種類別的現金返還，包括一般商品、旅遊預訂、時尚、健康和美容、雜貨和食品配送等。"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.jotangi.nickyen.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/discountFragment"
+        android:name="com.jotangi.nickyen.discount.DiscountFragment"
+        android:label="fragment_preferential"
+        tools:layout="@layout/fragment_discount"/>
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.jotangi.nickyen.scanner.ScanFragment"
+        android:label="fragment_scan"
+        tools:layout="@layout/fragment_scan" />
+    <fragment
+        android:id="@+id/memberFragment"
+        android:name="com.jotangi.nickyen.member.MemberFragment"
+        android:label="fragment_member"
+        tools:layout="@layout/fragment_member" />
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.jotangi.nickyen.shop.ShopFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/fragment_shop" />
+</navigation>

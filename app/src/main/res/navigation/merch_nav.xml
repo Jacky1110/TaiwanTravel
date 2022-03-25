@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/merch_nav"
+    app:startDestination="@id/merchHomeFragment">
+
+    <fragment
+        android:id="@+id/merchHomeFragment"
+        android:name="com.jotangi.nickyen.merch.home.MerchHomeFragment"
+        android:label="MerchHomeFragment"
+        tools:layout="@layout/fragment_merch_home">
+        <action
+            android:id="@+id/action_merchHomeFragment_to_merchSettingFragment"
+            app:destination="@id/merchSettingFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_merchHomeFragment_to_merchScanFragment"
+            app:destination="@id/merchScanFragment"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_merchHomeFragment_to_merchInputFragment"
+            app:destination="@id/merchInputFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_merchHomeFragment_to_merchRecordFragment"
+            app:destination="@id/merchRecordFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_merchHomeFragment_to_reserveFragment"
+            app:destination="@id/reserveFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_merchHomeFragment_to_industryReserveFragment"
+            app:destination="@id/industryReserveFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_merchHomeFragment_to_reconciliationFragment"
+            app:destination="@id/reconciliationFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/merchSettingFragment"
+        android:name="com.jotangi.nickyen.merch.setting.MerchSettingFragment"
+        android:label="MerchSettingFragment"
+        tools:layout="@layout/fragment_merch_setting"/>
+    <fragment
+        android:id="@+id/merchScanFragment"
+        android:name="com.jotangi.nickyen.merch.scan.MerchScanFragment"
+        android:label="MerchScanFragment"
+        tools:layout="@layout/fragment_merch_scan"/>
+    <fragment
+        android:id="@+id/merchInputFragment"
+        android:name="com.jotangi.nickyen.merch.checkout.MerchInputFragment"
+        android:label="fragment_merch_input"
+        tools:layout="@layout/fragment_merch_input" >
+        <action
+            android:id="@+id/action_merchInputFragment_to_merchScanCheckFragment"
+            app:destination="@id/merchScanCheckFragment" />
+        <action
+            android:id="@+id/action_merchInputFragment_to_reserveQR2Fragment"
+            app:destination="@id/reserveQR2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/merchResultFragment"
+        android:name="com.jotangi.nickyen.merch.checkout.MerchResultFragment"
+        android:label="fragment_merch_result"
+        tools:layout="@layout/fragment_merch_result" >
+        <action
+            android:id="@+id/action_merchResultFragment_to_merchHomeFragment"
+            app:destination="@id/merchHomeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_merchResultFragment_to_merchRecordFragment"
+            app:destination="@id/merchRecordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/merchScanCheckFragment"
+        android:name="com.jotangi.nickyen.merch.scan.MerchScanCheckFragment"
+        android:label="fragment_merch_scan_check"
+        tools:layout="@layout/fragment_merch_scan_check" >
+        <action
+            android:id="@+id/action_merchScanCheckFragment_to_merchHomeFragment"
+            app:destination="@id/merchHomeFragment" />
+        <action
+            android:id="@+id/action_merchScanCheckFragment_to_merchResultFragment"
+            app:destination="@id/merchResultFragment" />
+        <action
+            android:id="@+id/action_merchScanCheckFragment_to_merchInputFragment"
+            app:destination="@id/merchInputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/merchRecordFragment"
+        android:name="com.jotangi.nickyen.merch.record.MerchRecordFragment"
+        android:label="fragment_merch_record"
+        tools:layout="@layout/fragment_merch_record" >
+        <action
+            android:id="@+id/action_merchRecordFragment_to_merchRecordDetailFragment"
+            app:destination="@id/merchRecordDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reserveFragment"
+        android:name="com.jotangi.nickyen.merch.reserve.ReserveFragment"
+        android:label="fragment_reserve"
+        tools:layout="@layout/fragment_reserve">
+        <action
+            android:id="@+id/action_reserveFragment_to_reserveDetailFragment"
+            app:destination="@id/reserveDetailFragment" />
+        <action
+            android:id="@+id/action_reserveFragment_to_merchHomeFragment"
+            app:destination="@id/merchHomeFragment" />
+        <action
+            android:id="@+id/action_reserveFragment_to_reserveModifyFragment"
+            app:destination="@id/reserveModifyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reserveDetailFragment"
+        android:name="com.jotangi.nickyen.merch.reserve.ReserveDetailFragment"
+        android:label="ReserveDetailFragment"
+        tools:layout="@layout/fragment_order_check">
+        <action
+            android:id="@+id/action_reserveDetailFragment_to_reserveFragment"
+            app:destination="@id/reserveFragment" />
+        <action
+            android:id="@+id/action_reserveDetailFragment_to_reserveInputFragment"
+            app:destination="@id/reserveInputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reserveInputFragment"
+        android:name="com.jotangi.nickyen.merch.reserve.ReserveInputFragment"
+        android:label="ReserveInputFragment"
+        tools:layout="@layout/fragment_merch_input">
+        <action
+            android:id="@+id/action_reserveInputFragment_to_reserveDetailFragment"
+            app:destination="@id/reserveDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reserveQR2Fragment"
+        android:name="com.jotangi.nickyen.merch.checkout.ReserveQR2Fragment"
+        android:label="ReserveQR2Fragment"
+        tools:layout="@layout/fragment_reserve_q_r">
+        <action
+            android:id="@+id/action_reserveQR2Fragment_to_merchHomeFragment"
+            app:destination="@id/merchHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/industryReserveFragment"
+        android:name="com.jotangi.nickyen.merch.industryReserve.IndustryReserveFragment"
+        android:label="fragment_industry_reserve"
+        tools:layout="@layout/fragment_industry_reserve" >
+        <action
+            android:id="@+id/action_industryReserveFragment_to_industryReserveDetailFragment"
+            app:destination="@id/industryReserveDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_industryReserveFragment_to_industryReserveModifyFragment"
+            app:destination="@id/industryReserveModifyFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/industryReserveDetailFragment"
+        android:name="com.jotangi.nickyen.merch.industryReserve.IndustryReserveDetailFragment"
+        android:label="IndustryReserveDetailFragment"
+        tools:layout="@layout/fragment_industry_order_check">
+        <action
+            android:id="@+id/action_industryReserveDetailFragment_to_industryReserveInputFragment"
+            app:destination="@id/industryReserveInputFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/industryReserveInputFragment"
+        android:name="com.jotangi.nickyen.merch.industryReserve.IndustryReserveInputFragment"
+        android:label="IndustryReserveInputFragment"
+        tools:layout="@layout/fragment_merch_input">
+        <action
+            android:id="@+id/action_industryReserveInputFragment_to_industryReserveQRFragment"
+            app:destination="@id/industryReserveQRFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/industryReserveQRFragment"
+        android:name="com.jotangi.nickyen.merch.industryReserve.IndustryReserveQRFragment"
+        android:label="IndustryReserveQRFragment"
+        tools:layout="@layout/fragment_reserve_q_r"/>
+    <fragment
+        android:id="@+id/reserveModifyFragment"
+        android:name="com.jotangi.nickyen.merch.reserve.ReserveModifyFragment"
+        android:label="fragment_reserve_modify"
+        tools:layout="@layout/fragment_reserve_modify" />
+    <fragment
+        android:id="@+id/industryReserveModifyFragment"
+        android:name="com.jotangi.nickyen.merch.industryReserve.IndustryReserveModifyFragment"
+        android:label="fragment_industry_reserve_modify"
+        tools:layout="@layout/fragment_industry_reserve_modify" />
+    <fragment
+        android:id="@+id/merchRecordDetailFragment"
+        android:name="com.jotangi.nickyen.merch.record.MerchRecordDetailFragment"
+        android:label="MerchRecordDetailFragment"
+        tools:layout="@layout/fragment_member_record_info"/>
+    <fragment
+        android:id="@+id/reconciliationFragment"
+        android:name="com.jotangi.nickyen.merch.reconciliation.ReconciliationFragment"
+        android:label="fragment_reconciliation"
+        tools:layout="@layout/fragment_reconciliation" >
+        <action
+            android:id="@+id/action_reconciliationFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.jotangi.nickyen.merch.reconciliation.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
+</navigation>

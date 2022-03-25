@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#c0c0c0"
+    tools:context=".scanner.ConfirmActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/main_background"
+            app:navigationIcon="@drawable/ic_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="付款資訊"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:layout_marginTop="1dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="優惠券"
+            android:textColor="#ff3d94"
+            android:layout_marginLeft="16dp"
+            android:layout_above="@+id/iv_exclamation_Mark"
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/iv_exclamation_Mark"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/ic_notice"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="7dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="目前有1張優惠券可以使用"
+            android:textColor="#494242"
+            android:textSize="12sp"
+            android:layout_toRightOf="@+id/iv_exclamation_Mark"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"/>
+
+        <Button
+            android:id="@+id/btn_confirmSearch"
+            android:layout_width="48dp"
+            android:layout_height="32dp"
+            android:text="搜尋"
+            android:textColor="#ff3d94"
+            android:background="@drawable/news_allcorner"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消費金額"
+                android:textSize="16sp"
+                android:layout_marginLeft="16dp"
+                android:textColor="#c0c0c0"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NT$100"
+                android:textColor="#494242"
+                android:layout_marginLeft="100dp"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="64dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="優惠折抵"
+                android:textSize="16sp"
+                android:layout_marginLeft="16dp"
+                android:textColor="#c0c0c0"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="桂花爺爺太陽餅10元折價券"
+                android:textColor="#494242"
+                android:layout_marginLeft="100dp"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="320dp"
+            android:layout_height="63dp"
+            android:background="@drawable/main_background"
+            android:text="確認付款"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="211dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="110dp">
+
+            <RelativeLayout
+                android:id="@+id/reLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_confirmPrice"
+                android:layout_marginTop="22dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tv_confirmtv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#494242"
+                    android:text="實付金額"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:layout_below="@+id/tv_confirmtv1"
+                    android:id="@+id/tv_confirmtv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/teal_200"
+                    android:textSize="18sp"
+                    android:layout_alignParentRight="true"
+                    android:text="NT$" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_confirmPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="90"
+               android:layout_alignParentRight="true"
+                android:textSize="60sp"
+                android:textColor="@color/teal_200"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

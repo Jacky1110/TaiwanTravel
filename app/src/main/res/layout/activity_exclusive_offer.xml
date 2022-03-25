@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/exclusiveLayout"
+    tools:context=".member.ExclusiveOfferActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/main_background"
+            app:navigationIcon="@drawable/ic_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="建立獨家優惠"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/edit_white"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="16dp"/>
+
+    </FrameLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/exclusiveTab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/main_background"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="#C0C0C0"
+        app:tabIndicatorColor="@color/white">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/memberDiscount1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 使用中 " />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/memberDiscount2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 已結束 " />
+
+    </com.google.android.material.tabs.TabLayout>
+
+<!--    <com.jotangi.nickyen.NoScrollViewPager-->
+<!--        android:id="@+id/exclusiveVP"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/white"/>-->
+
+    <ImageButton
+        android:id="@+id/ib_qr"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/offer_test"/>
+
+</LinearLayout>

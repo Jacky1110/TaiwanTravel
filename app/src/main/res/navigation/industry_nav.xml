@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/industry_nav"
+    app:startDestination="@id/industryHomeFragment">
+
+    <fragment
+        android:id="@+id/industryHomeFragment"
+        android:name="com.jotangi.nickyen.industry.IndustryHomeFragment"
+        android:label="fragment_industry_home"
+        tools:layout="@layout/fragment_industry_home">
+        <action
+            android:id="@+id/action_industryHomeFragment_to_industryIntroduceFragment"
+            app:destination="@id/industryIntroduceFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/industryIntroduceFragment"
+        android:name="com.jotangi.nickyen.industry.IndustryIntroduceFragment"
+        android:label="fragment_industry_introduce"
+        tools:layout="@layout/fragment_industry_introduce">
+        <action
+            android:id="@+id/action_industryIntroduceFragment_to_industryCalendarNewFragment"
+            app:destination="@id/industryCalendarNewFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_industryIntroduceFragment_to_industryDetailFragment"
+            app:destination="@id/industryDetailFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/industryCalendarNewFragment"
+        android:name="com.jotangi.nickyen.industry.calendar.IndustryCalendarNewFragment"
+        android:label="IndustryCalendarNewFragment"
+        tools:layout="@layout/fragment_industry_calendar_new">
+        <action
+            android:id="@+id/action_industryCalendarNewFragment_to_industryOrderCheckFragment"
+            app:destination="@id/industryOrderCheckFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/industryOrderCheckFragment"
+        android:name="com.jotangi.nickyen.industry.IndustryOrderCheckFragment"
+        android:label="IndustryOrderCheckFragment"
+        tools:layout="@layout/fragment_order_check"/>
+    <fragment
+        android:id="@+id/industryDetailFragment"
+        android:name="com.jotangi.nickyen.industry.IndustryDetailFragment"
+        android:label="fragment_industry_detail"
+        tools:layout="@layout/fragment_industry_detail" />
+</navigation>

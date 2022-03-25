@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jotangi.nickyen">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- if you want to load images from a file OR from the internet -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".DDotApplication"
+        android:allowBackup="true"
+        android:allowNativeHeapPointerTagging="false"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/new_app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_new_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Design.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".pointshop.renew.PointShopActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".constellation.ConstellationQuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".constellation.ConstellationHomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.GuiHuaCameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.GuiHuaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.myquestionnaire.MyQuestionnaireActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".industry.IndustryRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".member.FrequentlyAskedQuestionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".shop.ShopNewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.notify.NotifyActivity"
+            android:screenOrientation="portrait" /> <!-- android:networkSecurityConfig="@xml/network_security_config" -->
+        <activity
+            android:name=".industry.IndustryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.SalonsCameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.SalonsARActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.MemberCardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.SalonsCheckOutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.SalonsCheckOutActivity2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".member.PhoneVerifyActivity"
+            android:screenOrientation="portrait">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".storearea.StoreAreaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.GoldenTriangleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".beautySalons.SalonsRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pointshop.renew.PointShopOrderRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pointshop.renew.PointShopOrderRecordDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pointshop.renew.PointShopPayActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".pointshop.renew.PointShopPayResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".shop.ShopActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.GoldenTriangleCameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.ARGameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.ARStoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.ARFindActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.ARCameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".beautySalons.BeautySalonsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".member.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".shop.MemberQRActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".merch.MerchMainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".member.MemberInfoActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".home.NewsActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".home.MyDiscountNew2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".member.MemberModifyActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".QrcodeActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".WelcomeActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="storeID=A012345678&amp;type=topic"
+                    android:scheme="spot" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="example.com"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".cost.CostTravelActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".cost.CostShopActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".cost.CostGeneralActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".member.EditOfferActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".member.ExclusiveOfferActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".scanner.PayActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".scanner.ConfirmActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".scanner.ScanResultActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".home.MyPointActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".home.NewsAllActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".pointshop.PointChangeActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" /> <!-- <activity android:name=".pointshop.PointCommodityActivity" /> -->
+        <activity
+            android:name=".member.MemberSelectActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".member.SuccessActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".member.PrivacyActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".member.RegisterTermsActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".member.ForgetPasswordActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".member.RegisterActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".member.LoginActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".scanner.SurfaceViewActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".questionnaire.QuestionnaireActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <service android:name=".MyMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

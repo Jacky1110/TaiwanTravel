@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_order_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        tools:text="2021-07-12 15:28:32"
+        android:textColor="@color/ARAlphabet"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_service"
+        android:layout_width="@dimen/dp_240"
+        android:layout_height="wrap_content"
+        tools:text="項目"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_order_date" />
+
+    <TextView
+        android:id="@+id/tv_designer"
+        android:layout_width="@dimen/dp_240"
+        android:layout_height="wrap_content"
+        tools:text="設計師"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/ARAlphabet"
+        android:textSize="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_service" />
+
+    <TextView
+        android:id="@+id/tv_reserve_status"
+        android:layout_width="@dimen/dp_240"
+        android:layout_height="wrap_content"
+        tools:text="預約狀態"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/ARAlphabet"
+        android:textSize="16dp"
+        android:paddingBottom="20dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_designer" />
+
+    <Button
+        android:id="@+id/btn_refund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="查看明細"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="gone"
+        android:background="@drawable/shape_round_solid_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/select_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_reserve_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/reserve_confirm"
+            android:textColor="@color/typeRed"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="visible"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_radius_line_red" />
+
+        <Button
+            android:id="@+id/btn_reserve_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:text="@string/reserve_modify"
+            android:textColor="@color/typeRed"
+            android:textSize="20dp"
+            android:layout_marginBottom="15dp"
+            android:visibility="visible"
+            android:background="@drawable/shape_radius_line_red" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ARAlphabet"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

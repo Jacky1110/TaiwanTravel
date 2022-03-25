@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#c0c0c0"
+    tools:context=".scanner.ScanResultActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/main_background"
+            app:navigationIcon="@drawable/ic_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="付款資訊"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:layout_marginTop="1dp">
+
+        <ImageView
+            android:id="@+id/iv_shop"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_shop"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="桂花爺爺太陽餅"
+            android:textColor="#494242"
+            android:textSize="18sp"
+            android:layout_toRightOf="@+id/iv_shop"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dp"/>
+        
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="請輸入付款金額"
+            android:layout_above="@+id/et_price"
+            android:textColor="#494242"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:textSize="18sp"
+            />
+
+
+        <EditText
+            android:id="@+id/et_price"
+            android:layout_width="384dp"
+            android:layout_height="91dp"
+            android:background="@drawable/news_allcorner"
+            android:layout_above="@+id/btn_enter"
+            android:layout_marginBottom="40dp"
+            android:layout_centerHorizontal="true"
+            android:inputType="number"
+            android:textSize="75sp"
+            android:textStyle="bold"
+            android:textColor="#494242"
+            android:gravity="center"/>
+        
+        <Button
+            android:id="@+id/btn_enter"
+            android:layout_width="320dp"
+            android:layout_height="63dp"
+            android:background="@drawable/main_background"
+            android:text="確認"
+            android:textSize="16sp"
+            android:layout_centerInParent="true"/>
+        
+        
+    </RelativeLayout>
+
+</LinearLayout>
