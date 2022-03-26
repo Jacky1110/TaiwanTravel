@@ -138,9 +138,20 @@ public class ApiConstant
     /**
      * AR相關
      */
-    //AR點位
-    static final String ARStoreInfo = "ar_info.php";
-    static final String ARStoreList = "ar_list.php";
+    // For北埔專用
+    static final String arStore = "ar_store.php";
+    // 送出店家與使用者的經緯度來計算距離
+    static final String getDistance = "get_distance.php";
+    // AR點位內文
+    static final String arInfo = "ar_info.php";
+    // AR點位清單
+    static final String arList = "ar_list.php";
+    // 針對AR的核銷優惠券
+    static final String applyCoupon2 = "apply_coupon2.php";
+    // AR的優惠券說明
+    static final String myCouponList2 = "mycoupon_list2.php";
+    // 針對AR所領取的優惠券
+    static final String getCoupon2 = "get_coupon2.php";
 
     /**
      * 美容美髮相關

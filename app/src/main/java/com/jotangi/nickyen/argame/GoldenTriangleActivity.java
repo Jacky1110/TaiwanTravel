@@ -1,7 +1,6 @@
 package com.jotangi.nickyen.argame;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -10,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,15 +18,16 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.jotangi.nickyen.AppUtility;
 import com.jotangi.nickyen.R;
 import com.jotangi.nickyen.api.ApiConnection;
 import com.jotangi.nickyen.api.ApiConstant;
+import com.jotangi.nickyen.argame.model.MyARCoupon;
 import com.jotangi.nickyen.argame.model.StoreBean;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
@@ -72,7 +73,7 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
         B12 = findViewById(R.id.B12);
         Buser = findViewById(R.id.Buser);
         linearlayout = findViewById(R.id.bowl_layout);
-        bt1 = findViewById(R.id.bowT1);
+        bt1 = findViewById(R.id.bowlT1);
         bt2 = findViewById(R.id.bowlT2);
 
         btnBack.setOnClickListener(this);
@@ -138,7 +139,6 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
         bowl11 = sharedPreferences.getBoolean("isStatus48", false);
         bowl12 = sharedPreferences.getBoolean("isStatus49", false);
 
-
     }
 
     @Override
@@ -184,8 +184,11 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
             case R.id.B12://嘴角沾糖的女人
                 loadInfo("49");
                 break;
-            case R.id.bowT1:
-                showDirction();
+            case R.id.bowlT1:
+                showDialog();
+                break;
+            case R.id.bowlT2:
+                getMyCoupon();
                 break;
 //            case R.id.btnImg1: //清真寺
 //                loadInfo("9");
@@ -206,6 +209,46 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
 //                loadInfo("12");
 //                break;
         }
+    }
+
+    private void getMyCoupon() {
+        ApiConnection.myCouponList2("", "", new ApiConnection.OnConnectResultListener() {
+            @Override
+            public void onSuccess(String jsonString) {
+                Log.d("getMyCoupon", "onSuccess: " + jsonString);
+                Type type = new TypeToken<ArrayList<MyARCoupon>>() {
+                }.getType();
+                ArrayList<MyARCoupon> myARCouponArrayList;
+                myARCouponArrayList = new Gson().fromJson(jsonString, type);
+                if (null != myARCouponArrayList && !myARCouponArrayList.isEmpty()) {
+                    myARCouponArrayList.forEach(coupon -> {
+                        if ("4".equals(coupon.getShopping_area())) {
+                            runOnUiThread(() -> {
+                                showDialog2(coupon);
+                            });
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void onFailure(String message) {
+                runOnUiThread(() -> {
+                    AppUtility.showMyDialog(GoldenTriangleActivity.this, "請檢查連線", getString(R.string.text_confirm), null, new AppUtility.OnBtnClickListener() {
+                        @Override
+                        public void onCheck() {
+
+                        }
+
+                        @Override
+                        public void onCancel() {
+
+                        }
+                    });
+                });
+            }
+        });
     }
 
     private void UserDialog() {
@@ -360,12 +403,13 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
         });
     }
 
-    private void showDirction() {
+    private void showDialog() {
         runOnUiThread(() -> {
             Dialog dialog = new Dialog(GoldenTriangleActivity.this);
             dialog.setContentView(R.layout.fragment_bowldirection);
             dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
             dialog.show();
+            dialog.setCanceledOnTouchOutside(false);
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
 
             Button btnBack = dialog.findViewById(R.id.bdBack);
@@ -380,5 +424,64 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
                 }
             });
         });
+    }
+
+    private void showDialog2(MyARCoupon coupon) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_ar_coupon);
+        dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+
+        ImageView img = dialog.findViewById(R.id.imgCoupon);
+        Picasso.with(this).load(ApiConstant.API_IMAGE + coupon.getCoupon_picture()).placeholder(R.color.colorUnSelect).into(img);
+
+        TextView txtDescription = dialog.findViewById(R.id.txtDescription);
+        txtDescription.setText(coupon.getCoupon_description());
+        TextView txtUsingDate = dialog.findViewById(R.id.txtUsingDate);
+        txtUsingDate.setText(coupon.getCoupon_startdate() + "~" + coupon.getCoupon_enddate());
+
+        // TODO btn要做過期防呆
+
+        ImageView btnClose = dialog.findViewById(R.id.img_close);
+        btnClose.setOnClickListener(v -> {
+            if (dialog != null) {
+                dialog.dismiss();
+            }
+        });
+        Button btnExchange = dialog.findViewById(R.id.btnExchange);
+        // 已領取
+        if ("1".equals(coupon.getUsing_flag())) {
+            btnExchange.setText("已領取");
+        }
+
+        if ("0".equals(coupon.getUsing_flag())) {
+            btnExchange.setText("兌換");
+            btnExchange.setClickable(true);
+            btnExchange.setOnClickListener(view ->
+                    AppUtility.showMyDialog(GoldenTriangleActivity.this,"是否確認兌換\n(本券僅有一次兌換機會，確認兌換後無法取消)",getString(R.string.text_confirm),getString(R.string.text_cancel), new AppUtility.OnBtnClickListener() {
+                @Override
+                public void onCheck() {
+                    ApiConnection.applyCoupon2(coupon.getCoupon_no(), new ApiConnection.OnConnectResultListener() {
+                        @Override
+                        public void onSuccess(String jsonString) {
+                            btnExchange.setText("已領取");
+                            btnExchange.setClickable(false);
+                        }
+
+                        @Override
+                        public void onFailure(String message) {
+
+                        }
+                    });
+                }
+
+                @Override
+                public void onCancel() {
+
+                }
+            }));
+        }
     }
 }

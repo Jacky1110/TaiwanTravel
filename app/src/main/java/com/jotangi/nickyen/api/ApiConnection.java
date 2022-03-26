@@ -1416,7 +1416,7 @@ public class ApiConnection {
      */
     //取得商店資訊
     public static void getARShopInfo(String aid, OnConnectResultListener listener) {
-        String url = ApiConstant.API_URL + ApiConstant.ARStoreInfo;
+        String url = ApiConstant.API_URL + ApiConstant.arInfo;
         FormBody formBody = new FormBody
                 .Builder()
                 .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
@@ -1443,7 +1443,7 @@ public class ApiConnection {
             @Override
             public void onFailure(Call call, IOException e) {
                 if (e.getLocalizedMessage() != null) {
-                    Log.e(TAG, e.getLocalizedMessage());
+                    Log.e("getARShopInfo", e.getLocalizedMessage());
                 }
                 listener.onFailure("與伺服器連線失敗。");
             }
@@ -1458,7 +1458,7 @@ public class ApiConnection {
                     body = responseBody.string();
                 try {
                     JSONArray jsonArray = new JSONArray(body);
-                    Log.e(TAG, jsonArray.toString());
+                    Log.e("getARShopInfo", jsonArray.toString());
 
                     listener.onSuccess(jsonArray.toString());
 
@@ -1472,13 +1472,83 @@ public class ApiConnection {
 
     //獲取商店列表
     public static void getARList(String shoppingArea, OnConnectResultListener onConnectResultListener) {
-        String url = ApiConstant.API_URL + ApiConstant.ARStoreList;
+        String url = ApiConstant.API_URL + ApiConstant.arList;
 
         FormBody formBody = new FormBody
                 .Builder()
                 .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
                 .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
                 .add("shopping_area", shoppingArea)
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        createApiCall(request, onConnectResultListener);
+    }
+
+    // 領取優惠券
+    public static void getCoupon2(String couponID, OnConnectResultListener onConnectResultListener) {
+        String url = ApiConstant.API_URL + ApiConstant.getCoupon2;
+
+        FormBody formBody = new FormBody
+                .Builder()
+                .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .add("coupon_id", couponID)
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        createApiCall(request, onConnectResultListener);
+    }
+
+    // 優惠券說明
+    public static void myCouponList2(String sid, String usingFlag, OnConnectResultListener onConnectResultListener) {
+        String url = ApiConstant.API_URL + ApiConstant.myCouponList2;
+
+        FormBody formBody = new FormBody
+                .Builder()
+                .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .add("sid", sid)
+                .add("using_flag", usingFlag)
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        createApiCall(request, onConnectResultListener);
+    }
+
+    // 針對AR的核銷優惠券
+    public static void applyCoupon2(String couponNo, OnConnectResultListener onConnectResultListener) {
+        String url = ApiConstant.API_URL + ApiConstant.applyCoupon2;
+
+        FormBody formBody = new FormBody
+                .Builder()
+                .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .add("coupon_no", couponNo)
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        createApiCall(request, onConnectResultListener);
+    }
+
+    // 針對AR的核銷優惠券
+    public static void arStore(String qid, String aid, OnConnectResultListener onConnectResultListener) {
+        String url = ApiConstant.API_URL + ApiConstant.arStore;
+
+        FormBody formBody = new FormBody
+                .Builder()
+                .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .add("qid", qid)
+                .add("aid", aid)
                 .build();
         Request request = new Request.Builder()
                 .url(url)

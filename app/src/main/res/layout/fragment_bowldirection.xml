@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,6 +28,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/dp_20"
                 android:orientation="vertical">
 
                 <ImageView
@@ -38,49 +38,100 @@
                     android:src="@drawable/ic_gold_title" />
 
                 <TextView
+                    android:layout_marginTop="@dimen/dp_10"
                     android:id="@+id/textView17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed-light"
                     android:gravity="center_horizontal"
-                    android:paddingTop="20dp"
                     android:text="活動方式"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
-                <TextView
-                    style="@style/txt_direction"
-                    android:text="	遊戲時間：111年04月01日~05月01日"
-                   />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/dp_10">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/ARAlphabet"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:textSize="16sp"
+                        android:text="遊戲時間：" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/ARAlphabet"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:textSize="16sp"
+                        android:text="111年04月01日~05月" />
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dp_5">
 
                 <TextView
-                    style="@style/txt_direction"
-                    android:text="遊戲地點：魅力金三角商圈" />
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/ARAlphabet"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:textSize="16sp"
+                    android:text="遊戲地點：" />
 
                 <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/ARAlphabet"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:textSize="16sp"
+                    android:text="魅力金三角商圈" />
+
+            </LinearLayout>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
                     android:text="遊戲方式" />
+
                 <TextView
+                    android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
                     android:text="1.點選「魅力金三角商圈_忠貞八大碗美食饗宴」活動" />
+
                 <TextView
+                    android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
-                android:text="2.依據八大碗美食地圖的提示，尋找商圈內對應的特色店家，找到特色店家掃描店家的門面照片，就會出現該店家推薦的特色菜餚，並可蒐集一個大碗勳章"
-                 />
+                    android:text="2.依據八大碗美食地圖的提示，尋找商圈內對應的特色店家，找到特色店家掃描店家的門面照片，就會出現該店家推薦的特色菜餚，並可蒐集一個大碗勳章" />
+
                 <TextView
+                    android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
                     android:text="3.蒐集到四個大碗勳章(含以上)就可以獲得一份禮品兌換券(每個帳號限領一份)" />
+
                 <TextView
+                    android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
                     android:text="到指定地點「黑山銀花」兌換禮品" />
+
                 <TextView
+                    android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
                     android:text="黑山銀花 (桃園市平鎮區中山路46號，忠貞新村文創園區內，由中山路44-1號巷子進入）" />
-<Space
-    android:layout_width="match_parent"
-    android:layout_height="100dp"/>
+
                 <Button
                     android:id="@+id/bdBack"
+                    android:layout_marginTop="@dimen/dp_50"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -88,7 +139,9 @@
                     android:text="返回" />
 
             </LinearLayout>
+
         </androidx.core.widget.NestedScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,21 @@
         <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/dialog_bowl_triangle.xml" value="0.22" />
         <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/dialog_gold_recipe.xml" value="0.22" />
         <entry key="..\:/Jotangi/dotdot/TaiwanTravelShop-second/app/src/main/res/layout/fragment_bowldirection.xml" value="0.38264738598442716" />
+        <entry key="app/src/main/res/drawable/bg_ar_back.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_ar_store.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_close.xml" value="0.122" />
+        <entry key="app/src/main/res/layout/activity_ar_camera.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_ar_game.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_golden_triangle.xml" value="0.2073170731707317" />
+        <entry key="app/src/main/res/layout/activity_shop_new.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/dialog_ar_coupon.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_ar_success.xml" value="0.2346014492753623" />
+        <entry key="app/src/main/res/layout/dialog_ar_triangle.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/dialog_confirm_succee_layout.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/dialog_coupon.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_all.xml" value="0.2346014492753623" />
+        <entry key="app/src/main/res/layout/fragment_bowldirection.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_check_designer.xml" value="0.23802083333333332" />
       </map>
     </option>
   </component>

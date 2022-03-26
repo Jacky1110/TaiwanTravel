@@ -551,13 +551,13 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
         }
         if (storeBean.getAid().equals("41") && storeBean.getAid() != null && !bowl3) {
             sharedPreferences.edit()
-                    .putString("isNumber40", "40")
+                    .putString("isNumber40", "41")
                     .putBoolean("isStatus40", true)
                     .commit();
         }
         if (storeBean.getAid().equals("43") && storeBean.getAid() != null && !bowl4) {
             sharedPreferences.edit()
-                    .putString("isNumber41", "41")
+                    .putString("isNumber41", "43")
                     .putBoolean("isStatus41", true)
                     .commit();
         }
@@ -569,7 +569,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
         }
         if (storeBean.getAid().equals("47") && storeBean.getAid() != null && !bowl6) {
             sharedPreferences.edit()
-                    .putString("isNumber43", "43")
+                    .putString("isNumber43", "47")
                     .putBoolean("isStatus43", true)
                     .commit();
         }
@@ -581,19 +581,19 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
         }
         if (storeBean.getAid().equals("40") && storeBean.getAid() != null && !bowl8) {
             sharedPreferences.edit()
-                    .putString("isNumber45", "45")
+                    .putString("isNumber45", "40")
                     .putBoolean("isStatus45", true)
                     .commit();
         }
         if (storeBean.getAid().equals("45") && storeBean.getAid() != null && !bowl9) {
             sharedPreferences.edit()
-                    .putString("isNumber46", "46")
+                    .putString("isNumber46", "45")
                     .putBoolean("isStatus46", true)
                     .commit();
         }
         if (storeBean.getAid().equals("46") && storeBean.getAid() != null && !bowl10) {
             sharedPreferences.edit()
-                    .putString("isNumber47", "47")
+                    .putString("isNumber47", "46")
                     .putBoolean("isStatus47", true)
                     .commit();
         }

@@ -309,7 +309,6 @@
                 android:layout_height="40dp"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-
                 app:layout_constraintBottom_toBottomOf="@+id/B4"
                 app:layout_constraintEnd_toEndOf="@+id/B3"
                 app:layout_constraintStart_toStartOf="@+id/verticalLine"
@@ -322,8 +321,6 @@
                 android:layout_height="40dp"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-
-
                 app:layout_constraintBottom_toBottomOf="@+id/B7"
                 app:layout_constraintEnd_toEndOf="@+id/B7"
                 app:layout_constraintStart_toEndOf="@+id/B7"
@@ -336,8 +333,6 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/zxing_transparent"
-
-
                 android:scaleType="fitCenter"
                 app:layout_constraintEnd_toEndOf="@+id/B8"
                 app:layout_constraintStart_toEndOf="@+id/B8"
@@ -349,8 +344,6 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@color/zxing_transparent"
-
-
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="@+id/B9"
                 app:layout_constraintEnd_toEndOf="@+id/B9"
@@ -362,8 +355,6 @@
                 android:id="@+id/B11"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-
-
                 android:layout_marginEnd="60dp"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
@@ -377,8 +368,6 @@
                 android:id="@+id/B12"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-
-
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -400,12 +389,10 @@
         android:backgroundTint="@color/zxing_transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_gold_user"
-        app:layout_constraintBottom_toBottomOf="@+id/B1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
@@ -419,30 +406,43 @@
 
     <LinearLayout
         android:id="@+id/bowl_layout"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/dp_100"
         android:layout_height="0dp"
         android:background="@color/white"
         android:orientation="vertical"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/Buser"
-        app:layout_constraintEnd_toStartOf="@+id/Buser">
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/Buser"
+        app:layout_constraintTop_toTopOf="@id/Buser">
 
         <TextView
-            android:id="@+id/bowT1"
-            android:layout_width="wrap_content"
+            android:id="@+id/bowlT1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif-condensed-light"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
             android:text="活動說明"
+            android:textAlignment="center"
             android:textColor="@color/black" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black" />
 
         <TextView
             android:id="@+id/bowlT2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif-condensed-light"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
             android:text="優惠券"
+            android:textAlignment="center"
             android:textColor="@color/black" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

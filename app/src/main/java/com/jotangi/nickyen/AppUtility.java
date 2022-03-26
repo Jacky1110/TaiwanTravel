@@ -48,22 +48,18 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class AppUtility
-{
+public class AppUtility {
     public static AlertDialog appDialog;
 
-    public interface OnBtnClickListener
-    {
+    public interface OnBtnClickListener {
         void onCheck();
 
         void onCancel();
     }
 
-    public static String base64(final String s)
-    {
+    public static String base64(final String s) {
 
-        if (s == null)
-        {
+        if (s == null) {
             return "";
         }
         byte[] data = new byte[0];
@@ -77,23 +73,19 @@ public class AppUtility
      * @param arg
      * @return String
      */
-    public static String toHex(String arg)
-    {
+    public static String toHex(String arg) {
         //Input byte array has incorrect ending byte的報錯是轉譯內可能有\n之類的空字
         String s = arg.trim();
         byte[] decoded = new byte[0];
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
-        {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             decoded = java.util.Base64.getDecoder().decode(s);
         }
         return String.format("%x", new BigInteger(1, decoded));
     }
 
     //AES加密，帶入byte[]型態的16位英數組合文字、32位英數組合Key、需加密文字
-    public static byte[] EncryptAES(byte[] iv, byte[] key, byte[] text)
-    {
-        try
-        {
+    public static byte[] EncryptAES(byte[] iv, byte[] key, byte[] text) {
+        try {
             AlgorithmParameterSpec mAlgorithmParameterSpec = new IvParameterSpec(iv);
             SecretKeySpec mSecretKeySpec = new SecretKeySpec(key, "AES");
             Cipher mCipher = null;
@@ -101,17 +93,14 @@ public class AppUtility
             mCipher.init(Cipher.ENCRYPT_MODE, mSecretKeySpec, mAlgorithmParameterSpec);
 
             return mCipher.doFinal(text);
-        } catch (Exception ex)
-        {
+        } catch (Exception ex) {
             return null;
         }
     }
 
     //AES加密
-    public static String EncryptAES2(String str)
-    {
-        try
-        {
+    public static String EncryptAES2(String str) {
+        try {
             byte[] text = str.getBytes("UTF-8");
             byte[] key = "AwBHMEUCIQCi7omUvYLm0b2LobtEeRAY".getBytes("UTF-8");
             byte[] iv = "77215989@jotangi".getBytes("UTF-8");
@@ -123,17 +112,14 @@ public class AppUtility
             mCipher.init(Cipher.ENCRYPT_MODE, mSecretKeySpec, mAlgorithmParameterSpec);
 
             return Base64.encodeToString(mCipher.doFinal(text), Base64.DEFAULT);
-        } catch (Exception ex)
-        {
+        } catch (Exception ex) {
             return null;
         }
     }
 
     //AES解密，帶入byte[]型態的16位英數組合文字、32位英數組合Key、需解密文字
-    public static byte[] DecryptAES(byte[] iv, byte[] key, byte[] text)
-    {
-        try
-        {
+    public static byte[] DecryptAES(byte[] iv, byte[] key, byte[] text) {
+        try {
             AlgorithmParameterSpec mAlgorithmParameterSpec = new IvParameterSpec(iv);
             SecretKeySpec mSecretKeySpec = new SecretKeySpec(key, "AES");
             Cipher mCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -142,17 +128,14 @@ public class AppUtility
                     mAlgorithmParameterSpec);
 
             return mCipher.doFinal(text);
-        } catch (Exception ex)
-        {
+        } catch (Exception ex) {
             return null;
         }
     }
 
     //AES解密
-    public static String DecryptAES2(String str)
-    {
-        try
-        {
+    public static String DecryptAES2(String str) {
+        try {
             byte[] text = Base64.decode(str.getBytes("UTF-8"), Base64.DEFAULT);
             byte[] key = "AwBHMEUCIQCi7omUvYLm0b2LobtEeRAY".getBytes("UTF-8");
             byte[] iv = "77215989@jotangi".getBytes("UTF-8");
@@ -165,15 +148,13 @@ public class AppUtility
                     mAlgorithmParameterSpec);
 
             return new String(mCipher.doFinal(text), "UTF-8");
-        } catch (Exception ex)
-        {
+        } catch (Exception ex) {
             return null;
         }
     }
 
     // region ---- 小型confirm視窗
-    public static void showMyDialog(Activity activity, String message, String checkString, String cancelString, @NonNull final OnBtnClickListener listener)
-    {
+    public static void showMyDialog(Activity activity, String message, String checkString, String cancelString, @NonNull final OnBtnClickListener listener) {
         // 注意:若是強行在Activity銷毀時將已有跳的Dialog未手動關閉視窗，將會造成 WindowLeaked
         // 須在發生該Activity的onDestroy處理dismiss，MainActivity已處理
         ViewGroup viewGroup = activity.findViewById(android.R.id.content);
@@ -181,45 +162,36 @@ public class AppUtility
         buildDialog(dialogView, activity, message, checkString, cancelString, listener);
     }
 
-    public static void buildDialog(View dialogView, Activity activity, String message, String checkString, String cancelString, @NonNull final OnBtnClickListener listener)
-    {
+    public static void buildDialog(View dialogView, Activity activity, String message, String checkString, String cancelString, @NonNull final OnBtnClickListener listener) {
         TextView messageTV = dialogView.findViewById(R.id.messageTV);
         Button checkBtn = dialogView.findViewById(R.id.btnCheck);
         Button cancelBtn = dialogView.findViewById(R.id.btnCancel);
 
         messageTV.setText(message);
 
-        if (checkString == null || checkString.equals(""))
-        {
+        if (checkString == null || checkString.equals("")) {
             checkBtn.setVisibility(View.GONE);
-        } else
-        {
+        } else {
             checkBtn.setText(checkString);
         }
 
-        if (cancelString == null || cancelString.equals(""))
-        {
+        if (cancelString == null || cancelString.equals("")) {
             cancelBtn.setVisibility(View.GONE);
-        } else
-        {
+        } else {
             cancelBtn.setText(cancelString);
         }
 
-        cancelBtn.setOnClickListener(new View.OnClickListener()
-        {
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 appDialog.dismiss();
                 listener.onCancel();
             }
         });
 
-        checkBtn.setOnClickListener(new View.OnClickListener()
-        {
+        checkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 appDialog.dismiss();
                 listener.onCheck();
             }
@@ -234,13 +206,11 @@ public class AppUtility
     }
 
     // create popup window
-    public static PopupWindow buildPopupWindow(View popupWindowView, boolean isSoftInput)
-    {
+    public static PopupWindow buildPopupWindow(View popupWindowView, boolean isSoftInput) {
         PopupWindow window = new PopupWindow(popupWindowView);
         window.setFocusable(true);
         window.setOutsideTouchable(false);
-        if (isSoftInput)
-        {
+        if (isSoftInput) {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         }
         window.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
@@ -249,27 +219,22 @@ public class AppUtility
     }
 
     // endregion
-    public static void setWindowAlpha(Window window, float alpha)
-    {
+    public static void setWindowAlpha(Window window, float alpha) {
         WindowManager.LayoutParams lp = window.getAttributes();
         lp.alpha = alpha;
 
-        if (alpha == 1.0)
-        {
+        if (alpha == 1.0) {
             window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-        } else
-        {
+        } else {
             window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         }
 
         window.setAttributes(lp);
     }
 
-    public static String getShoppingAreaChinese(String shoppingArea)
-    {
+    public static String getShoppingAreaChinese(String shoppingArea) {
         String status = "";
-        switch (shoppingArea)
-        {
+        switch (shoppingArea) {
             case "1":
                 status = "桂花巷商圈";
                 break;
@@ -289,11 +254,9 @@ public class AppUtility
         return status;
     }
 
-    public static String reserveStatus(String str)
-    {
+    public static String reserveStatus(String str) {
         String status = " ";
-        switch (str)
-        {
+        switch (str) {
             case "0":
                 status = "預約尚未確認";
                 break;
@@ -317,17 +280,14 @@ public class AppUtility
      * @param distance：距離
      * @return String
      */
-    public static String mToKm(String distance)
-    {
+    public static String mToKm(String distance) {
         String dis;
         int AAA = Integer.parseInt(distance);
 
-        if (AAA < 1000)
-        {
+        if (AAA < 1000) {
             dis = distance + "m";
 
-        } else
-        {
+        } else {
             double BBB = AAA / 100;
             BigDecimal bigDecimal = new BigDecimal(BBB);
             double f1 = bigDecimal.setScale(1, BigDecimal.ROUND_HALF_DOWN).doubleValue() / 10;
@@ -345,8 +305,7 @@ public class AppUtility
      * @param password：密码
      * @return boolean
      */
-    public static boolean isPasswordRegex(String password)
-    {
+    public static boolean isPasswordRegex(String password) {
 //        String pattern = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$"; //強密碼
 //        String pattern = "[a-zA-Z0-9]{8,16}$"; //中密碼
         String pattern = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Z-a-z]{8,16}$"; //中密碼
@@ -359,8 +318,7 @@ public class AppUtility
      * @param name：名字
      * @return boolean
      */
-    public static boolean isNameRegex(String name)
-    {
+    public static boolean isNameRegex(String name) {
         String pattern = "^[\\u4E00-\\u9FA5A-Za-z0-9]{1,30}$"; //中密碼
         return Pattern.matches(pattern, name);
     }
@@ -371,8 +329,7 @@ public class AppUtility
      * @param mail：信箱
      * @return boolean
      */
-    public static boolean isMailRegex(String mail)
-    {
+    public static boolean isMailRegex(String mail) {
         String pattern = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
 //        String pattern = "^\\w{1,30}@[a-zA-Z0-9]{2,30}\\.[a-zA-Z]{2,30}(\\.[a-zA-Z]{2,30})?$";
         return Pattern.matches(pattern, mail);
@@ -384,8 +341,7 @@ public class AppUtility
      * @param context：context
      * @return String
      */
-    public static String getMacAddress(Context context)
-    {
+    public static String getMacAddress(Context context) {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         return wifiInfo.getMacAddress();
@@ -397,8 +353,7 @@ public class AppUtility
      * @param context：context
      * @return String
      */
-    public static String getIPAddress(Context context)
-    {
+    public static String getIPAddress(Context context) {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         long ip = wifiInfo.getIpAddress();
@@ -408,22 +363,17 @@ public class AppUtility
                     (ip >> 8 & 0xff),
                     (ip >> 16 & 0xff),
                     (ip >> 24 & 0xff));
-        try
-        {
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); )
-            {
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
                 NetworkInterface intf = en.nextElement();
-                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); )
-                {
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
                     InetAddress inetAddress = enumIpAddr.nextElement();
-                    if (!inetAddress.isLoopbackAddress())
-                    {
+                    if (!inetAddress.isLoopbackAddress()) {
                         return inetAddress.getHostAddress();
                     }
                 }
             }
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
 
         }
         return "0.0.0.0";
@@ -436,8 +386,7 @@ public class AppUtility
      * @param dpVal
      * @return int
      */
-    public static int dp2px(Context context, float dpVal)
-    {
+    public static int dp2px(Context context, float dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dpVal, context.getResources().getDisplayMetrics());
     }
@@ -446,14 +395,11 @@ public class AppUtility
      * @param s
      * @return String
      */
-    public static String convertStringToUTF8(String s)
-    {
+    public static String convertStringToUTF8(String s) {
         String out = null;
-        try
-        {
+        try {
             out = new String(s.getBytes("UTF-8"), "ISO-8859-1");
-        } catch (java.io.UnsupportedEncodingException e)
-        {
+        } catch (java.io.UnsupportedEncodingException e) {
             return null;
         }
         return out;
@@ -461,69 +407,61 @@ public class AppUtility
 
     /**
      * 判斷是否時間過期
+     *
      * @param sDate
      * @param isTime 是否為含時分秒
      * @return boolean
      */
-    public static boolean isExpire(String sDate, boolean isTime)
-    {
+    public static boolean isExpire(String sDate, boolean isTime) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         long systemTime = System.currentTimeMillis();
         SimpleDateFormat simpleDateFormat;
 
-        if (isTime)
-        {
+        if (isTime) {
             simpleDateFormat = new SimpleDateFormat("yyyy-MM-ddHH:mm");
-        } else
-        {
+        } else {
             simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         }
         Date date = new Date();
-        try
-        {
+        try {
             date = simpleDateFormat.parse(sDate);
-        } catch (ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
-        if (isTime)
-        {
+        if (isTime) {
             return systemTime > date.getTime();
-        } else
-        {
+        } else {
             return systemTime > date.getTime() + 8640000;
         }
     }
 
     /**
      * 判斷是否啟用時間
+     *
      * @param sDate
      * @param isTime 是否為含時分秒
      * @return boolean
      */
-    public static boolean unEnable(String sDate, boolean isTime){
+    public static boolean unEnable(String sDate, boolean isTime) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         long systemTime = System.currentTimeMillis();
         SimpleDateFormat simpleDateFormat;
 
-        if (isTime)
-        {
+        if (isTime) {
             simpleDateFormat = new SimpleDateFormat("yyyy-MM-ddHH:mm");
-        } else
-        {
+        } else {
             simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         }
         Date date = new Date();
-        try
-        {
+        try {
             date = simpleDateFormat.parse(sDate);
-        } catch (ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
-        return systemTime > date.getTime();
+
+        return systemTime < date.getTime();
     }
 
     /**
@@ -532,45 +470,35 @@ public class AppUtility
      *
      * @return
      */
-    public static String getWeek(String time)
-    {
+    public static String getWeek(String time) {
         String Week = "";
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
-        try
-        {
+        try {
             c.setTime(format.parse(time));
-        } catch (ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         int wek = c.get(Calendar.DAY_OF_WEEK);
-        if (wek == 1)
-        {
+        if (wek == 1) {
             Week = "星期日";
         }
-        if (wek == 2)
-        {
+        if (wek == 2) {
             Week = "星期一";
         }
-        if (wek == 3)
-        {
+        if (wek == 3) {
             Week = "星期二";
         }
-        if (wek == 4)
-        {
+        if (wek == 4) {
             Week = "星期三";
         }
-        if (wek == 5)
-        {
+        if (wek == 5) {
             Week = "星期四";
         }
-        if (wek == 6)
-        {
+        if (wek == 6) {
             Week = "星期五";
         }
-        if (wek == 7)
-        {
+        if (wek == 7) {
             Week = "星期六";
         }
         return Week;
@@ -582,14 +510,11 @@ public class AppUtility
      * @param str 字串
      * @return
      */
-    public static boolean isStr2Int(String str)
-    {
-        try
-        {
+    public static boolean isStr2Int(String str) {
+        try {
             Integer.parseInt(str);
             return true;
-        } catch (NumberFormatException e)
-        {
+        } catch (NumberFormatException e) {
             return false;
         }
     }
@@ -601,21 +526,17 @@ public class AppUtility
      * @param type 1.擷取標的物前, 2.擷取標的物後, 3.擷取標的物區段內字串
      * @return 解析字串
      */
-    public static String substringFunction(String str, String str1, String str2, int type)
-    {
+    public static String substringFunction(String str, String str1, String str2, int type) {
         String str3 = null;
         String substring = str.substring(0, str.indexOf(str1));
-        if (type == 1)
-        {
+        if (type == 1) {
             //擷取str1之前字串(不含str1)
             str3 = substring;
-        } else if (type == 2)
-        {
+        } else if (type == 2) {
             //擷取str1之後字串(不含str1)
             str3 = substring;
             str3 = str.substring(str3.length() + 1, str.length());
-        } else if (type == 3)
-        {
+        } else if (type == 3) {
             //擷取str1~str2之間字串(不含str1.str2)
             str3 = str.substring(str.indexOf(str1) + 1, str.indexOf(str2));
         }
@@ -627,14 +548,14 @@ public class AppUtility
      * @return
      */
 
-    public static double rad(double d)
-    {
+    public static double rad(double d) {
         return d * Math.PI / 180.0;
     }
 
     /**
      * 根據兩個位置的經緯度，來計算兩地的距離（單位為KM）
      * 引數為String型別
+     *
      * @param lat1 使用者經度
      * @param lng1 使用者緯度
      * @param lat2 商家經度
@@ -643,8 +564,7 @@ public class AppUtility
      **/
     private static final double EARTH_RADIUS = 6378137.0;
 
-    public static String getDistance(String lat1Str, String lng1Str, String lat2Str, String lng2Str)
-    {
+    public static String getDistance(String lat1Str, String lng1Str, String lat2Str, String lng2Str) {
         Double lat1 = Double.parseDouble(lat1Str);
         Double lng1 = Double.parseDouble(lng1Str);
         Double lat2 = Double.parseDouble(lat2Str);
@@ -668,6 +588,7 @@ public class AppUtility
 
     /**
      * 將字串每三位加逗號
+     *
      * @param str
      * @return
      */
@@ -678,9 +599,9 @@ public class AppUtility
         String addCommaStr = ""; // 需要添加逗号的字符串（整數）
         String tmpCommaStr = ""; // 小數，等逗号添加完後，最後在末尾補上
         if (str.contains(".")) {
-            addCommaStr = str.substring(0,str.indexOf("."));
-            tmpCommaStr = str.substring(str.indexOf("."),str.length());
-        }else{
+            addCommaStr = str.substring(0, str.indexOf("."));
+            tmpCommaStr = str.substring(str.indexOf("."), str.length());
+        } else {
             addCommaStr = str;
         }
         // 將傳遞數字進行反轉

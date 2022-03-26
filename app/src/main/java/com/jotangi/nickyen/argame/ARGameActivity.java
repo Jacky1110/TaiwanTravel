@@ -50,7 +50,8 @@ public class ARGameActivity extends AppCompatActivity implements View.OnClickLis
 //                Toast.makeText(this,"活動即將於9/18開始，敬請期待",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.layout2:
-                startActivity(new Intent(this, GoldenTriangleActivity.class));
+                startActivity(new Intent(this, GoldenTriangleActivity.class)); //舊版的
+//                startActivity(new Intent(this, GoldenTriangleActivity.class)); //舊版的
 //                Toast.makeText(this,"活動即將於9/18開始，敬請期待",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.layout3:
