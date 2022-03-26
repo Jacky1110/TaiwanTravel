@@ -37,7 +37,7 @@ import java.util.ArrayList;
 
 public class GoldenTriangleActivity extends AppCompatActivity implements View.OnClickListener {
     private FrameLayout btnBack;
-    private ImageView btnImg1, btnImg2, btnImg3, btnImg4, btnImg5, btnImg6;
+//    private ImageView btnImg1, btnImg2, btnImg3, btnImg4, btnImg5, btnImg6;
     private ImageButton B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, Buser;
     private ArrayList<StoreBean> storeList = new ArrayList<>();
     private SharedPreferences sharedPreferences;
@@ -50,14 +50,19 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_golden_triangle);
+        Intent intent = getIntent();
+        String signal = intent.getStringExtra("gain");
+        if (null != signal && signal.equals("gain")){
+            getMyCoupon();
+        }
 
         btnBack = findViewById(R.id.btnARBack);
-        btnImg1 = findViewById(R.id.btnImg1);
-        btnImg2 = findViewById(R.id.btnImg2);
-        btnImg3 = findViewById(R.id.btnImg3);
-        btnImg4 = findViewById(R.id.btnImg4);
-        btnImg5 = findViewById(R.id.btnImg5);
-        btnImg6 = findViewById(R.id.btnImg6);
+//        btnImg1 = findViewById(R.id.btnImg1);
+//        btnImg2 = findViewById(R.id.btnImg2);
+//        btnImg3 = findViewById(R.id.btnImg3);
+//        btnImg4 = findViewById(R.id.btnImg4);
+//        btnImg5 = findViewById(R.id.btnImg5);
+//        btnImg6 = findViewById(R.id.btnImg6);
         /*延續以前Rd logic*/
         B1 = findViewById(R.id.B1);
         B2 = findViewById(R.id.B2);
@@ -77,12 +82,12 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
         bt2 = findViewById(R.id.bowlT2);
 
         btnBack.setOnClickListener(this);
-        btnImg1.setOnClickListener(this);
-        btnImg2.setOnClickListener(this);
-        btnImg3.setOnClickListener(this);
-        btnImg4.setOnClickListener(this);
-        btnImg5.setOnClickListener(this);
-        btnImg6.setOnClickListener(this);
+//        btnImg1.setOnClickListener(this);
+//        btnImg2.setOnClickListener(this);
+//        btnImg3.setOnClickListener(this);
+//        btnImg4.setOnClickListener(this);
+//        btnImg5.setOnClickListener(this);
+//        btnImg6.setOnClickListener(this);
 
         B1.setOnClickListener(this);
         B2.setOnClickListener(this);
@@ -119,25 +124,25 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
 
 
         sharedPreferences = getSharedPreferences("triangle", MODE_PRIVATE);
-        b = sharedPreferences.getBoolean("isStatus1", false);
-        b2 = sharedPreferences.getBoolean("isStatus2", false);
-        b3 = sharedPreferences.getBoolean("isStatus3", false);
-        b4 = sharedPreferences.getBoolean("isStatus4", false);
-        b5 = sharedPreferences.getBoolean("isStatus5", false);
-        b6 = sharedPreferences.getBoolean("isStatus6", false);
+//        b = sharedPreferences.getBoolean("isStatus1", false);
+//        b2 = sharedPreferences.getBoolean("isStatus2", false);
+//        b3 = sharedPreferences.getBoolean("isStatus3", false);
+//        b4 = sharedPreferences.getBoolean("isStatus4", false);
+//        b5 = sharedPreferences.getBoolean("isStatus5", false);
+//        b6 = sharedPreferences.getBoolean("isStatus6", false);
         /*延續原本rd邏輯*/
-        bowl1 = sharedPreferences.getBoolean("isStatus38", false);
-        bowl2 = sharedPreferences.getBoolean("isStatus39", false);
-        bowl3 = sharedPreferences.getBoolean("isStatus40", false);
-        bowl4 = sharedPreferences.getBoolean("isStatus41", false);
-        bowl5 = sharedPreferences.getBoolean("isStatus42", false);
-        bowl6 = sharedPreferences.getBoolean("isStatus43", false);
-        bowl7 = sharedPreferences.getBoolean("isStatus44", false);
-        bowl8 = sharedPreferences.getBoolean("isStatus45", false);
-        bowl9 = sharedPreferences.getBoolean("isStatus46", false);
-        bowl10 = sharedPreferences.getBoolean("isStatus47", false);
-        bowl11 = sharedPreferences.getBoolean("isStatus48", false);
-        bowl12 = sharedPreferences.getBoolean("isStatus49", false);
+        bowl1 = sharedPreferences.getBoolean("isStatus1", false);
+        bowl2 = sharedPreferences.getBoolean("isStatus2", false);
+        bowl3 = sharedPreferences.getBoolean("isStatus3", false);
+        bowl4 = sharedPreferences.getBoolean("isStatus4", false);
+        bowl5 = sharedPreferences.getBoolean("isStatus5", false);
+        bowl6 = sharedPreferences.getBoolean("isStatus6", false);
+        bowl7 = sharedPreferences.getBoolean("isStatus7", false);
+        bowl8 = sharedPreferences.getBoolean("isStatus8", false);
+        bowl9 = sharedPreferences.getBoolean("isStatus9", false);
+        bowl10 = sharedPreferences.getBoolean("isStatus10", false);
+        bowl11 = sharedPreferences.getBoolean("isStatus11", false);
+        bowl12 = sharedPreferences.getBoolean("isStatus12", false);
 
     }
 
@@ -286,37 +291,37 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
                         btnFind.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                if (storeList.get(0).getAid().equals("9") && b) //清真寺
-                                {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("10") && b2) //目腦縱歌
-                                {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("11") && b3) //打歌場
-                                {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("12") && b4) //轉經筒
-                                {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("13") && b5) //國旗屋
-                                {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-
-                                if (storeList.get(0).getAid().equals("14") && b6) //忠貞新村文創
-                                {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
+//                                if (storeList.get(0).getAid().equals("9") && b) //清真寺
+//                                {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("10") && b2) //目腦縱歌
+//                                {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("11") && b3) //打歌場
+//                                {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("12") && b4) //轉經筒
+//                                {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("13") && b5) //國旗屋
+//                                {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//
+//                                if (storeList.get(0).getAid().equals("14") && b6) //忠貞新村文創
+//                                {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
                                 /*2022/03/21延續原本rd邏輯*/
                                 if (storeList.get(0).getAid().equals("38") && bowl1) //雲滄小館
                                 {
@@ -328,43 +333,43 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("40") && bowl3) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
                                 if (storeList.get(0).getAid().equals("41") && bowl3) {
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("42") && bowl4) {
+                                if (storeList.get(0).getAid().equals("43") && bowl4) {
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("43") && bowl5) {
+                                if (storeList.get(0).getAid().equals("42") && bowl5) {
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("44") && bowl6) {
+                                if (storeList.get(0).getAid().equals("47") && bowl6) {
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("45") && bowl7) {
+                                if (storeList.get(0).getAid().equals("44") && bowl7) {
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("46") && bowl8) {
+                                if (storeList.get(0).getAid().equals("40") && bowl8) {
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("47") && bowl9) {
+                                if (storeList.get(0).getAid().equals("45") && bowl9) {
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("48") && bowl10) {
+                                if (storeList.get(0).getAid().equals("46") && bowl10) {
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("49") && bowl11) {
+                                if (storeList.get(0).getAid().equals("48") && bowl11) {
+                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                if (storeList.get(0).getAid().equals("49") && bowl12) {
                                     Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
@@ -441,8 +446,6 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
         txtDescription.setText(coupon.getCoupon_description());
         TextView txtUsingDate = dialog.findViewById(R.id.txtUsingDate);
         txtUsingDate.setText(coupon.getCoupon_startdate() + "~" + coupon.getCoupon_enddate());
-
-        // TODO btn要做過期防呆
 
         ImageView btnClose = dialog.findViewById(R.id.img_close);
         btnClose.setOnClickListener(v -> {

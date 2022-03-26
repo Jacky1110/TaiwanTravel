@@ -34,8 +34,6 @@ import com.jotangi.nickyen.R;
 import com.jotangi.nickyen.api.ApiConnection;
 import com.jotangi.nickyen.api.ApiConstant;
 import com.jotangi.nickyen.argame.model.StoreBean;
-import com.jotangi.nickyen.home.MyDiscountNew2Activity;
-import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Type;
@@ -79,25 +77,25 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
         Log.d("豪豪", "onCreate: " + storeBean);
         /*原先的引用參數*/
         sharedPreferences = getSharedPreferences("triangle", MODE_PRIVATE);
-        b = sharedPreferences.getBoolean("isStatus1", false);
-        b2 = sharedPreferences.getBoolean("isStatus2", false);
-        b3 = sharedPreferences.getBoolean("isStatus3", false);
-        b4 = sharedPreferences.getBoolean("isStatus4", false);
-        b5 = sharedPreferences.getBoolean("isStatus5", false);
-        b6 = sharedPreferences.getBoolean("isStatus6", false);
+//        b = sharedPreferences.getBoolean("isStatus1", false);
+//        b2 = sharedPreferences.getBoolean("isStatus2", false);
+//        b3 = sharedPreferences.getBoolean("isStatus3", false);
+//        b4 = sharedPreferences.getBoolean("isStatus4", false);
+//        b5 = sharedPreferences.getBoolean("isStatus5", false);
+//        b6 = sharedPreferences.getBoolean("isStatus6", false);
         /*2022/03/21新需求改成12個碗，先沿用原本邏輯*/
-        bowl1 = sharedPreferences.getBoolean("isBowl1", false);
-        bowl2 = sharedPreferences.getBoolean("isBowl2", false);
-        bowl3 = sharedPreferences.getBoolean("isBowl3", false);
-        bowl4 = sharedPreferences.getBoolean("isBowl4", false);
-        bowl5 = sharedPreferences.getBoolean("isBowl5", false);
-        bowl6 = sharedPreferences.getBoolean("isBowl6", false);
-        bowl7 = sharedPreferences.getBoolean("isBowl7", false);
-        bowl8 = sharedPreferences.getBoolean("isBowl8", false);
-        bowl9 = sharedPreferences.getBoolean("isBowl9", false);
-        bowl10 = sharedPreferences.getBoolean("isBowl10", false);
-        bowl11 = sharedPreferences.getBoolean("isBowl11", false);
-        bowl12 = sharedPreferences.getBoolean("isBowl12", false);
+        bowl1 = sharedPreferences.getBoolean("isStatus1", false);
+        bowl2 = sharedPreferences.getBoolean("isStatus2", false);
+        bowl3 = sharedPreferences.getBoolean("isStatus3", false);
+        bowl4 = sharedPreferences.getBoolean("isStatus4", false);
+        bowl5 = sharedPreferences.getBoolean("isStatus5", false);
+        bowl6 = sharedPreferences.getBoolean("isStatus6", false);
+        bowl7 = sharedPreferences.getBoolean("isStatus7", false);
+        bowl8 = sharedPreferences.getBoolean("isStatus8", false);
+        bowl9 = sharedPreferences.getBoolean("isStatus9", false);
+        bowl10 = sharedPreferences.getBoolean("isStatus10", false);
+        bowl11 = sharedPreferences.getBoolean("isStatus11", false);
+        bowl12 = sharedPreferences.getBoolean("isStatus12", false);
 
         //=============這是目前位置的經緯度 計算結果跟公式在最下方(也有API可以CALL)========================
 
@@ -124,12 +122,12 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
 
 //        b = sharedPreferences.getBoolean("isStatus", false);
         /*原先rd邏輯*/
-        booleanArrayList.add(b);
-        booleanArrayList.add(b2);
-        booleanArrayList.add(b3);
-        booleanArrayList.add(b4);
-        booleanArrayList.add(b5);
-        booleanArrayList.add(b6);
+//        booleanArrayList.add(b);
+//        booleanArrayList.add(b2);
+//        booleanArrayList.add(b3);
+//        booleanArrayList.add(b4);
+//        booleanArrayList.add(b5);
+//        booleanArrayList.add(b6);
         /*新需求*/
         booleanArrayList.add(bowl1);
         booleanArrayList.add(bowl2);
@@ -145,25 +143,26 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
         booleanArrayList.add(bowl12);
 
         for (int i = 0; i < booleanArrayList.size(); i++) {
-            if (b) {
-                count += 1;
-                b = false;
-            } else if (b2) {
-                count += 1;
-                b2 = false;
-            } else if (b3) {
-                count += 1;
-                b3 = false;
-            } else if (b4) {
-                count += 1;
-                b4 = false;
-            } else if (b5) {
-                count += 1;
-                b5 = false;
-            } else if (b6) {
-                count += 1;
-                b6 = false;
-            } else if (bowl1) {
+//            if (b) {
+//                count += 1;
+//                b = false;
+//            } else if (b2) {
+//                count += 1;
+//                b2 = false;
+//            } else if (b3) {
+//                count += 1;
+//                b3 = false;
+//            } else if (b4) {
+//                count += 1;
+//                b4 = false;
+//            } else if (b5) {
+//                count += 1;
+//                b5 = false;
+//            } else if (b6) {
+//                count += 1;
+//                b6 = false;
+//            } else
+                if (bowl1) {
                 count += 1;
                 bowl1 = false;
             } else if (bowl2) {
@@ -200,7 +199,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                 count += 1;
                 bowl12 = false;
             }
-            Log.d("豪豪", "計次: " + count);
+            Log.d("豪豪", "計次: " + count+ sharedPreferences.getBoolean("isStatus5", false));
 
         }
 
@@ -251,105 +250,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                         public void run() {
                             Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
                             if (ans < 50) {
-                                if (count == 3) {
-                                    runOnUiThread(() -> {
-                                        Dialog dialog1 = new Dialog(GoldenTriangleCameraActivity.this);
-                                        dialog1.setContentView(R.layout.dialog_ar_success);
-                                        dialog1.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                                        dialog1.show();
-                                        dialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
-                                        TextView txtContent = dialog1.findViewById(R.id.tv_content);
-                                        txtContent.setText("魅力金三角商圈好禮兌換券\n請至我的優惠券查看\n(每帳號限領一份)");
-                                        Button btnBack = dialog1.findViewById(R.id.btn_close);
-
-                                        btnBack.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v1) {
-                                                if (dialog1 != null) {
-                                                    ApiConnection.getCoupon("TRIANGLE_ARVOUCHER", new ApiConnection.OnConnectResultListener() {
-                                                        @Override
-                                                        public void onSuccess(String jsonString) {
-                                                            countNumber();
-                                                            Intent intent = new Intent(GoldenTriangleCameraActivity.this, MyDiscountNew2Activity.class);
-                                                            dialog1.dismiss();
-                                                            startActivity(intent);
-                                                            finish();
-                                                        }
-
-                                                        @Override
-                                                        public void onFailure(String message) {
-                                                            runOnUiThread(new Runnable() {
-                                                                @Override
-                                                                public void run() {
-                                                                    countNumber();
-                                                                    Toast.makeText(GoldenTriangleCameraActivity.this, message, Toast.LENGTH_SHORT).show();
-                                                                    dialog1.dismiss();
-                                                                    Intent i = new Intent(GoldenTriangleCameraActivity.this, GoldenTriangleActivity.class);
-                                                                    startActivity(i);
-                                                                    finish();
-                                                                }
-                                                            });
-                                                        }
-                                                    });
-                                                }
-                                            }
-                                        });
-                                    });
-
-                                } else if (count == 4 || count == 5) {
-                                    runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
-                                            dialog.setContentView(R.layout.dialog_ar_success);
-                                            dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                                            dialog.show();
-                                            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
-                                            TextView txtContent = dialog.findViewById(R.id.tv_content);
-                                            TextView txtTitle = dialog.findViewById(R.id.tv_title);
-                                            txtTitle.setText("恭喜收集到1個景點！");
-                                            txtContent.setText("您已領取過一份好禮兌換券了\n(每帳號限領一份)");
-                                            Button btnBack = dialog.findViewById(R.id.btn_close);
-                                            btnBack.setText("返回");
-
-                                            btnBack.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    if (dialog != null) {
-//                                                        ApiConnection.getCoupon("ARCOUPON2", new ApiConnection.OnConnectResultListener()
-//                                                        {
-//                                                            @Override
-//                                                            public void onSuccess(String jsonString)
-//                                                            {
-//                                                                countNumber();
-//                                                            }
-
-//                                                            @Override
-//                                                            public void onFailure(String message)
-//                                                            {
-//                                                                runOnUiThread(new Runnable()
-//                                                                {
-//                                                                    @Override
-//                                                                    public void run()
-//                                                                    {
-//                                                                        Toast.makeText(GoldenTriangleCameraActivity.this, message, Toast.LENGTH_SHORT).show();
-//                                                                    }
-//                                                                });
-//                                                            }
-//                                                        });
-                                                        countNumber();
-                                                        dialog.dismiss();
-                                                        finish();
-                                                    }
-                                                }
-                                            });
-                                        }
-                                    });
-                                } else {
-                                    runOnUiThread(() ->{
-                                                loadInfo(aid);}
-                                            );
-                                }
+                                loadInfo(aid);
 //                                if (!b) //沒抓到過 要成功
 //                                {
 //                                    dialog.setContentView(R.layout.dialog_ar_success);
@@ -500,113 +401,113 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
 
     private void countNumber() {
 
-        if (storeBean.getAid().equals("9") && storeBean.getAid() != null && !b) {
+//        if (storeBean.getAid().equals("9") && storeBean.getAid() != null && !b) {
+//            sharedPreferences.edit()
+//                    .putString("isNumber1", "9")
+//                    .putBoolean("isStatus1", true)
+//                    .commit();
+//        }
+//        if (storeBean.getAid().equals("10") && storeBean.getAid() != null && !b2) {
+//            sharedPreferences.edit()
+//                    .putString("isNumber2", "10")
+//                    .putBoolean("isStatus2", true)
+//                    .commit();
+//        }
+//        if (storeBean.getAid().equals("11") && storeBean.getAid() != null && !b3) {
+//            sharedPreferences.edit()
+//                    .putString("isNumber3", "11")
+//                    .putBoolean("isStatus3", true)
+//                    .commit();
+//        }
+//        if (storeBean.getAid().equals("12") && storeBean.getAid() != null && !b4) {
+//            sharedPreferences.edit()
+//                    .putString("isNumber4", "12")
+//                    .putBoolean("isStatus4", true)
+//                    .commit();
+//        }
+//        if (storeBean.getAid().equals("13") && storeBean.getAid() != null && !b5) {
+//            sharedPreferences.edit()
+//                    .putString("isNumber5", "13")
+//                    .putBoolean("isStatus5", true)
+//                    .commit();
+//        }
+//        if (storeBean.getAid().equals("14") && storeBean.getAid() != null && !b6) {
+//            sharedPreferences.edit()
+//                    .putString("isNumber6", "15")
+//                    .putBoolean("isStatus6", true)
+//                    .commit();
+//        }
+        /*2022/03/21新增需求，延續原本rd logic*/
+        if (storeBean.getAid().equals("38") && storeBean.getAid() != null && !bowl1) { // 雲滄
             sharedPreferences.edit()
-                    .putString("isNumber1", "9")
+                    .putString("isNumber1", "1")
                     .putBoolean("isStatus1", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("10") && storeBean.getAid() != null && !b2) {
+        if (storeBean.getAid().equals("39") && storeBean.getAid() != null && !bowl2) { // 楊家將
             sharedPreferences.edit()
-                    .putString("isNumber2", "10")
+                    .putString("isNumber2", "2")
                     .putBoolean("isStatus2", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("11") && storeBean.getAid() != null && !b3) {
+        if (storeBean.getAid().equals("41") && storeBean.getAid() != null && !bowl3) { // 閃妹
             sharedPreferences.edit()
-                    .putString("isNumber3", "11")
+                    .putString("isNumber3", "3")
                     .putBoolean("isStatus3", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("12") && storeBean.getAid() != null && !b4) {
+        if (storeBean.getAid().equals("43") && storeBean.getAid() != null && !bowl4) { // 忠貞雲鄉
             sharedPreferences.edit()
-                    .putString("isNumber4", "12")
+                    .putString("isNumber4", "4")
                     .putBoolean("isStatus4", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("13") && storeBean.getAid() != null && !b5) {
+        if (storeBean.getAid().equals("42") && storeBean.getAid() != null && !bowl5) { // 阿秀
             sharedPreferences.edit()
-                    .putString("isNumber5", "13")
+                    .putString("isNumber5", "5")
                     .putBoolean("isStatus5", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("14") && storeBean.getAid() != null && !b6) {
+        if (storeBean.getAid().equals("47") && storeBean.getAid() != null && !bowl6) {  // 王記水餃
             sharedPreferences.edit()
-                    .putString("isNumber6", "15")
+                    .putString("isNumber6", "6")
                     .putBoolean("isStatus6", true)
                     .commit();
         }
-        /*2022/03/21新增需求，延續原本rd logic*/
-        if (storeBean.getAid().equals("38") && storeBean.getAid() != null && !bowl1) {
+        if (storeBean.getAid().equals("44") && storeBean.getAid() != null && !bowl7) { // 冰獨
             sharedPreferences.edit()
-                    .putString("isNumber38", "38")
-                    .putBoolean("isStatus38", true)
+                    .putString("isNumber7", "7")
+                    .putBoolean("isStatus7", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("39") && storeBean.getAid() != null && !bowl2) {
+        if (storeBean.getAid().equals("40") && storeBean.getAid() != null && !bowl8) { // 阿嬌米干
             sharedPreferences.edit()
-                    .putString("isNumber39", "39")
-                    .putBoolean("isStatus39", true)
+                    .putString("isNumber8", "8")
+                    .putBoolean("isStatus8", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("41") && storeBean.getAid() != null && !bowl3) {
+        if (storeBean.getAid().equals("45") && storeBean.getAid() != null && !bowl9) { // 七彩雲南忠貞
             sharedPreferences.edit()
-                    .putString("isNumber40", "41")
-                    .putBoolean("isStatus40", true)
+                    .putString("isNumber9", "9")
+                    .putBoolean("isStatus9", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("43") && storeBean.getAid() != null && !bowl4) {
+        if (storeBean.getAid().equals("46") && storeBean.getAid() != null && !bowl10) { // 阿美金三角
             sharedPreferences.edit()
-                    .putString("isNumber41", "43")
-                    .putBoolean("isStatus41", true)
+                    .putString("isNumber10", "10")
+                    .putBoolean("isStatus10", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("42") && storeBean.getAid() != null && !bowl5) {
+        if (storeBean.getAid().equals("48") && storeBean.getAid() != null && !bowl11) { // 異域
             sharedPreferences.edit()
-                    .putString("isNumber42", "42")
-                    .putBoolean("isStatus42", true)
+                    .putString("isNumber11", "11")
+                    .putBoolean("isStatus11", true)
                     .commit();
         }
-        if (storeBean.getAid().equals("47") && storeBean.getAid() != null && !bowl6) {
+        if (storeBean.getAid().equals("49") && storeBean.getAid() != null && !bowl12) { //
             sharedPreferences.edit()
-                    .putString("isNumber43", "47")
-                    .putBoolean("isStatus43", true)
-                    .commit();
-        }
-        if (storeBean.getAid().equals("44") && storeBean.getAid() != null && !bowl7) {
-            sharedPreferences.edit()
-                    .putString("isNumber44", "44")
-                    .putBoolean("isStatus44", true)
-                    .commit();
-        }
-        if (storeBean.getAid().equals("40") && storeBean.getAid() != null && !bowl8) {
-            sharedPreferences.edit()
-                    .putString("isNumber45", "40")
-                    .putBoolean("isStatus45", true)
-                    .commit();
-        }
-        if (storeBean.getAid().equals("45") && storeBean.getAid() != null && !bowl9) {
-            sharedPreferences.edit()
-                    .putString("isNumber46", "45")
-                    .putBoolean("isStatus46", true)
-                    .commit();
-        }
-        if (storeBean.getAid().equals("46") && storeBean.getAid() != null && !bowl10) {
-            sharedPreferences.edit()
-                    .putString("isNumber47", "46")
-                    .putBoolean("isStatus47", true)
-                    .commit();
-        }
-        if (storeBean.getAid().equals("48") && storeBean.getAid() != null && !bowl11) {
-            sharedPreferences.edit()
-                    .putString("isNumber48", "48")
-                    .putBoolean("isStatus48", true)
-                    .commit();
-        }
-        if (storeBean.getAid().equals("49") && storeBean.getAid() != null && !bowl12) {
-            sharedPreferences.edit()
-                    .putString("isNumber49", "49")
-                    .putBoolean("isStatus49", true)
+                    .putString("isNumber12", "12")
+                    .putBoolean("isStatus12", true)
                     .commit();
         }
     }
@@ -649,30 +550,151 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
         return distanceStr;
     }
 
-    private void collectDialog() {
-        Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
-        dialog.setContentView(R.layout.dialog_ar_collection);
-        dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
-        TextView txtContent = dialog.findViewById(R.id.tv_content);
-        TextView txtTitle = dialog.findViewById(R.id.tv_title);
-        txtTitle.setText("恭喜收集到1個景點！");
-        txtContent.setText("收集4個景點，\n即可獲得好禮兌換券\n(每帳號限領1份)");
-        Button btnBack = dialog.findViewById(R.id.btn_close);
+    private void showDialog() {
+        if (count == 3) {
+            runOnUiThread(() -> {
+                Dialog dialog1 = new Dialog(GoldenTriangleCameraActivity.this);
+                dialog1.setContentView(R.layout.dialog_ar_success);
+                dialog1.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                dialog1.show();
+                dialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
+                TextView txtContent = dialog1.findViewById(R.id.tv_content);
+                txtContent.setText("已經收集4個大碗勳章\n並獲得一份禮品兌換券\n(請至美食地圖右上角\n\"優惠券\"頁面查看內容)");
+                Button btnBack = dialog1.findViewById(R.id.btn_close);
+                btnBack.setText("查看優惠券");
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (dialog != null) {
-                    countNumber();
-                    dialog.dismiss();
-                    Intent i = new Intent(GoldenTriangleCameraActivity.this, GoldenTriangleActivity.class);
-                    startActivity(i);
-                    finish();
+                btnBack.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v1) {
+                        if (dialog1 != null) {
+//                                                    ApiConnection.getCoupon("TRIANGLE_ARVOUCHER", new ApiConnection.OnConnectResultListener() {
+//                                                        @Override
+//                                                        public void onSuccess(String jsonString) {
+//                                                            countNumber();
+//                                                            Intent intent = new Intent(GoldenTriangleCameraActivity.this, MyDiscountNew2Activity.class);
+//                                                            dialog1.dismiss();
+//                                                            startActivity(intent);
+//                                                            finish();
+//                                                        }
+//
+//                                                        @Override
+//                                                        public void onFailure(String message) {
+//                                                            runOnUiThread(new Runnable() {
+//                                                                @Override
+//                                                                public void run() {
+                            countNumber();
+//                                                                    Toast.makeText(GoldenTriangleCameraActivity.this, message, Toast.LENGTH_SHORT).show();
+                            dialog1.dismiss();
+                            Intent i = new Intent(GoldenTriangleCameraActivity.this, GoldenTriangleActivity.class);
+                            i.putExtra("gain", "gain");
+                            startActivity(i);
+                            finish();
+//                                                                }
+//                                                            });
+//                                                        }
+//                                                    });
+                        }
+                    }
+                });
+            });
+
+        } else if (count >3) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
+                    dialog.setContentView(R.layout.dialog_ar_success);
+                    dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                    dialog.show();
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
+                    TextView txtContent = dialog.findViewById(R.id.tv_content);
+                    TextView txtTitle = dialog.findViewById(R.id.tv_title);
+                    txtTitle.setText("恭喜收集到1個大碗勳章");
+                    txtContent.setText("您已領過一份禮品兌換券了\n請至美食地圖右上角\n\"優惠券\"頁面查看內容)\n(每個帳號限領一份)");
+                    Button btnBack = dialog.findViewById(R.id.btn_close);
+                    btnBack.setText("確認");
+
+                    btnBack.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (dialog != null) {
+//                                                        ApiConnection.getCoupon("ARCOUPON2", new ApiConnection.OnConnectResultListener()
+//                                                        {
+//                                                            @Override
+//                                                            public void onSuccess(String jsonString)
+//                                                            {
+//                                                                countNumber();
+//                                                            }
+
+//                                                            @Override
+//                                                            public void onFailure(String message)
+//                                                            {
+//                                                                runOnUiThread(new Runnable()
+//                                                                {
+//                                                                    @Override
+//                                                                    public void run()
+//                                                                    {
+//                                                                        Toast.makeText(GoldenTriangleCameraActivity.this, message, Toast.LENGTH_SHORT).show();
+//                                                                    }
+//                                                                });
+//                                                            }
+//                                                        });
+                                countNumber();
+                                dialog.dismiss();
+                                finish();
+                            }
+                        }
+                    });
                 }
-            }
-        });
+            });
+        }else if(count<3){
+            Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
+            dialog.setContentView(R.layout.dialog_ar_success);
+            dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
+            TextView txtContent = dialog.findViewById(R.id.tv_content);
+            TextView txtTitle = dialog.findViewById(R.id.tv_title);
+            txtTitle.setText("恭喜收集到1個大碗勳章");
+            txtContent.setText("收集4個以上的大碗勳章\n就可獲得一份禮品兌換券\n(每個帳號限領一份)");
+            Button btnBack = dialog.findViewById(R.id.btn_close);
+            btnBack.setText("確認");
+
+            btnBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dialog != null) {
+                        countNumber();
+                        dialog.dismiss();
+                        finish();
+                    }
+                }
+            });
+
+        }
+//        Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
+//        dialog.setContentView(R.layout.dialog_ar_collection);
+//        dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+//        dialog.show();
+//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
+//        TextView txtContent = dialog.findViewById(R.id.tv_content);
+//        TextView txtTitle = dialog.findViewById(R.id.tv_title);
+//        txtTitle.setText("恭喜收集到1個景點！");
+//        txtContent.setText("收集4個景點，\n即可獲得好禮兌換券\n(每帳號限領1份)");
+//        Button btnBack = dialog.findViewById(R.id.btn_close);
+//
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (dialog != null) {
+//                    countNumber();
+//                    dialog.dismiss();
+//                    Intent i = new Intent(GoldenTriangleCameraActivity.this, GoldenTriangleActivity.class);
+//                    startActivity(i);
+//                    finish();
+//                }
+//            }
+//        });
     }
 
     private void loadInfo(String s) {
@@ -683,22 +705,25 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                 }.getType();
                 storeList = new Gson().fromJson(jsonString, type);
                 runOnUiThread(() -> {
-                    Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
-                    dialog.setContentView(R.layout.dialog_gold_recipe);
-                    dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                    dialog.show();
-                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
-                    TextView txtTitle = dialog.findViewById(R.id.gdT);
-                    TextView txtContent = dialog.findViewById(R.id.gdTC);
-                   ImageView img = dialog.findViewById(R.id.gdI);
+                    Dialog dialogCollect = new Dialog(GoldenTriangleCameraActivity.this);
+                    dialogCollect.setContentView(R.layout.dialog_gold_recipe);
+                    dialogCollect.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                    dialogCollect.show();
+                    dialogCollect.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
+                    TextView txtTitle = dialogCollect.findViewById(R.id.gdT);
+                    TextView txtContent = dialogCollect.findViewById(R.id.gdTC);
+                    ImageView img = dialogCollect.findViewById(R.id.gdI);
                     txtTitle.setText(storeList.get(0).getAr_name2());
                     txtContent.setText(storeList.get(0).getArDescript2());
                     Picasso.with(GoldenTriangleCameraActivity.this).load(ApiConstant.API_IMAGE + storeList.get(0).getAr_picture2()).into(img);
 
-                    Button btnFind = dialog.findViewById(R.id.gdC);
+                    Button btnFind = dialogCollect.findViewById(R.id.gdC);
                     btnFind.setOnClickListener(v -> {
-
-                        collectDialog();
+                        if (dialogCollect != null) {
+                            dialogCollect.dismiss();
+//                            countNumber();
+                            showDialog();
+                        }
 
                     });
 

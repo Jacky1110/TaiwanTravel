@@ -18,7 +18,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="恭喜獲得"
+            android:text="恭喜您！"
             android:textColor="@color/ARAlphabet"
             android:textSize="28sp"
             android:textAlignment="center"
