@@ -35,7 +35,7 @@
                     android:id="@+id/imageView7"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_gold_title" />
+                    android:src="@drawable/bg_jiao_footer" />
 
                 <TextView
                     android:layout_marginTop="@dimen/dp_10"
@@ -94,7 +94,7 @@
                     android:textColor="@color/ARAlphabet"
                     android:fontFamily="sans-serif-condensed-light"
                     android:textSize="16sp"
-                    android:text="魅力金三角商圈" />
+                    android:text="角板山形象商圈" />
 
             </LinearLayout>
 
@@ -107,31 +107,31 @@
                 <TextView
                     android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
-                    android:text="1.點選「魅力金三角商圈_忠貞八大碗美食饗宴」活動" />
+                    android:text="1.點選「角板山形象商圈_吉祥物家族初登場」進入遊戲畫面。" />
 
                 <TextView
                     android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
-                    android:text="2.依據八大碗美食地圖的提示，尋找商圈內對應的特色店家，找到特色店家掃描店家的門面照片，就會出現該店家推薦的特色菜餚，並可蒐集一個大碗勳章" />
+                    android:text="2.依據活動地圖及照片的提示，尋找商圈內對應的景點，掃描指定地點，就可以找到吉祥物。" />
 
                 <TextView
                     android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
-                    android:text="3.蒐集到四個大碗勳章(含以上)就可以獲得一份禮品兌換券(每個帳號限領一份)" />
+                    android:text="3.找到任意４個吉祥物(含以上)就可以獲得一份禮品兌換券（每個帳號限領一份）。" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_15"
                     style="@style/txt_direction"
-                    android:text="到指定地點「黑山銀花」兌換禮品" />
+                    android:text="到以下指定地點憑優惠券兌換禮品" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_15"
                     style="@style/txt_direction"
-                    android:text="黑山銀花 (桃園市平鎮區中山路46號，忠貞新村文創園區內，由中山路44-1號巷子進入）" />
+                    android:text="協隆山產行 (復興區三民里1鄰12號(台七線16K)，兌換時間：08:00~18:00)。\n\n101山產行 (復興區中正路101號，兌換時間：13:00~17:00)。" />
 
                 <Button
                     android:id="@+id/bdBack"
-                    android:layout_marginTop="@dimen/dp_50"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

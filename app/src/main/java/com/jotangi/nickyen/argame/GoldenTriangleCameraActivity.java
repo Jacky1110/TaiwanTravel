@@ -367,6 +367,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                             } else {
                                 dialog.setContentView(R.layout.dialog_ar_collection);
                                 dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                                dialog.setCanceledOnTouchOutside(false);
                                 dialog.show();
                                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
                                 TextView txtTitle = dialog.findViewById(R.id.tv_title);
@@ -553,20 +554,21 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
     private void showDialog() {
         if (count == 3) {
             runOnUiThread(() -> {
-                Dialog dialog1 = new Dialog(GoldenTriangleCameraActivity.this);
-                dialog1.setContentView(R.layout.dialog_ar_success);
-                dialog1.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                dialog1.show();
-                dialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
-                TextView txtContent = dialog1.findViewById(R.id.tv_content);
+                Dialog dialog = new Dialog(this);
+                dialog.setContentView(R.layout.dialog_ar_success);
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                dialog.show();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
+                TextView txtContent = dialog.findViewById(R.id.tv_content);
                 txtContent.setText("已經收集4個大碗勳章\n並獲得一份禮品兌換券\n(請至美食地圖右上角\n\"優惠券\"頁面查看內容)");
-                Button btnBack = dialog1.findViewById(R.id.btn_close);
+                Button btnBack = dialog.findViewById(R.id.btn_close);
                 btnBack.setText("查看優惠券");
 
                 btnBack.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v1) {
-                        if (dialog1 != null) {
+                        if (dialog != null) {
 //                                                    ApiConnection.getCoupon("TRIANGLE_ARVOUCHER", new ApiConnection.OnConnectResultListener() {
 //                                                        @Override
 //                                                        public void onSuccess(String jsonString) {
@@ -584,7 +586,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
 //                                                                public void run() {
                             countNumber();
 //                                                                    Toast.makeText(GoldenTriangleCameraActivity.this, message, Toast.LENGTH_SHORT).show();
-                            dialog1.dismiss();
+                            dialog.dismiss();
                             Intent i = new Intent(GoldenTriangleCameraActivity.this, GoldenTriangleActivity.class);
                             i.putExtra("gain", "gain");
                             startActivity(i);
@@ -604,6 +606,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                 public void run() {
                     Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
                     dialog.setContentView(R.layout.dialog_ar_success);
+                    dialog.setCanceledOnTouchOutside(false);
                     dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
                     dialog.show();
                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
@@ -648,8 +651,9 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                 }
             });
         }else if(count<3){
-            Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
+            Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.dialog_ar_success);
+            dialog.setCanceledOnTouchOutside(false);
             dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
             dialog.show();
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
@@ -707,6 +711,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     Dialog dialogCollect = new Dialog(GoldenTriangleCameraActivity.this);
                     dialogCollect.setContentView(R.layout.dialog_gold_recipe);
+                    dialogCollect.setCanceledOnTouchOutside(false);
                     dialogCollect.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
                     dialogCollect.show();
                     dialogCollect.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));

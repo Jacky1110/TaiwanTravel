@@ -33,6 +33,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".argame.JiaoBanShan.JiaoBanShanCameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".argame.JiaoBanShan.JiaoBanShanActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".pointshop.renew.PointShopActivity"
             android:screenOrientation="portrait"/>
         <activity

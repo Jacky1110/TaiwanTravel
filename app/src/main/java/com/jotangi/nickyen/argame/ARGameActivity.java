@@ -5,12 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.jotangi.nickyen.R;
+import com.jotangi.nickyen.argame.JiaoBanShan.JiaoBanShanActivity;
 
 public class ARGameActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -59,7 +59,7 @@ public class ARGameActivity extends AppCompatActivity implements View.OnClickLis
 //                Toast.makeText(this,"活動將於近期開始，敬請期待！",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.layout4:
-                startActivity(new Intent(this, SalonsARActivity.class));
+                startActivity(new Intent(this, JiaoBanShanActivity.class));
 //                Toast.makeText(this,"活動將於近期開始，敬請期待！",Toast.LENGTH_SHORT).show();
 //                startActivity(new Intent(Intent.ACTION_VIEW, uri));
                 break;

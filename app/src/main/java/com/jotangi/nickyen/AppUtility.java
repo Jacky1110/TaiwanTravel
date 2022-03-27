@@ -3,12 +3,9 @@ package com.jotangi.nickyen;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Base64;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,28 +17,18 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.gson.Gson;
-import com.jotangi.nickyen.api.ApiConnection;
-
-import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.nio.charset.StandardCharsets;
-import java.security.PublicKey;
 import java.security.spec.AlgorithmParameterSpec;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.regex.Pattern;
 
 import javax.crypto.Cipher;
@@ -565,18 +552,18 @@ public class AppUtility {
     private static final double EARTH_RADIUS = 6378137.0;
 
     public static String getDistance(String lat1Str, String lng1Str, String lat2Str, String lng2Str) {
-        Double lat1 = Double.parseDouble(lat1Str);
-        Double lng1 = Double.parseDouble(lng1Str);
-        Double lat2 = Double.parseDouble(lat2Str);
-        Double lng2 = Double.parseDouble(lng2Str);
+        Double lat1 = Double.valueOf(Double.parseDouble(lat1Str));
+        Double lng1 = Double.valueOf(Double.parseDouble(lng1Str));
+        Double lat2 = Double.valueOf(Double.parseDouble(lat2Str));
+        Double lng2 = Double.valueOf(Double.parseDouble(lng2Str));
 
         double radLat1 = rad(lat1);
         double radLat2 = rad(lat2);
         double difference = radLat1 - radLat2;
-        double mdifference = rad(lng1) - rad(lng2);
+        double mDifference = rad(lng1) - rad(lng2);
         double distance = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(difference / 2), 2)
                 + Math.cos(radLat1) * Math.cos(radLat2)
-                * Math.pow(Math.sin(mdifference / 2), 2)));
+                * Math.pow(Math.sin(mDifference / 2), 2)));
         distance = distance * EARTH_RADIUS;
         distance = Math.round(distance * 10000) / 10000;
         String distanceStr = distance + "";

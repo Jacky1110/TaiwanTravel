@@ -64,9 +64,8 @@
                     android:id="@+id/imgCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_130"
-                    android:layout_gravity="center_horizontal"
                     android:scaleType="fitCenter"
-                    android:src="@color/colorUnSelect" />
+                    android:src="@color/colorUnSelect"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -95,7 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-light"
-                        android:text="金三角形象商圈_AR遊戲好禮"
+                        android:text="角板山形象商圈_AR遊戲好禮"
                         android:textColor="@color/c_a1854d_100"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
