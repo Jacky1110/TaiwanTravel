@@ -16,6 +16,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/bg_jiao"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_300"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/bg_quintuple_stimulus_vouchers"/>
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -32,10 +46,19 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="@dimen/dp_200"
+                    android:layout_height="@dimen/dp_20"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_jiao_header" />
+
+                <ImageView
                     android:id="@+id/imageView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_gold_title" />
+                    android:layout_width="@dimen/dp_200"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_gravity="end"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_jiao_footer" />
 
                 <TextView
                     android:layout_marginTop="@dimen/dp_10"
@@ -90,7 +113,7 @@
                     android:layout_width="wrap_content"
                     android:textColor="@color/ARAlphabet"
                     android:fontFamily="sans-serif-condensed-light"
-                    android:text="魅力金三角商圈" />
+                    android:text="角板山形象商圈" />
 
             </LinearLayout>
 
@@ -105,28 +128,35 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     style="@style/txt_direction"
-                    android:text="1.點選「魅力金三角_忠貞八大碗美食饗宴」進入遊戲畫面。" />
+                    android:text="1.點選「角板山形象商圈_吉祥物家族初登場」進入遊戲畫面。" />
 
                 <TextView
                     android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
-                    android:text="2.依據八大碗美食地圖及照片的提示，尋找商圈內對應的特色店家，掃描指定地點，就會出現該店家推薦的特色菜餚，並可收集一個大碗勳章。" />
+                    android:text="2.依據活動地圖及照片的提示，尋找商圈內對應的景點，掃描指定地點，就可以找到吉祥物。" />
 
                 <TextView
                     android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
-                    android:text="3.收集到4個大碗勳章(含以上)就可以獲得一份禮品兌換券（每個帳號限領一份）。\n兌獎方式：到指定地點「黑山銀花」憑優惠券兌換禮品。" />
+                    android:text="3.找到任意４個吉祥物(含以上)就可以獲得一份禮品兌換券（每個帳號限領一份）。" />
 
                 <TextView
                     android:layout_marginTop="@dimen/dp_5"
                     style="@style/txt_direction"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
-                    android:text="兌換地點：黑山銀花 (桃園市平鎮區中山路46號，忠貞新村文創園區內，由中山路44-1號巷子進入，在飲聖食堂斜對面）" />
+                    android:text="到以下指定地點憑優惠券兌換禮品" />
+
+                <TextView
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:layout_marginTop="@dimen/dp_5"
+                    style="@style/txt_direction"
+                    android:text="1. 協隆山產行\n地址：復興區三民里1鄰12號(台七線16K)\n兌換時間：08:00~18:00\n2. 101山產行\n地址：復興區中正路101號\n兌換時間：13:00~17:00" />
 
                 <Button
                     android:id="@+id/bdBack"

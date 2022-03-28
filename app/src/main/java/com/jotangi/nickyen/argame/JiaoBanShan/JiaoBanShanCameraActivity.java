@@ -202,7 +202,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                                 TextView txtContent = dialog.findViewById(R.id.tv_content);
                                 Button btnBack = dialog.findViewById(R.id.btn_close);
                                 txtTitle.setText("再接再厲");
-                                txtContent.setText("唉呀，\n沒有捕捉到景點畫面...\n可能要再靠近一些喔！");
+                                txtContent.setText("唉呀，\n沒有成功...\n可能要再靠近一些喔！");
 
                                 btnBack.setOnClickListener(new View.OnClickListener() {
                                     @Override

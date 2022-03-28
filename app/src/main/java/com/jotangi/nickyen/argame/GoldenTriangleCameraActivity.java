@@ -374,7 +374,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                                 TextView txtContent = dialog.findViewById(R.id.tv_content);
                                 Button btnBack = dialog.findViewById(R.id.btn_close);
                                 txtTitle.setText("再接再厲");
-                                txtContent.setText("唉呀，\n沒有捕捉到景點畫面...\n可能要再靠近一些喔！");
+                                txtContent.setText("唉呀，\n沒有成功...\n可能要再靠近一些喔！");
 
                                 btnBack.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -561,7 +561,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                 dialog.show();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
                 TextView txtContent = dialog.findViewById(R.id.tv_content);
-                txtContent.setText("已經收集4個大碗勳章\n並獲得一份禮品兌換券\n(請至美食地圖右上角\n\"優惠券\"頁面查看內容)");
+                txtContent.setText("已經收集4個大碗勳章\n並獲得一份禮品兌換券\n(請至活動地圖右上角\n\"優惠券\"頁面查看內容)");
                 Button btnBack = dialog.findViewById(R.id.btn_close);
                 btnBack.setText("查看優惠券");
 

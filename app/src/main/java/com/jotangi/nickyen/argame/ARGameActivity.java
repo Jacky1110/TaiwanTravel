@@ -29,11 +29,11 @@ public class ARGameActivity extends AppCompatActivity implements View.OnClickLis
         btnBack.setOnClickListener(this);
         layout1 = findViewById(R.id.layout1);
         layout2 = findViewById(R.id.layout2);
-        layout3 = findViewById(R.id.layout3);
+//        layout3 = findViewById(R.id.layout3);
         layout4 = findViewById(R.id.layout4);
         layout1.setOnClickListener(this);
         layout2.setOnClickListener(this);
-        layout3.setOnClickListener(this);
+//        layout3.setOnClickListener(this);
         layout4.setOnClickListener(this);
 
     }
@@ -54,10 +54,10 @@ public class ARGameActivity extends AppCompatActivity implements View.OnClickLis
 //                startActivity(new Intent(this, GoldenTriangleActivity.class)); //舊版的
 //                Toast.makeText(this,"活動即將於9/18開始，敬請期待",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.layout3:
-                startActivity(new Intent(this,GuiHuaActivity.class));
+//            case R.id.layout3:
+//                startActivity(new Intent(this,GuiHuaActivity.class));
 //                Toast.makeText(this,"活動將於近期開始，敬請期待！",Toast.LENGTH_SHORT).show();
-                break;
+//                break;
             case R.id.layout4:
                 startActivity(new Intent(this, JiaoBanShanActivity.class));
 //                Toast.makeText(this,"活動將於近期開始，敬請期待！",Toast.LENGTH_SHORT).show();

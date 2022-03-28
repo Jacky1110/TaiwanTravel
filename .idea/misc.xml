@@ -18,23 +18,27 @@
         <entry key="app/src/main/res/drawable/bg_ar_radius_gray.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_ar_store.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_ar_store_gray.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/ic_ar_game.xml" value="0.1605" />
         <entry key="app/src/main/res/drawable/ic_close.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/ic_no_number_bowl.xml" value="0.163" />
         <entry key="app/src/main/res/layout/activity_ar_camera.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_ar_find.xml" value="0.23802083333333332" />
-        <entry key="app/src/main/res/layout/activity_ar_game.xml" value="0.23802083333333332" />
-        <entry key="app/src/main/res/layout/activity_golden_triangle.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_ar_game.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_golden_triangle.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_jiao_ban_mountain.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_jiao_ban_shan.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_shop_new.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/dialog_ar_collection.xml" value="0.15416666666666667" />
-        <entry key="app/src/main/res/layout/dialog_ar_coupon.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/dialog_ar_coupon.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/dialog_ar_jiao_activity.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/dialog_ar_jiao_ban_shan.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/dialog_ar_quintuple_stimulus_vouchers.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_ar_success.xml" value="0.2346014492753623" />
         <entry key="app/src/main/res/layout/dialog_ar_triangle.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/dialog_confirm_succee_layout.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/dialog_coupon.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/dialog_gold_recipe.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/dialog_jiao_activity.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/fragment_all.xml" value="0.2346014492753623" />
         <entry key="app/src/main/res/layout/fragment_bowldirection.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_check_designer.xml" value="0.23802083333333332" />

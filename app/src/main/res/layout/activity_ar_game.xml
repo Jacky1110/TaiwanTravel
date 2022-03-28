@@ -44,11 +44,10 @@
             android:id="@+id/layout1"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginTop="50dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/bg_ar_block"
             app:layout_constraintEnd_toStartOf="@id/horizontalLine"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/verticalLine">
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -66,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textAlignment="center"
-                android:text="北埔商圈\n老街古巷捉迷藏"
+                android:text="北埔商圈\n睡虎帶路藏美食"
                 android:textColor="@color/ARAlphabet"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +79,6 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginStart="20dp"
-            android:layout_marginRight="40dp"
             android:background="@drawable/bg_ar_block"
             app:layout_constraintStart_toEndOf="@id/horizontalLine"
             app:layout_constraintTop_toBottomOf="@id/verticalLine">
@@ -110,48 +108,48 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout3"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/bg_ar_block"
-            app:layout_constraintEnd_toStartOf="@id/horizontalLine"
-            app:layout_constraintTop_toBottomOf="@id/verticalLine">
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/layout3"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:background="@drawable/bg_ar_block"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/horizontalLine"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/verticalLine">-->
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/ic_ar_freesia"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView3"-->
+<!--                android:layout_width="70dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:src="@drawable/ic_ar_freesia"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="南庄桂花巷商圈\n老街巡禮"
-                android:textAlignment="center"
-                android:textColor="@color/ARAlphabet"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+<!--            <TextView-->
+<!--                android:id="@+id/textView6"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:text="南庄桂花巷商圈\n老街巡禮"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/ARAlphabet"-->
+<!--                android:textSize="14sp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/imageView3" />-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout2"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/bg_ar_block"
-            app:layout_constraintStart_toEndOf="@id/horizontalLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView

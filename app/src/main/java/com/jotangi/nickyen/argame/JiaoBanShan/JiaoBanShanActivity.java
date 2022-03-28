@@ -299,7 +299,7 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
     private void showDialog() {
         runOnUiThread(() -> {
             Dialog dialog = new Dialog(this);
-            dialog.setContentView(R.layout.fragment_bowldirection);
+            dialog.setContentView(R.layout.dialog_jiao_activity);
             dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
             dialog.show();
             dialog.setCanceledOnTouchOutside(false);
