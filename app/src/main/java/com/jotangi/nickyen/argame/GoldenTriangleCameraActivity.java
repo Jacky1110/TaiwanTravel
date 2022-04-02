@@ -51,7 +51,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
 
     private boolean b, b2, b3, b4, b5, b6;
-    private boolean bowl1, bowl2, bowl3, bowl4, bowl5, bowl6, bowl7, bowl8, bowl9, bowl10, bowl11, bowl12;
+    boolean bowl1, bowl2, bowl3, bowl4, bowl5, bowl6, bowl7, bowl8, bowl9, bowl10, bowl11, bowl12, isGift;
     int count = 0;
 
     private StoreBean storeBean;
@@ -96,6 +96,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
         bowl10 = sharedPreferences.getBoolean("isStatus10", false);
         bowl11 = sharedPreferences.getBoolean("isStatus11", false);
         bowl12 = sharedPreferences.getBoolean("isStatus12", false);
+        isGift = sharedPreferences.getBoolean("isGift", false);
 
         //=============這是目前位置的經緯度 計算結果跟公式在最下方(也有API可以CALL)========================
 
@@ -108,8 +109,8 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
             lat = storeBean.getAr_latitude();
             lon = storeBean.getAr_longitude();
         }
-        if(storeBean.getAid()!=null){
-            aid=storeBean.getAid();
+        if (storeBean.getAid() != null) {
+            aid = storeBean.getAid();
         }
 
         ARSurfaceView = findViewById(R.id.ARSurfaceView);
@@ -162,7 +163,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
 //                count += 1;
 //                b6 = false;
 //            } else
-                if (bowl1) {
+            if (bowl1) {
                 count += 1;
                 bowl1 = false;
             } else if (bowl2) {
@@ -199,10 +200,8 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                 count += 1;
                 bowl12 = false;
             }
-            Log.d("豪豪", "計次: " + count+ sharedPreferences.getBoolean("isStatus5", false));
 
         }
-
 
         ARCamera = new CameraSource.Builder(this, barcodeDetector)
                 .setAutoFocusEnabled(true).setRequestedPreviewSize(720, 480).build();
@@ -552,7 +551,8 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
     }
 
     private void showDialog() {
-        if (count == 3) {
+        if (count >= 3 && !isGift) {
+            getCoupon();
             runOnUiThread(() -> {
                 Dialog dialog = new Dialog(this);
                 dialog.setContentView(R.layout.dialog_ar_success);
@@ -600,7 +600,8 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                 });
             });
 
-        } else if (count >3) {
+        } else if (count > 3 && isGift) {
+            getCoupon();
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -650,7 +651,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                     });
                 }
             });
-        }else if(count<3){
+        } else if (count < 3) {
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.dialog_ar_success);
             dialog.setCanceledOnTouchOutside(false);
@@ -699,6 +700,25 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
+    }
+
+    private void getCoupon() {
+        ApiConnection.getCoupon2("ARCOUPON3", new ApiConnection.OnConnectResultListener() {
+            @Override
+            public void onSuccess(String jsonString) {
+                sharedPreferences.edit()
+                        .putBoolean("isGift", true)
+                        .commit();
+            }
+
+            @Override
+            public void onFailure(String message) {
+                sharedPreferences.edit()
+                        .putBoolean("isGift", false)
+                        .commit();
+            }
+        });
+        ;
     }
 
     private void loadInfo(String s) {

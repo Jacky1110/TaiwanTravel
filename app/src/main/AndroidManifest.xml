@@ -31,16 +31,33 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_new_launcher_round"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".argame.BeiPuSleepingTiger.BeiPuSleepingCameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".argame.BeiPuSleepingTiger.BeiPuSleepingTigerNextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".argame.BeiPuSleepingTiger.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".argame.JiaoBanShan.QuintupleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".argame.BeiPuSleepingTiger.BeiPuSleepingTigerActivity"
+            android:exported="false" />
         <activity
             android:name=".argame.JiaoBanShan.JiaoBanShanCameraActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".argame.JiaoBanShan.JiaoBanShanActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".pointshop.renew.PointShopActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".pointshop.renew.PointShopActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".constellation.ConstellationQuizActivity"
             android:screenOrientation="portrait" />
@@ -115,11 +132,11 @@
         <activity
             android:name=".pointshop.renew.PointShopPayActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
 
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity

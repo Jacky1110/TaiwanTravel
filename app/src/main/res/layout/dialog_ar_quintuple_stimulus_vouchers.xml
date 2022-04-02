@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/guiHua">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -64,35 +63,34 @@
             android:layout_height="0dp"
             android:fillViewport="true"
             app:layout_constraintTop_toBottomOf="@id/layout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="match_parent"
                 android:padding="@dimen/dp_10">
-
-                <TextView
-                    android:id="@+id/text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_15"
-                    android:text="於111年4月30日前持『振興五倍劵』(含實體券及數位券)，至商圈特約店家，單筆消費300元，即可兌換角板山商圈吉祥物家族醫療口罩1個。（消費600元可兌換2個，以此類推，贈品數量有限，送完為止。）"
-                    android:textColor="@color/c_403f41_100"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/dp_20"
-                    android:orientation="vertical"
-                    android:paddingStart="@dimen/dp_20"
-                    android:paddingEnd="@dimen/dp_20"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text">
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:text="於111年4月30日前持『振興五倍劵』(含實體券及數位券)，至商圈特約店家，單筆消費300元，即可兌換角板山商圈吉祥物家族醫療口罩1個。（消費600元可兌換2個，以此類推，贈品數量有限，送完為止。）"
+                        android:textColor="@color/c_403f41_100"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@id/layout" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_10">
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -885,6 +883,8 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="5dp"
                         android:background="@color/lightGray" />
+
+                    </LinearLayout>
 
 
                 </LinearLayout>

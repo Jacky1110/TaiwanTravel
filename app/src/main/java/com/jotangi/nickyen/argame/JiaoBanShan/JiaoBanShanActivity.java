@@ -6,9 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -39,12 +37,13 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
 
     private FrameLayout btnBack;
     private ImageButton B1, B2, B3, B4, B5, B6, B7, B8;
-    private ImageView ivMenu;
+    private ImageView ivMenuFalse, ivMenuTrue;
     private ArrayList<StoreBean> storeList = new ArrayList<>();
     private SharedPreferences sharedPreferences;
-    private boolean position1, position2, position3, position4, position5, position6, position7, position8;
-    private LinearLayout linearlayout;
-    private TextView bt1, bt2;
+    private boolean position1, position2, position3, position4, position5, position6, position7, position8, isGift;
+    private TextView bt1, bt2, bt3;
+    LinearLayout linearlayout;
+    boolean isShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +67,12 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
         B7 = findViewById(R.id.B7);
         B8 = findViewById(R.id.B8);
 
-        ivMenu = findViewById(R.id.ivMenu);
-        linearlayout = findViewById(R.id.bowl_layout);
-        bt1 = findViewById(R.id.bowlT1);
-        bt2 = findViewById(R.id.bowlT2);
+        ivMenuFalse = findViewById(R.id.tvMenuFalse);
+        ivMenuTrue = findViewById(R.id.tvMenuTrue);
+        linearlayout = findViewById(R.id.menuLayout);
+        bt1 = findViewById(R.id.tvMenuActivity);
+        bt2 = findViewById(R.id.tvMenuCoupon);
+        bt3 = findViewById(R.id.bowlT3);
 
         btnBack.setOnClickListener(this);
 
@@ -85,27 +86,10 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
         B8.setOnClickListener(this);
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
+        bt3.setOnClickListener(this);
 
-        //TODO 要改寫法
-        ivMenu.setOnTouchListener((v, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                new CountDownTimer(6000, 1000) {
-                    @Override
-                    public void onTick(long l) {
-                        linearlayout.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onFinish() {
-                        linearlayout.setVisibility(View.INVISIBLE);
-                    }
-                }.start();
-            } else {
-                linearlayout.setVisibility(View.INVISIBLE);
-            }
-            return false;
-        });
-
+        ivMenuFalse.setOnClickListener(this);
+        ivMenuTrue.setOnClickListener(this);
 
         sharedPreferences = getSharedPreferences("jiao", MODE_PRIVATE);
 
@@ -117,11 +101,21 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
         position6 = sharedPreferences.getBoolean("isStatus6", false);
         position7 = sharedPreferences.getBoolean("isStatus7", false);
         position8 = sharedPreferences.getBoolean("isStatus8", false);
+        isGift = sharedPreferences.getBoolean("isGift", false);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tvMenuFalse:
+                isShow = true;
+                ivMenuTrue.setVisibility(View.VISIBLE);
+                ivMenuFalse.setVisibility(View.GONE);
+                isShowLayout();
+                break;
+            case R.id.tvMenuTrue:
+                closeLayout();
+                break;
             case R.id.btnARBack:
                 finish();
                 break;
@@ -149,12 +143,23 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
             case R.id.B8: // 福興宮 57
                 loadInfo("57");
                 break;
-            case R.id.bowlT1:
+            case R.id.tvMenuActivity:
                 showDialog();
                 break;
-            case R.id.bowlT2:
+            case R.id.tvMenuCoupon:
                 getMyCoupon();
                 break;
+            case R.id.bowlT3:
+                getDialog3();
+                break;
+        }
+    }
+
+    private void isShowLayout() {
+        if (isShow) {
+            linearlayout.setVisibility(View.VISIBLE);
+        } else {
+            linearlayout.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -181,7 +186,7 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onFailure(String message) {
                 runOnUiThread(() -> {
-                    AppUtility.showMyDialog(JiaoBanShanActivity.this, "請檢查連線", getString(R.string.text_confirm), null, new AppUtility.OnBtnClickListener() {
+                    AppUtility.showMyDialog(JiaoBanShanActivity.this, "您尚無優惠券", getString(R.string.text_confirm), null, new AppUtility.OnBtnClickListener() {
                         @Override
                         public void onCheck() {
 
@@ -227,37 +232,37 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
                             @Override
                             public void onClick(View v) {
 
-                                if (storeList.get(0).getAid().equals("50") && position1) // 復興區歷史文化館 50
+                                if (storeList.get(0).getAid().equals("50") && position1 && isGift) // 復興區歷史文化館 50
                                 {
                                     Toast.makeText(JiaoBanShanActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("51") && position2) // 復興區介壽國小 51
+                                if (storeList.get(0).getAid().equals("51") && position2 && isGift) // 復興區介壽國小 51
                                 {
                                     Toast.makeText(JiaoBanShanActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("52") && position3) { // 角板山行館 52
+                                if (storeList.get(0).getAid().equals("52") && position3 && isGift) { // 角板山行館 52
                                     Toast.makeText(JiaoBanShanActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("53") && position4) { // 角板山公園 53
+                                if (storeList.get(0).getAid().equals("53") && position4 && isGift) { // 角板山公園 53
                                     Toast.makeText(JiaoBanShanActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("54") && position5) { // 角板山時光隧道 54
+                                if (storeList.get(0).getAid().equals("54") && position5 && isGift) { // 角板山時光隧道 54
                                     Toast.makeText(JiaoBanShanActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("55") && position6) { // 復興青年活動中心 55
+                                if (storeList.get(0).getAid().equals("55") && position6 && isGift) { // 復興青年活動中心 55
                                     Toast.makeText(JiaoBanShanActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("56") && position7) { // 角板山天幕廣場 56
+                                if (storeList.get(0).getAid().equals("56") && position7 && isGift) { // 角板山天幕廣場 56
                                     Toast.makeText(JiaoBanShanActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                if (storeList.get(0).getAid().equals("57") && position8) { // 福興宮 57
+                                if (storeList.get(0).getAid().equals("57") && position8 && isGift) { // 福興宮 57
                                     Toast.makeText(JiaoBanShanActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
@@ -298,6 +303,7 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
 
     private void showDialog() {
         runOnUiThread(() -> {
+            closeLayout();
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.dialog_jiao_activity);
             dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
@@ -317,6 +323,7 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void showDialog2(MyARCoupon coupon) {
+        closeLayout();
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_ar_coupon);
         dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
@@ -387,5 +394,28 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
                         }
                     }));
         }
+    }
+
+    private void getDialog3() {
+        closeLayout();
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_ar_quintuple_stimulus_vouchers);
+        dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+        ImageView btnClose = dialog.findViewById(R.id.img_close);
+        btnClose.setOnClickListener(v -> {
+            if (dialog != null) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private void closeLayout() {
+        isShow = false;
+        isShowLayout();
+        ivMenuFalse.setVisibility(View.VISIBLE);
+        ivMenuTrue.setVisibility(View.GONE);
     }
 }

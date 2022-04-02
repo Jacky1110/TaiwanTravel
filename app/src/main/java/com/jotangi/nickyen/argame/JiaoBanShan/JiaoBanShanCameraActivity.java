@@ -50,7 +50,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
-    private boolean position1, position2, position3, position4, position5, position6, position7, position8;
+    private boolean position1, position2, position3, position4, position5, position6, position7, position8 , isGift;
     int count = 0;
 
     private StoreBean storeBean;
@@ -83,6 +83,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
         position6 = sharedPreferences.getBoolean("isStatus6", false);
         position7 = sharedPreferences.getBoolean("isStatus7", false);
         position8 = sharedPreferences.getBoolean("isStatus8", false);
+        isGift = sharedPreferences.getBoolean("isGift", false);
 
         //=============這是目前位置的經緯度 計算結果跟公式在最下方(也有API可以CALL)========================
 
@@ -190,7 +191,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Dialog dialog = new Dialog(JiaoBanShanCameraActivity.this);
-                            if (ans < 100000) {
+                            if (ans < 50) {
                                 loadInfo(aid);
                             } else {
                                 dialog.setContentView(R.layout.dialog_ar_collection);
@@ -281,7 +282,8 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
     }
 
     private void showDialog() {
-        if (count == 3) {
+        if (count >= 3 && !isGift) {
+            getCoupon();
             runOnUiThread(() -> {
                 Dialog dialog = new Dialog(this);
                 dialog.setContentView(R.layout.dialog_ar_success);
@@ -306,7 +308,8 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                 });
             });
 
-        } else if (count > 3) {
+        } else if (count > 3 && isGift) {
+            getCoupon();
             runOnUiThread(() -> {
                 Dialog dialog = new Dialog(this);
                 dialog.setContentView(R.layout.dialog_ar_success);
@@ -358,6 +361,25 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
             });
 
         }
+    }
+
+    private void getCoupon() {
+        ApiConnection.getCoupon2("ARCOUPON4", new ApiConnection.OnConnectResultListener() {
+            @Override
+            public void onSuccess(String jsonString) {
+                sharedPreferences.edit()
+                        .putBoolean("isGift", true)
+                        .commit();
+            }
+
+            @Override
+            public void onFailure(String message) {
+                sharedPreferences.edit()
+                        .putBoolean("isGift", false)
+                        .commit();
+            }
+        });
+        ;
     }
 
     private void loadInfo(String s) {

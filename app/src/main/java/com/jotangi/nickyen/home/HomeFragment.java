@@ -847,8 +847,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                 break;
             case R.id.iv_point_mall:
 //                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, new PointShopFragment(), null).addToBackStack(null).commit();
-                Intent pointShopIntent = new Intent(getActivity(), PointShopActivity.class);
-                startActivity(pointShopIntent);
+//                Intent pointShopIntent = new Intent(getActivity(), PointShopActivity.class);
+//                startActivity(pointShopIntent);
+                Toast.makeText(getActivity(), "建置中\n敬請期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_discount:
                 Intent myDiscountIntent = new Intent(getActivity(), MyDiscountNew2Activity.class);
@@ -869,8 +870,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                 startActivity(shop);
                 break;
             case R.id.iv_ar_game:
-                Intent arGame = new Intent(getActivity(), ARGameActivity.class);
-                startActivity(arGame);
+//                Intent arGame = new Intent(getActivity(), ARGameActivity.class);
+//                startActivity(arGame);
+                Toast.makeText(getActivity(), "活動即將開始\n敬請期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_questionnaire:
 //                QuestionnaireActivity.start(getActivity(),"1","波菲爾總店");

@@ -1540,14 +1540,14 @@ public class ApiConnection {
     }
 
     // 針對AR的核銷優惠券
-    public static void arStore(String qid, String aid, OnConnectResultListener onConnectResultListener) {
+    public static void arStore(String aid, OnConnectResultListener onConnectResultListener) {
         String url = ApiConstant.API_URL + ApiConstant.arStore;
 
         FormBody formBody = new FormBody
                 .Builder()
                 .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
                 .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
-                .add("qid", qid)
+                .add("qid", "")
                 .add("aid", aid)
                 .build();
         Request request = new Request.Builder()

@@ -25,30 +25,49 @@
                 app:layout_constraintStart_toStartOf="@id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/ivMenu"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="@dimen/dp_5"
-                android:background="@color/c_403f41_100"
-                android:elevation="1dp"
-                android:src="@drawable/ic_jiao_menu"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menuSection"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/tvMenuFalse"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp_5"
+                    android:background="@color/peterGray"
+                    android:elevation="1dp"
+                    android:src="@drawable/ic_jiao_menu" />
+
+                <ImageView
+                    android:id="@+id/tvMenuTrue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp_5"
+                    android:background="@color/peterGray"
+                    android:elevation="1dp"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_jiao_menu"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:elevation="1dp"
-                android:id="@+id/bowl_layout"
+                android:id="@+id/menuLayout"
                 android:layout_width="@dimen/dp_100"
                 android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/dp_10"
                 android:background="@color/white"
                 android:orientation="vertical"
                 android:visibility="invisible"
-                app:layout_constraintEnd_toStartOf="@+id/ivMenu"
-                app:layout_constraintTop_toTopOf="@id/ivMenu">
+                app:layout_constraintEnd_toStartOf="@+id/menuSection"
+                app:layout_constraintTop_toTopOf="@id/menuSection">
 
                 <TextView
-                    android:id="@+id/bowlT1"
+                    android:id="@+id/tvMenuActivity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -65,7 +84,7 @@
                     android:background="@color/black" />
 
                 <TextView
-                    android:id="@+id/bowlT2"
+                    android:id="@+id/tvMenuCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -73,6 +92,23 @@
                     android:paddingTop="@dimen/dp_5"
                     android:paddingBottom="@dimen/dp_5"
                     android:text="優惠券"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/bowlT3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:paddingTop="@dimen/dp_5"
+                    android:paddingBottom="@dimen/dp_5"
+                    android:text="五倍券優惠活動"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
 

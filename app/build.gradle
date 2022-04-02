@@ -15,7 +15,7 @@ android {
             keyAlias 'key0'
         }
         release {
-            storeFile file('../key/Untitled')
+            storeFile file('/Users/nickyen/TaiwanTravelShop/key/Untitled')
             storePassword '123456'
             keyPassword '123456'
             keyAlias 'key0'
@@ -28,8 +28,8 @@ android {
         applicationId "com.jotangi.nickyen"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 66
-        versionName "1.65"
+        versionCode 71
+        versionName "1.70"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

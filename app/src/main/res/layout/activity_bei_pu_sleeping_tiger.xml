@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ar_bei_pu_sleeping_tiger_bg"
+    tools:context=".argame.BeiPuSleepingTiger.BeiPuSleepingTigerActivity">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_142"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_ar_gnome"
+        app:layout_constraintBottom_toTopOf="@+id/guideline30"
+        app:layout_constraintEnd_toStartOf="@+id/textView22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_50"
+        android:text="睡虎帶路嚐美食"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline30"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline33"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="走走走...就讓睡虎帶路，\n嚐遍北埔好滋味"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline33"
+        app:layout_constraintTop_toBottomOf="@id/text" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menuSection"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_30"
+        android:background="@color/ar_bei_pu_sleeping_tiger_bg_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline67"
+        app:layout_constraintTop_toBottomOf="@+id/textView22">
+
+        <TextView
+            android:id="@+id/tvMenuFalse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_5"
+            android:text="選單"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMenuTrue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_5"
+            android:text="選單"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:elevation="1dp"
+        android:id="@+id/menuLayout"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/menuSection"
+        app:layout_constraintTop_toTopOf="@id/menuSection">
+
+        <TextView
+            android:id="@+id/tvMenuActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif-condensed-light"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            android:text="活動說明"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/tvMenuCoupon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif-condensed-light"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            android:text="優惠券"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLayoutPosition1"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/round_brown_line_white_solid"
+        app:layout_constraintBottom_toTopOf="@+id/guideline46"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline30">
+
+        <ImageView
+            android:id="@+id/imgBlackPosition1"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_sleeping_tiger01"
+            app:layout_constraintBottom_toBottomOf="@+id/textView1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgColorPosition1"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_color_sleeping_tiger01"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="柿餅"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLayoutPosition2"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/round_brown_line_white_solid"
+        app:layout_constraintBottom_toTopOf="@+id/guideline46"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline67"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline33"
+        app:layout_constraintTop_toTopOf="@+id/guideline30">
+
+        <ImageView
+            android:id="@+id/imgBlackPosition2"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_sleeping_tiger02"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgColorPosition2"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_color_sleeping_tiger02"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="膨風茶"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLayoutPosition3"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/round_brown_line_white_solid"
+        app:layout_constraintBottom_toTopOf="@+id/guideline46"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline67"
+        app:layout_constraintTop_toTopOf="@+id/guideline30">
+
+        <ImageView
+            android:id="@+id/imgBlackPosition3"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_sleeping_tiger03"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgColorPosition3"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_color_sleeping_tiger03"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="擂茶"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLayoutPosition4"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/round_brown_line_white_solid"
+        app:layout_constraintBottom_toTopOf="@+id/guideline64"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline46">
+
+        <ImageView
+            android:id="@+id/imgBlackPosition4"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_sleeping_tiger04"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgColorPosition4"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_color_sleeping_tiger04"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="客家美食"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLayoutPosition5"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/round_brown_line_white_solid"
+        app:layout_constraintBottom_toTopOf="@+id/guideline64"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline67"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline33"
+        app:layout_constraintTop_toTopOf="@+id/guideline46">
+
+        <ImageView
+            android:id="@+id/imgBlackPosition5"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_sleeping_tiger05"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgColorPosition5"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_color_sleeping_tiger01"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="北埔睡虎"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLayoutPosition6"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/round_brown_line_white_solid"
+        app:layout_constraintBottom_toTopOf="@+id/guideline64"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline67"
+        app:layout_constraintTop_toTopOf="@+id/guideline46">
+
+        <ImageView
+            android:id="@+id/imgBlackPosition6"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_sleeping_tiger06"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgColorPosition6"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_color_sleeping_tiger06"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="客家糕餅"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLayoutPosition8"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/round_brown_line_white_solid"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline80"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline64">
+
+        <ImageView
+            android:id="@+id/imgBlackPosition8"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_sleeping_tiger08"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgColorPosition8"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_color_sleeping_tiger08"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="鹹豬肉"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLayoutPosition7"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/round_brown_line_white_solid"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline80"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline67"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline33"
+        app:layout_constraintTop_toTopOf="@+id/guideline64">
+
+        <ImageView
+            android:id="@+id/imgBlackPosition7"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_sleeping_tiger07"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgColorPosition7"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_color_sleeping_tiger07"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="客家米食"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLayoutPosition9"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/round_brown_line_white_solid"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline80"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline67"
+        app:layout_constraintTop_toTopOf="@+id/guideline64">
+
+        <ImageView
+            android:id="@+id/imgBlackPosition9"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_sleeping_tiger09"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgColorPosition9"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_color_sleeping_tiger09"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="胡椒鴨"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_brown_line_white_solid"
+        android:text="返回"
+        android:textColor="@color/ar_bei_pu_sleeping_tiger_bg"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalGuideline33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalGuideline67"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".46" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".64" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalGuideline80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -381,16 +381,32 @@
 
     </ScrollView>
 
-    <ImageButton
-        android:id="@+id/Buser"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menuSection"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginTop="32dp"
-        android:backgroundTint="@color/zxing_transparent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_gold_user"
+        android:layout_marginEnd="@dimen/dp_10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/tvMenuFalse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="1dp"
+            android:src="@drawable/ic_gold_user" />
+
+        <ImageView
+            android:id="@+id/tvMenuTrue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="1dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_gold_user"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ImageButton
         android:layout_width="0dp"
@@ -400,22 +416,23 @@
         android:backgroundTint="@color/zxing_transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_gold_title"
-        app:layout_constraintEnd_toStartOf="@+id/Buser"
+        app:layout_constraintEnd_toStartOf="@id/menuSection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/bowl_layout"
+        android:id="@+id/menuLayout"
         android:layout_width="@dimen/dp_100"
         android:layout_height="0dp"
         android:background="@color/white"
         android:orientation="vertical"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/Buser"
-        app:layout_constraintTop_toTopOf="@id/Buser">
+        android:layout_marginEnd="@dimen/dp_10"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/menuSection"
+        app:layout_constraintTop_toTopOf="@id/menuSection">
 
         <TextView
-            android:id="@+id/bowlT1"
+            android:id="@+id/tvMenuActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -432,7 +449,7 @@
             android:background="@color/black" />
 
         <TextView
-            android:id="@+id/bowlT2"
+            android:id="@+id/tvMenuCoupon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

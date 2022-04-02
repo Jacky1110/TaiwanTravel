@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.jotangi.nickyen.R;
+import com.jotangi.nickyen.argame.BeiPuSleepingTiger.BeiPuSleepingTigerActivity;
 import com.jotangi.nickyen.argame.JiaoBanShan.JiaoBanShanActivity;
 
 public class ARGameActivity extends AppCompatActivity implements View.OnClickListener
@@ -46,12 +47,11 @@ public class ARGameActivity extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
             case R.id.layout1:
-                startActivity(new Intent(this, ARStoreActivity.class));
+                startActivity(new Intent(this, BeiPuSleepingTigerActivity.class));
 //                Toast.makeText(this,"活動即將於9/18開始，敬請期待",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.layout2:
-                startActivity(new Intent(this, GoldenTriangleActivity.class)); //舊版的
-//                startActivity(new Intent(this, GoldenTriangleActivity.class)); //舊版的
+                startActivity(new Intent(this, GoldenTriangleActivity.class));
 //                Toast.makeText(this,"活動即將於9/18開始，敬請期待",Toast.LENGTH_SHORT).show();
                 break;
 //            case R.id.layout3:

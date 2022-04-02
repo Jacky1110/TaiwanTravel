@@ -8,9 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -29,7 +27,6 @@ import com.jotangi.nickyen.api.ApiConnection;
 import com.jotangi.nickyen.api.ApiConstant;
 import com.jotangi.nickyen.argame.model.MyARCoupon;
 import com.jotangi.nickyen.argame.model.StoreBean;
-import com.jotangi.nickyen.cost.CostTravelActivity;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 
@@ -39,13 +36,15 @@ import java.util.ArrayList;
 public class GoldenTriangleActivity extends AppCompatActivity implements View.OnClickListener {
     private FrameLayout btnBack;
     //    private ImageView btnImg1, btnImg2, btnImg3, btnImg4, btnImg5, btnImg6;
-    private ImageButton B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, Buser;
+    private ImageButton B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12;
+    private ImageView ivMenuFalse, ivMenuTrue;
     private ArrayList<StoreBean> storeList = new ArrayList<>();
     private SharedPreferences sharedPreferences;
     private boolean b, b2, b3, b4, b5, b6;
     private boolean bowl1, bowl2, bowl3, bowl4, bowl5, bowl6, bowl7, bowl8, bowl9, bowl10, bowl11, bowl12;
     private LinearLayout linearlayout;
     private TextView bt1, bt2;
+    boolean isShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +76,12 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
         B10 = findViewById(R.id.B10);
         B11 = findViewById(R.id.B11);
         B12 = findViewById(R.id.B12);
-        Buser = findViewById(R.id.Buser);
-        linearlayout = findViewById(R.id.bowl_layout);
-        bt1 = findViewById(R.id.bowlT1);
-        bt2 = findViewById(R.id.bowlT2);
+
+        ivMenuFalse = findViewById(R.id.tvMenuFalse);
+        ivMenuTrue = findViewById(R.id.tvMenuTrue);
+        linearlayout = findViewById(R.id.menuLayout);
+        bt1 = findViewById(R.id.tvMenuActivity);
+        bt2 = findViewById(R.id.tvMenuCoupon);
 
         btnBack.setOnClickListener(this);
 //        btnImg1.setOnClickListener(this);
@@ -104,25 +105,9 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
         B12.setOnClickListener(this);
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
-        Buser.setOnTouchListener((v, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                new CountDownTimer(6000, 1000) {
-                    @Override
-                    public void onTick(long l) {
-                        linearlayout.setVisibility(View.VISIBLE);
-                    }
 
-                    @Override
-                    public void onFinish() {
-                        linearlayout.setVisibility(View.INVISIBLE);
-                    }
-                }.start();
-            } else {
-                linearlayout.setVisibility(View.INVISIBLE);
-            }
-            return false;
-        });
-
+        ivMenuFalse.setOnClickListener(this);
+        ivMenuTrue.setOnClickListener(this);
 
         sharedPreferences = getSharedPreferences("triangle", MODE_PRIVATE);
 //        b = sharedPreferences.getBoolean("isStatus1", false);
@@ -150,6 +135,15 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tvMenuFalse:
+                isShow = true;
+                ivMenuTrue.setVisibility(View.VISIBLE);
+                ivMenuFalse.setVisibility(View.GONE);
+                isShowLayout();
+                break;
+            case R.id.tvMenuTrue:
+                closeLayout();
+                break;
             /*aid range 38 to 49*/
             case R.id.btnARBack:
                 finish();
@@ -190,10 +184,10 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
             case R.id.B12://嘴角沾糖的女人
                 loadInfo("49");
                 break;
-            case R.id.bowlT1:
+            case R.id.tvMenuActivity:
                 showDialog();
                 break;
-            case R.id.bowlT2:
+            case R.id.tvMenuCoupon:
                 getMyCoupon();
                 break;
 //            case R.id.btnImg1: //清真寺
@@ -215,6 +209,21 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
 //                loadInfo("12");
 //                break;
         }
+    }
+
+    private void isShowLayout() {
+        if (isShow) {
+            linearlayout.setVisibility(View.VISIBLE);
+        } else {
+            linearlayout.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void closeLayout() {
+        isShow = false;
+        isShowLayout();
+        ivMenuFalse.setVisibility(View.VISIBLE);
+        ivMenuTrue.setVisibility(View.GONE);
     }
 
     private void getMyCoupon() {
@@ -241,7 +250,7 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
             @Override
             public void onFailure(String message) {
                 runOnUiThread(() -> {
-                    AppUtility.showMyDialog(GoldenTriangleActivity.this, "請檢查連線", getString(R.string.text_confirm), null, new AppUtility.OnBtnClickListener() {
+                    AppUtility.showMyDialog(GoldenTriangleActivity.this, "您尚無有優惠券", getString(R.string.text_confirm), null, new AppUtility.OnBtnClickListener() {
                         @Override
                         public void onCheck() {
 
@@ -254,12 +263,6 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
                     });
                 });
             }
-        });
-    }
-
-    private void UserDialog() {
-        runOnUiThread(() -> {
-
         });
     }
 
@@ -411,6 +414,7 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
 
     private void showDialog() {
         runOnUiThread(() -> {
+            closeLayout();
             Dialog dialog = new Dialog(GoldenTriangleActivity.this);
             dialog.setContentView(R.layout.fragment_bowldirection);
             dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
@@ -433,6 +437,7 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
     }
 
     private void showDialog2(MyARCoupon coupon) {
+        closeLayout();
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_ar_coupon);
         dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
