@@ -250,11 +250,12 @@
                 android:id="@+id/B2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginBottom="8dp"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-                app:layout_constraintBottom_toTopOf="@+id/horizontalLine"
-                app:layout_constraintStart_toStartOf="@+id/verticalLine"
+                app:layout_constraintEnd_toStartOf="@+id/verticalLine"
+               app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/dp_30"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:srcCompat="@drawable/ic_gold_bowl2" />
 
             <ImageButton
@@ -272,11 +273,12 @@
                 android:id="@+id/B4"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginTop="@dimen/dp_15"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-                app:layout_constraintEnd_toEndOf="@+id/B2"
+                android:layout_marginEnd="@dimen/dp_10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/horizontalLine"
                 app:srcCompat="@drawable/ic_gold_bowl4" />
 
@@ -286,21 +288,21 @@
                 android:layout_height="40dp"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-                app:layout_constraintEnd_toStartOf="@+id/B4"
-                app:layout_constraintStart_toStartOf="@+id/B4"
-                app:layout_constraintTop_toBottomOf="@+id/B4"
+                android:layout_marginStart="@dimen/dp_10"
+                app:layout_constraintStart_toEndOf="@id/verticalLine"
+                app:layout_constraintTop_toBottomOf="@id/horizontalLine"
                 app:srcCompat="@drawable/ic_gold_bowl5" />
 
             <ImageButton
                 android:id="@+id/B6"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="@dimen/dp_30"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
                 app:layout_constraintEnd_toStartOf="@+id/verticalLine"
-                app:layout_constraintStart_toStartOf="@+id/B5"
-                app:layout_constraintTop_toBottomOf="@+id/B5"
+                app:layout_constraintTop_toTopOf="@id/horizontalLine"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:srcCompat="@drawable/ic_gold_bowl6" />
 
             <ImageButton
@@ -355,7 +357,7 @@
                 android:id="@+id/B11"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="65dp"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="@+id/B6"

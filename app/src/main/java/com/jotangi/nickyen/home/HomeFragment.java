@@ -870,9 +870,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                 startActivity(shop);
                 break;
             case R.id.iv_ar_game:
-//                Intent arGame = new Intent(getActivity(), ARGameActivity.class);
-//                startActivity(arGame);
-                Toast.makeText(getActivity(), "活動即將開始\n敬請期待", Toast.LENGTH_SHORT).show();
+                Intent arGame = new Intent(getActivity(), ARGameActivity.class);
+                startActivity(arGame);
+//                Toast.makeText(getActivity(), "活動即將開始\n敬請期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_questionnaire:
 //                QuestionnaireActivity.start(getActivity(),"1","波菲爾總店");

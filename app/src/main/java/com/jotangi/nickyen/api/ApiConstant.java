@@ -4,14 +4,14 @@ public class ApiConstant
 {
 
     // test url
-//    public static final String API_URL = "http://211.20.185.2/tours/api/";
-//    public static final String API_IMAGE = "http://211.20.185.2/tours/";
+    public static final String API_URL = "http://211.20.185.2/tours/api/";
+    public static final String API_IMAGE = "http://211.20.185.2/tours/";
     // Mall test
     public static final String API_MALL_URL ="https://tripspottest.jotangi.net/tours/api/";
     public static final String API_MALL_IMAGE ="https://tripspottest.jotangi.net/tours/";
     // formal url
-    public static final String API_URL = "https://tripspot.jotangi.net/api/";
-    public static final String API_IMAGE = "https://tripspot.jotangi.net/";
+//    public static final String API_URL = "https://tripspot.jotangi.net/api/";
+//    public static final String API_IMAGE = "https://tripspot.jotangi.net/";
 
     /**
      * 首頁相關

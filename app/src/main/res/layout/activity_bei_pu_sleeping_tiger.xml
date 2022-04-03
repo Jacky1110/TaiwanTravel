@@ -8,6 +8,21 @@
     tools:context=".argame.BeiPuSleepingTiger.BeiPuSleepingTigerActivity">
 
     <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_300"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/bg_sleeping_tiger_activity01"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_300"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/bg_sleeping_tiger_activity02"/>
+
+    <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_142"

@@ -71,6 +71,23 @@ public class BeiPuSleepingTigerActivity extends AppCompatActivity implements Vie
                 myARCouponArrayList = new Gson().fromJson(jsonString, type);
                 if (null != myARCouponArrayList && !myARCouponArrayList.isEmpty()) {
                     myARCouponArrayList.forEach(coupon -> {
+                        if ("ARCOUPON3".equals(coupon.getCoupon_id())){
+                            sharedPreferences = getSharedPreferences("triangle", MODE_PRIVATE);
+                            sharedPreferences.edit()
+                                    .putBoolean("isGift", true)
+                                    .commit();
+                        }else if ("ARCOUPON4".equals(coupon.getCoupon_id())){
+                            sharedPreferences = getSharedPreferences("jiao", MODE_PRIVATE);
+                            sharedPreferences.edit()
+                                    .putBoolean("isGift", true)
+                                    .commit();
+
+                        }else if("ARCOUPON5".equals(coupon.getCoupon_id())){
+                            sharedPreferences = getSharedPreferences("sleepingTiger", MODE_PRIVATE);
+                            sharedPreferences.edit()
+                                    .putBoolean("isGift", true)
+                                    .commit();
+                        }
                         if ("ARCOUPON5".equals(coupon.getCoupon_id())) {
                             runOnUiThread(() -> {
                                 showCouponDialog(coupon);
@@ -292,10 +309,10 @@ public class BeiPuSleepingTigerActivity extends AppCompatActivity implements Vie
                 loadInfo("63"); // 客家糕餅 aid 63
                 break;
             case R.id.cLayoutPosition7:
-                loadInfo("65"); // 鹹豬肉 aid 65
+                loadInfo("64"); // 客家美食 aid 64
                 break;
             case R.id.cLayoutPosition8:
-                loadInfo("64"); // 客家美食 aid 64
+                loadInfo("65"); // 鹹豬肉 aid 65
                 break;
             case R.id.cLayoutPosition9:
                 loadInfo("66"); // 胡椒鴨 aid 66

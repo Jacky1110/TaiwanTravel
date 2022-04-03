@@ -166,7 +166,7 @@ public class ResultActivity extends AppCompatActivity {
 
 
         if (count < 3) {
-            binding.tvContent.setText("找到了！\n\n找到任意3之隱藏小睡虎，\n就可以獲得1份禮品兌換券哦！\n(每個帳號限領一次)");
+            binding.tvContent.setText("找到了！\n\n找到任意3隻隱藏小睡虎，\n就可以獲得1份禮品兌換券哦！\n(每個帳號限領一次)");
             binding.tvBtn.setText("返回");
             binding.btnLayout.setOnClickListener(view -> {
                 startActivity(mapIntent);
@@ -180,7 +180,7 @@ public class ResultActivity extends AppCompatActivity {
                 finish();
             });
         }
-        if (count > 3 && isGift) {
+        if (count >= 3 && isGift) {
             binding.tvContent.setText("找到了！\n\n你已領過禮品兌換券\n(請至活動頁面右上角\n\"優惠券\"查看內容)\n(每個帳號限領一次)");
             binding.tvBtn.setText("返回");
             binding.btnLayout.setOnClickListener(view -> {

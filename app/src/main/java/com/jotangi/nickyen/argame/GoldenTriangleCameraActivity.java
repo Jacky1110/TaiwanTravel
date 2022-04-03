@@ -600,7 +600,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                 });
             });
 
-        } else if (count > 3 && isGift) {
+        } else if (count >= 3 && isGift) {
             getCoupon();
             runOnUiThread(new Runnable() {
                 @Override
@@ -645,6 +645,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
 //                                                        });
                                 countNumber();
                                 dialog.dismiss();
+                                startActivity(new Intent(GoldenTriangleCameraActivity.this, GoldenTriangleActivity.class));
                                 finish();
                             }
                         }
@@ -671,6 +672,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                     if (dialog != null) {
                         countNumber();
                         dialog.dismiss();
+                        startActivity(new Intent(GoldenTriangleCameraActivity.this, GoldenTriangleActivity.class));
                         finish();
                     }
                 }

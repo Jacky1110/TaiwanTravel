@@ -174,6 +174,23 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
                 myARCouponArrayList = new Gson().fromJson(jsonString, type);
                 if (null != myARCouponArrayList && !myARCouponArrayList.isEmpty()) {
                     myARCouponArrayList.forEach(coupon -> {
+                        if ("ARCOUPON3".equals(coupon.getCoupon_id())){
+                            sharedPreferences = getSharedPreferences("triangle", MODE_PRIVATE);
+                            sharedPreferences.edit()
+                                    .putBoolean("isGift", true)
+                                    .commit();
+                        }else if ("ARCOUPON4".equals(coupon.getCoupon_id())){
+                            sharedPreferences = getSharedPreferences("jiao", MODE_PRIVATE);
+                            sharedPreferences.edit()
+                                    .putBoolean("isGift", true)
+                                    .commit();
+
+                        }else if("ARCOUPON5".equals(coupon.getCoupon_id())){
+                            sharedPreferences = getSharedPreferences("sleepingTiger", MODE_PRIVATE);
+                            sharedPreferences.edit()
+                                    .putBoolean("isGift", true)
+                                    .commit();
+                        }
                         if ("ARCOUPON4".equals(coupon.getCoupon_id())) {
                             runOnUiThread(() -> {
                                 showDialog2(coupon);

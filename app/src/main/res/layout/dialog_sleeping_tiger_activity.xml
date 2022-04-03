@@ -82,7 +82,7 @@
                         android:layout_width="wrap_content"
                         android:textColor="@color/ARAlphabet"
                         android:fontFamily="sans-serif-condensed-light"
-                        android:text="111年04月01日~05月1日" />
+                        android:text="111/4/月8~05/1" />
 
                 </LinearLayout>
 
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="@dimen/dp_5">
+                android:layout_marginTop="@dimen/dp_10">
 
                 <TextView
                     android:textStyle="bold"
@@ -111,44 +111,84 @@
 
                 <TextView
                     android:textStyle="bold"
-                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_10"
                     style="@style/txt_direction"
                     android:text="遊戲方式" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     style="@style/txt_direction"
                     android:text="1.點選「北埔商圈_睡虎帶路嚐美食」進入遊戲主畫面。" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_10"
                     style="@style/txt_direction"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:text="2.在遊戲主畫面點選睡虎，依據提示到任意店家尋找睡虎招牌，並掃描招牌上的隱藏小睡虎。" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_10"
                     style="@style/txt_direction"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:text="3. 找到3隻不同美食(含以上)的隱藏小睡虎，就可以獲得一份禮品兌換券。" />
 
-                <TextView
-                    android:layout_marginTop="@dimen/dp_5"
-                    style="@style/txt_direction"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:text="兌獎方式：到指定地點憑優惠券兌換禮品。" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dp_10">
 
-                <TextView
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:layout_marginTop="@dimen/dp_5"
-                    style="@style/txt_direction"
-                    android:text="兌獎地點：姜太公柿餅 (北埔鄉廟前街24號)" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/ARAlphabet"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:text=" 兌獎方式：" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/ARAlphabet"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:text="                        到指定地點憑優惠券兌換禮品。" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dp_10">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/ARAlphabet"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:text=" 兌獎地點：" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/ARAlphabet"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:text="                        姜太公柿餅 (北埔鄉廟前街24號)" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <Button
                     android:id="@+id/bdBack"

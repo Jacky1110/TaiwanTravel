@@ -34,6 +34,8 @@ import com.jotangi.nickyen.MainActivity;
 import com.jotangi.nickyen.R;
 import com.jotangi.nickyen.api.ApiConnection;
 import com.jotangi.nickyen.api.ApiConstant;
+import com.jotangi.nickyen.argame.GoldenTriangleActivity;
+import com.jotangi.nickyen.argame.GoldenTriangleCameraActivity;
 import com.jotangi.nickyen.argame.model.StoreBean;
 import com.squareup.picasso.Picasso;
 
@@ -308,7 +310,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                 });
             });
 
-        } else if (count > 3 && isGift) {
+        } else if (count >= 3 && isGift) {
             getCoupon();
             runOnUiThread(() -> {
                 Dialog dialog = new Dialog(this);
@@ -330,6 +332,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                         if (dialog != null) {
                             countNumber();
                             dialog.dismiss();
+                            startActivity(new Intent(JiaoBanShanCameraActivity.this, JiaoBanShanActivity.class));
                             finish();
                         }
                     }
@@ -355,6 +358,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                     if (dialog != null) {
                         countNumber();
                         dialog.dismiss();
+                        startActivity(new Intent(JiaoBanShanCameraActivity.this, JiaoBanShanActivity.class));
                         finish();
                     }
                 }

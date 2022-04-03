@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textAlignment="center"
-                android:text="北埔商圈\n睡虎帶路藏美食"
+                android:text="北埔商圈\n睡虎帶路嚐美食"
                 android:textColor="@color/ARAlphabet"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
