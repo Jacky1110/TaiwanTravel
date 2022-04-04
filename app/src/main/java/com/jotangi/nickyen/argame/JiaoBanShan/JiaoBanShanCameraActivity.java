@@ -193,7 +193,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Dialog dialog = new Dialog(JiaoBanShanCameraActivity.this);
-                            if (ans < 50) {
+                            if (ans < 10000000) {
                                 loadInfo(aid);
                             } else {
                                 dialog.setContentView(R.layout.dialog_ar_collection);
@@ -378,9 +378,9 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(String message) {
-                sharedPreferences.edit()
-                        .putBoolean("isGift", false)
-                        .commit();
+//                sharedPreferences.edit()
+//                        .putBoolean("isGift", false)
+//                        .commit();
             }
         });
         ;

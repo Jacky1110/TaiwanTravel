@@ -3,18 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_40"
+    android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/dp_15"
     android:layout_marginEnd="@dimen/dp_15"
+    android:background="@color/white"
     android:elevation="1dp"
-    android:background="@color/white">
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="@dimen/dp_60"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginStart="@dimen/dp_15"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,8 +26,8 @@
         android:id="@+id/tv_address"
         android:layout_width="@dimen/dp_180"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginStart="@dimen/dp_15"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_name"
         app:layout_constraintTop_toTopOf="parent"

@@ -248,7 +248,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
-                            if (ans < 50) {
+                            if (ans < 1000000) {
                                 loadInfo(aid);
 //                                if (!b) //沒抓到過 要成功
 //                                {
@@ -715,9 +715,6 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(String message) {
-                sharedPreferences.edit()
-                        .putBoolean("isGift", false)
-                        .commit();
             }
         });
         ;

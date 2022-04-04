@@ -25,6 +25,7 @@ import com.jotangi.nickyen.AppUtility;
 import com.jotangi.nickyen.R;
 import com.jotangi.nickyen.api.ApiConnection;
 import com.jotangi.nickyen.api.ApiConstant;
+import com.jotangi.nickyen.argame.GoldenTriangleActivity;
 import com.jotangi.nickyen.argame.model.MyARCoupon;
 import com.jotangi.nickyen.argame.model.StoreBean;
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -163,6 +164,7 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
+    String flag="";
     private void getMyCoupon() {
         ApiConnection.myCouponList2("", "", new ApiConnection.OnConnectResultListener() {
             @Override
@@ -192,11 +194,33 @@ public class JiaoBanShanActivity extends AppCompatActivity implements View.OnCli
                                     .commit();
                         }
                         if ("ARCOUPON4".equals(coupon.getCoupon_id())) {
+                            flag="1";
                             runOnUiThread(() -> {
                                 showDialog2(coupon);
                             });
+                        }else if ("ARCOUPON3".equals(coupon.getCoupon_id())&& !flag.equals("1")){
+                            flag="2";
+                        }else if ("ARCOUPON5".equals(coupon.getCoupon_id())&& !flag.equals("1")){
+                            flag="3";
                         }
                     });
+                    Log.d("安安", "onSuccess: "+flag);
+                    if (!flag.equals("1")){
+                        runOnUiThread(() ->{
+                            AppUtility.showMyDialog(JiaoBanShanActivity.this, "您尚無優惠券", getString(R.string.text_confirm), null, new AppUtility.OnBtnClickListener() {
+                                @Override
+                                public void onCheck() {
+
+                                }
+
+                                @Override
+                                public void onCancel() {
+
+                                }
+                            });
+
+                        });
+                    }
                 }
             }
 

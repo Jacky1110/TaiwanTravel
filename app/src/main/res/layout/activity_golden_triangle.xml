@@ -234,149 +234,142 @@
 
             <ImageButton
                 android:id="@+id/B1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toTopOf="@+id/horizontalLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.086"
                 app:layout_constraintStart_toStartOf="@+id/verticalLine"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.121"
-                app:srcCompat="@drawable/ic_gold_bowl1" />
+                app:srcCompat="@drawable/ic_bowl_1" />
 
             <ImageButton
                 android:id="@+id/B2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 app:layout_constraintEnd_toStartOf="@+id/verticalLine"
                app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="@dimen/dp_30"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:srcCompat="@drawable/ic_gold_bowl2" />
+                app:srcCompat="@drawable/ic_bow2" />
 
             <ImageButton
                 android:id="@+id/B3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="8dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
+                android:layout_marginBottom="@dimen/dp_15"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toTopOf="@+id/horizontalLine"
                 app:layout_constraintStart_toEndOf="@+id/B2"
-                app:srcCompat="@drawable/ic_gold_bowl3" />
+                app:srcCompat="@drawable/ic_bowl3" />
 
             <ImageButton
                 android:id="@+id/B4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="@dimen/dp_15"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
+                android:layout_marginTop="@dimen/dp_30"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 android:layout_marginEnd="@dimen/dp_10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/horizontalLine"
-                app:srcCompat="@drawable/ic_gold_bowl4" />
+                app:srcCompat="@drawable/ic_bowl4" />
 
             <ImageButton
                 android:id="@+id/B5"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 android:layout_marginStart="@dimen/dp_10"
                 app:layout_constraintStart_toEndOf="@id/verticalLine"
                 app:layout_constraintTop_toBottomOf="@id/horizontalLine"
-                app:srcCompat="@drawable/ic_gold_bowl5" />
+                app:srcCompat="@drawable/ic_bowl5" />
 
             <ImageButton
                 android:id="@+id/B6"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:layout_marginBottom="@dimen/dp_30"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 app:layout_constraintEnd_toStartOf="@+id/verticalLine"
                 app:layout_constraintTop_toTopOf="@id/horizontalLine"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:srcCompat="@drawable/ic_gold_bowl6" />
+                app:srcCompat="@drawable/ic_bowl6" />
 
             <ImageButton
                 android:id="@+id/B7"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="@+id/B4"
-                app:layout_constraintEnd_toEndOf="@+id/B3"
-                app:layout_constraintStart_toStartOf="@+id/verticalLine"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toEndOf="@id/B4"
                 app:layout_constraintTop_toBottomOf="@+id/B4"
-                app:srcCompat="@drawable/ic_gold_bowl7" />
+                app:srcCompat="@drawable/ic_bowl7" />
 
             <ImageButton
                 android:id="@+id/B8"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="@+id/B7"
-                app:layout_constraintEnd_toEndOf="@+id/B7"
+                android:scaleType="fitXY"
                 app:layout_constraintStart_toEndOf="@+id/B7"
                 app:layout_constraintTop_toBottomOf="@+id/B7"
-                app:srcCompat="@drawable/ic_gold_bowl8" />
+                app:srcCompat="@drawable/ic_bowl8" />
 
             <ImageButton
                 android:id="@+id/B9"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:layout_marginTop="16dp"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
-                app:layout_constraintEnd_toEndOf="@+id/B8"
+                android:scaleType="fitXY"
                 app:layout_constraintStart_toEndOf="@+id/B8"
                 app:layout_constraintTop_toTopOf="@+id/B8"
-                app:srcCompat="@drawable/ic_gold_bowl9" />
+                app:srcCompat="@drawable/ic_bowl9" />
 
             <ImageButton
                 android:id="@+id/B10"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="@+id/B9"
-                app:layout_constraintEnd_toEndOf="@+id/B9"
+                android:scaleType="fitXY"
                 app:layout_constraintStart_toEndOf="@+id/B9"
                 app:layout_constraintTop_toBottomOf="@+id/B9"
-                app:srcCompat="@drawable/ic_gold_bowl10" />
+                app:srcCompat="@drawable/ic_bowl10" />
 
             <ImageButton
                 android:id="@+id/B11"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:layout_marginEnd="65dp"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/B6"
                 app:layout_constraintEnd_toStartOf="@+id/verticalLine"
                 app:layout_constraintTop_toTopOf="@+id/B6"
                 app:layout_constraintVertical_bias="0.223"
-                app:srcCompat="@drawable/ic_gold_bowl11" />
+                app:srcCompat="@drawable/ic_bowl11" />
 
             <ImageButton
                 android:id="@+id/B12"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14"
                 android:background="@color/zxing_transparent"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/B11"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/B11"
-                app:srcCompat="@drawable/ic_gold_bowl12" />
+                app:srcCompat="@drawable/ic_bowl12" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

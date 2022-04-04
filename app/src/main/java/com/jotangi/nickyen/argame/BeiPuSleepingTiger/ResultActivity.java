@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.jotangi.nickyen.R;
 import com.jotangi.nickyen.api.ApiConnection;
 import com.jotangi.nickyen.argame.JiaoBanShan.JiaoBanShanActivity;
 import com.jotangi.nickyen.argame.model.StoreBean;
@@ -51,47 +52,56 @@ public class ResultActivity extends AppCompatActivity {
     private void compareQRCode(StoreBean storeBean, String qid) {
         if (storeBean.getAid().equals("58") && qid.equals("1")) // 柿餅 aid 58
         {
+            binding.imgColorPosition1.setImageResource(R.drawable.bg_color_sleeping_tiger01);
             sharedPreferences.edit()
                     .putBoolean("isStatus1", true)
                     .commit();
             showUI();
         } else if (storeBean.getAid().equals("59") && qid.equals("2")) // 膨風茶 aid 59
         {
+            binding.imgColorPosition1.setImageResource(R.drawable.bg_color_sleeping_tiger02);
             sharedPreferences.edit()
                     .putBoolean("isStatus2", true)
                     .commit();
             showUI();
         } else if (storeBean.getAid().equals("60") && qid.equals("3")) { // 擂茶 aid 60
+            binding.imgColorPosition1.setImageResource(R.drawable.bg_color_sleeping_tiger03);
             sharedPreferences.edit()
                     .putBoolean("isStatus3", true)
                     .commit();
             showUI();
         } else if (storeBean.getAid().equals("61") && qid.equals("4")) { // 客家美食 aid 61
+            binding.imgColorPosition1.setImageResource(R.drawable.bg_color_sleeping_tiger04);
             sharedPreferences.edit()
                     .putBoolean("isStatus4", true)
                     .commit();
             showUI();
         } else if (storeBean.getAid().equals("62") && qid.equals("5")) { // 北埔睡虎 aid 62
+            binding.imgColorPosition1.setImageResource(R.drawable.bg_color_sleeping_tiger05);
             sharedPreferences.edit()
                     .putBoolean("isStatus5", true)
                     .commit();
             showUI();
         } else if (storeBean.getAid().equals("63") && qid.equals("6")) { // 客家糕餅 aid 63
+            binding.imgColorPosition1.setImageResource(R.drawable.bg_color_sleeping_tiger06);
             sharedPreferences.edit()
                     .putBoolean("isStatus6", true)
                     .commit();
             showUI();
-        } else if (storeBean.getAid().equals("65") && qid.equals("7")) { // 鹹豬肉 aid 65
-            sharedPreferences.edit()
-                    .putBoolean("isStatus7", true)
-                    .commit();
-            showUI();
-        } else if (storeBean.getAid().equals("64") && qid.equals("8")) { // 客家美食 aid 66
+        } else if (storeBean.getAid().equals("65") && qid.equals("8")) { // 鹹豬肉 aid 65
+            binding.imgColorPosition1.setImageResource(R.drawable.bg_color_sleeping_tiger08);
             sharedPreferences.edit()
                     .putBoolean("isStatus8", true)
                     .commit();
             showUI();
+        } else if (storeBean.getAid().equals("64") && qid.equals("7")) { // 客家美食 aid 66
+            binding.imgColorPosition1.setImageResource(R.drawable.bg_color_sleeping_tiger07);
+            sharedPreferences.edit()
+                    .putBoolean("isStatus7", true)
+                    .commit();
+            showUI();
         } else if (storeBean.getAid().equals("66") && qid.equals("9")) { // 胡椒鴨 aid 66
+            binding.imgColorPosition1.setImageResource(R.drawable.bg_color_sleeping_tiger09);
             sharedPreferences.edit()
                     .putBoolean("isStatus9", true)
                     .commit();
@@ -175,7 +185,10 @@ public class ResultActivity extends AppCompatActivity {
         }
         if (count >= 3 && !isGift) {
             getCoupon();
+            binding.tvContent.setText("找到了！\n恭喜您獲得禮品兌換券\n\n(請至活動頁面右上角\n\"優惠券\"查看內容)");
+            binding.tvBtn.setText("查看優惠券");
             binding.btnLayout.setOnClickListener(view -> {
+                mapIntent.putExtra("sleeping_gain", "gain");
                 startActivity(mapIntent);
                 finish();
             });
@@ -194,32 +207,13 @@ public class ResultActivity extends AppCompatActivity {
         ApiConnection.getCoupon2("ARCOUPON5", new ApiConnection.OnConnectResultListener() {
             @Override
             public void onSuccess(String jsonString) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        sharedPreferences.edit()
-                                .putBoolean("isGift", true)
-                                .commit();
-                        binding.tvContent.setText("找到了！\n恭喜您獲得禮品兌換券\n\n(請至活動頁面右上角\n\"優惠券\"查看內容)");
-                        binding.tvBtn.setText("查看優惠券");
-                        mapIntent.putExtra("gain", "gain");
-                    }
-                });
+                sharedPreferences.edit()
+                        .putBoolean("isGift", true)
+                        .commit();
             }
 
             @Override
             public void onFailure(String message) {
-                sharedPreferences.edit()
-                        .putBoolean("isGift", false)
-                        .commit();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-//                        binding.tvContent.setText("找到了！\n\n但很抱歉\n您已擁有優惠券或是連線失敗");
-                        binding.tvContent.setText("找到了！\n\n你已領過禮品兌換券\n(請至活動頁面右上角\n\"優惠券\"查看內容)\n(每個帳號限領一次)");
-                        binding.tvBtn.setText("返回");
-                    }
-                });
             }
         });
         ;

@@ -101,8 +101,8 @@ public class BeiPuSleepingTigerNextActivity extends AppCompatActivity implements
         position4 = sharedPreferences.getBoolean("isStatus4", false);
         position5 = sharedPreferences.getBoolean("isStatus5", false);
         position6 = sharedPreferences.getBoolean("isStatus6", false);
-        position7 = sharedPreferences.getBoolean("isStatus7", false);
-        position8 = sharedPreferences.getBoolean("isStatus8", false);
+        position7 = sharedPreferences.getBoolean("isStatus8", false);
+        position8 = sharedPreferences.getBoolean("isStatus7", false);
         position9 = sharedPreferences.getBoolean("isStatus9", false);
         isGift = sharedPreferences.getBoolean("isGift", false);
         if (storeBean.getAid().equals("58") && position1 && isGift) // 柿餅 aid 58

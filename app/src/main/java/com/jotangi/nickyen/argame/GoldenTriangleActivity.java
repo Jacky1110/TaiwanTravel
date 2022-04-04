@@ -226,6 +226,7 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
         ivMenuTrue.setVisibility(View.GONE);
     }
 
+    String  flag="";
     private void getMyCoupon() {
         ApiConnection.myCouponList2("", "", new ApiConnection.OnConnectResultListener() {
             @Override
@@ -255,11 +256,33 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
                                     .commit();
                         }
                         if ("ARCOUPON3".equals(coupon.getCoupon_id())) {
+                            flag ="1";
                             runOnUiThread(() -> {
                                 showDialog2(coupon);
                             });
+                        }else if ("ARCOUPON4".equals(coupon.getCoupon_id())&& !flag.equals("1")){
+                            flag = "2";
+                        }else if ("ARCOUPON5".equals(coupon.getCoupon_id())&& !flag.equals("1")){
+                           flag= "3";
                         }
                     });
+                    Log.d("安安", "onSuccess: "+flag);
+                    if (!flag.equals("1")){
+                        runOnUiThread(() ->{
+                            AppUtility.showMyDialog(GoldenTriangleActivity.this, "您尚無優惠券", getString(R.string.text_confirm), null, new AppUtility.OnBtnClickListener() {
+                                @Override
+                                public void onCheck() {
+
+                                }
+
+                                @Override
+                                public void onCancel() {
+
+                                }
+                            });
+
+                        });
+                    }
                 }
 
             }
