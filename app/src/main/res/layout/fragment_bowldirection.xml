@@ -171,7 +171,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         android:fontFamily="sans-serif-condensed-light"
-                        android:text="                        黑山銀花 (桃園市平鎮區中山路46號\n，忠貞新村文創園區內，由中山路44-1號巷子進\n 入，在飲聖食堂斜對面）" />
+                        android:text="                        黑山銀花 (桃園市平鎮區中山路46號\n，忠貞新村文創園區內，由中山路44-1號巷子進\n 入，在癮食聖堂斜對面）" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

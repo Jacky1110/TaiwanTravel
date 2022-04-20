@@ -67,49 +67,49 @@
                     android:scaleType="fitCenter"
                     android:src="@color/colorUnSelect"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/dp_10"-->
+<!--                    android:gravity="center_horizontal"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <TextView
-                        android:id="@+id/textView21"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:text="憑本券可兌換"
-                        android:textColor="@color/ARAlphabet"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textView19"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView21"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="sans-serif-condensed-light"-->
+<!--                        android:text="憑本券可兌換"-->
+<!--                        android:textColor="@color/ARAlphabet"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toStartOf="@+id/textView19"-->
+<!--                        app:layout_constraintHorizontal_bias="0.5"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <TextView
-                        android:id="@+id/textView19"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:text="角板山形象商圈_AR遊戲好禮"
-                        android:textColor="@color/c_a1854d_100"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textView21"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView19"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="sans-serif-condensed-light"-->
+<!--                        android:text="角板山形象商圈_AR遊戲好禮"-->
+<!--                        android:textColor="@color/c_a1854d_100"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintHorizontal_bias="0.5"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/textView21"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-                <TextView
-                    style="@style/txt_direction"
-                    android:layout_marginTop="@dimen/dp_5"
-                    android:text="優惠內容"
-                    android:textStyle="bold" />
+<!--                <TextView-->
+<!--                    style="@style/txt_direction"-->
+<!--                    android:layout_marginTop="@dimen/dp_5"-->
+<!--                    android:text="優惠內容"-->
+<!--                    android:textStyle="bold" />-->
 
                 <TextView
                     android:id="@+id/txtDescription"
@@ -117,17 +117,17 @@
                     android:layout_marginTop="@dimen/dp_5"
                     tools:text="1.點選「魅力金三角商圈_忠貞八大碗美食饗宴」活動" />
 
-                <TextView
-                    style="@style/txt_direction"
-                    android:layout_marginTop="@dimen/dp_5"
-                    android:text="使用期限"
-                    android:textStyle="bold" />
+<!--                <TextView-->
+<!--                    style="@style/txt_direction"-->
+<!--                    android:layout_marginTop="@dimen/dp_5"-->
+<!--                    android:text="使用期限"-->
+<!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/txtUsingDate"
-                    style="@style/txt_direction"
-                    android:layout_marginTop="@dimen/dp_5"
-                    tools:text="110年01月01~11012月31號" />
+<!--                <TextView-->
+<!--                    android:id="@+id/txtUsingDate"-->
+<!--                    style="@style/txt_direction"-->
+<!--                    android:layout_marginTop="@dimen/dp_5"-->
+<!--                    tools:text="110年01月01~11012月31號" />-->
 
                 <Button
                     android:id="@+id/btnExchange"

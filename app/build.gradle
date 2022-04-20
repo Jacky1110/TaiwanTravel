@@ -28,8 +28,8 @@ android {
         applicationId "com.jotangi.nickyen"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 71
-        versionName "1.70"
+        versionCode 74
+        versionName "1.73"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

@@ -101,7 +101,6 @@ public class BeiPuSleepingTigerActivity extends AppCompatActivity implements Vie
                             flag="3";
                         }
                     });
-                    Log.d("安安", "onSuccess: "+flag);
                     if (!flag.equals("1")){
                         runOnUiThread(() ->{
                             AppUtility.showMyDialog(BeiPuSleepingTigerActivity.this, "您尚無優惠券", getString(R.string.text_confirm), null, new AppUtility.OnBtnClickListener() {
@@ -150,8 +149,8 @@ public class BeiPuSleepingTigerActivity extends AppCompatActivity implements Vie
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
 
         ConstraintLayout barLayout = dialog.findViewById(R.id.layout);
-        TextView txtName = dialog.findViewById(R.id.textView19);
-        txtName.setText("北埔魅力商圈_AR遊戲好禮");
+//        TextView txtName = dialog.findViewById(R.id.textView19);
+//        txtName.setText("北埔魅力商圈_AR遊戲好禮");
         barLayout.setBackgroundResource(R.color.ar_bei_pu_sleeping_tiger_bg);
 
 
@@ -160,8 +159,8 @@ public class BeiPuSleepingTigerActivity extends AppCompatActivity implements Vie
 
         TextView txtDescription = dialog.findViewById(R.id.txtDescription);
         txtDescription.setText(coupon.getCoupon_description());
-        TextView txtUsingDate = dialog.findViewById(R.id.txtUsingDate);
-        txtUsingDate.setText(coupon.getCoupon_startdate() + "~" + coupon.getCoupon_enddate());
+//        TextView txtUsingDate = dialog.findViewById(R.id.txtUsingDate);
+//        txtUsingDate.setText(coupon.getCoupon_startdate() + "~" + coupon.getCoupon_enddate());
 
         ImageView btnClose = dialog.findViewById(R.id.img_close);
         btnClose.setOnClickListener(v -> {

@@ -266,7 +266,6 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
                            flag= "3";
                         }
                     });
-                    Log.d("安安", "onSuccess: "+flag);
                     if (!flag.equals("1")){
                         runOnUiThread(() ->{
                             AppUtility.showMyDialog(GoldenTriangleActivity.this, "您尚無優惠券", getString(R.string.text_confirm), null, new AppUtility.OnBtnClickListener() {
@@ -490,8 +489,8 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
 
         TextView txtDescription = dialog.findViewById(R.id.txtDescription);
         txtDescription.setText(coupon.getCoupon_description());
-        TextView txtUsingDate = dialog.findViewById(R.id.txtUsingDate);
-        txtUsingDate.setText(coupon.getCoupon_startdate() + "~" + coupon.getCoupon_enddate());
+//        TextView txtUsingDate = dialog.findViewById(R.id.txtUsingDate);
+//        txtUsingDate.setText(coupon.getCoupon_startdate() + "~" + coupon.getCoupon_enddate());
 
         ImageView btnClose = dialog.findViewById(R.id.img_close);
         btnClose.setOnClickListener(v -> {

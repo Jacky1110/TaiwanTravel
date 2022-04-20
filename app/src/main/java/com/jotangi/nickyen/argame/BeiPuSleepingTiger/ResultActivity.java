@@ -107,6 +107,7 @@ public class ResultActivity extends AppCompatActivity {
                     .commit();
             showUI();
         } else {
+            binding.cLayoutPosition1.setVisibility(View.GONE);
             binding.tvContent.setText("找錯了！\n\n哎呀，\n找錯對象了，\n可能要換別隻哦！");
             binding.tvBtn.setText("返回");
             binding.btnLayout.setOnClickListener(view -> {

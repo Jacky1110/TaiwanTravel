@@ -248,7 +248,7 @@ public class GoldenTriangleCameraActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Dialog dialog = new Dialog(GoldenTriangleCameraActivity.this);
-                            if (ans < 1000000) {
+                            if (ans < 50) {
                                 loadInfo(aid);
 //                                if (!b) //沒抓到過 要成功
 //                                {
