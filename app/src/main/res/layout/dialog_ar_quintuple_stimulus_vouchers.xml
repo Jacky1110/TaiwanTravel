@@ -236,6 +236,42 @@
                         android:layout_marginTop="5dp"
                         android:background="@color/lightGray" />
 
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_5"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="老店家風味小吃"
+                                android:textColor="@color/c_403f41_100"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:text="03-3821988"
+                                android:textColor="@color/c_403f41_100"
+                                android:textStyle="bold" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="復興區中正路7號"
+                            android:textColor="@color/c_403f41_100"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/lightGray" />
+
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

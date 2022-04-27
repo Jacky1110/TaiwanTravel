@@ -93,7 +93,7 @@
                 android:orientation="vertical"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/verticalLine">
+                app:layout_constraintEnd_toStartOf="@id/horizontalLine">
 
                 <ImageView
                     android:id="@+id/btnImg3"
@@ -178,7 +178,7 @@
                 android:orientation="vertical"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/horizontalLine">
+                app:layout_constraintTop_toBottomOf="@id/verticalLine">
 
                 <ImageView
                     android:id="@+id/btnImg4"
@@ -198,14 +198,14 @@
             </LinearLayout>
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/horizontalLine"
+                android:id="@+id/verticalLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.53" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/verticalLine"
+                android:id="@+id/horizontalLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -238,10 +238,10 @@
                 android:layout_height="@dimen/dp_14"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitXY"
-                app:layout_constraintBottom_toTopOf="@+id/horizontalLine"
+                app:layout_constraintBottom_toTopOf="@+id/verticalLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.086"
-                app:layout_constraintStart_toStartOf="@+id/verticalLine"
+                app:layout_constraintStart_toStartOf="@+id/horizontalLine"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.121"
                 app:srcCompat="@drawable/ic_bowl_1" />
@@ -252,7 +252,7 @@
                 android:layout_height="@dimen/dp_14"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitXY"
-                app:layout_constraintEnd_toStartOf="@+id/verticalLine"
+                app:layout_constraintEnd_toStartOf="@+id/horizontalLine"
                app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="@dimen/dp_30"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -266,7 +266,7 @@
                 android:layout_marginStart="@dimen/dp_30"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitXY"
-                app:layout_constraintBottom_toTopOf="@+id/horizontalLine"
+                app:layout_constraintBottom_toTopOf="@+id/verticalLine"
                 app:layout_constraintStart_toEndOf="@+id/B2"
                 app:srcCompat="@drawable/ic_bowl3" />
 
@@ -280,7 +280,7 @@
                 android:layout_marginEnd="@dimen/dp_10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/horizontalLine"
+                app:layout_constraintTop_toTopOf="@+id/verticalLine"
                 app:srcCompat="@drawable/ic_bowl4" />
 
             <ImageButton
@@ -290,8 +290,8 @@
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitXY"
                 android:layout_marginStart="@dimen/dp_10"
-                app:layout_constraintStart_toEndOf="@id/verticalLine"
-                app:layout_constraintTop_toBottomOf="@id/horizontalLine"
+                app:layout_constraintStart_toEndOf="@id/horizontalLine"
+                app:layout_constraintTop_toBottomOf="@id/verticalLine"
                 app:srcCompat="@drawable/ic_bowl5" />
 
             <ImageButton
@@ -301,8 +301,8 @@
                 android:layout_marginBottom="@dimen/dp_30"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitXY"
-                app:layout_constraintEnd_toStartOf="@+id/verticalLine"
-                app:layout_constraintTop_toTopOf="@id/horizontalLine"
+                app:layout_constraintEnd_toStartOf="@+id/horizontalLine"
+                app:layout_constraintTop_toTopOf="@id/verticalLine"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:srcCompat="@drawable/ic_bowl6" />
 
@@ -355,7 +355,7 @@
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/B6"
-                app:layout_constraintEnd_toStartOf="@+id/verticalLine"
+                app:layout_constraintEnd_toStartOf="@+id/horizontalLine"
                 app:layout_constraintTop_toTopOf="@+id/B6"
                 app:layout_constraintVertical_bias="0.223"
                 app:srcCompat="@drawable/ic_bowl11" />

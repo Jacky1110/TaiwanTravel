@@ -89,6 +89,11 @@ public class BeiPuSleepingTigerActivity extends AppCompatActivity implements Vie
                             sharedPreferences.edit()
                                     .putBoolean("isGift", true)
                                     .commit();
+                        }else if("ARCOUPON6".equals(coupon.getCoupon_id())){
+                            sharedPreferences = getSharedPreferences("park", MODE_PRIVATE);
+                            sharedPreferences.edit()
+                                    .putBoolean("isGift", true)
+                                    .commit();
                         }
                         if ("ARCOUPON5".equals(coupon.getCoupon_id())) {
                             flag="1";
@@ -99,6 +104,8 @@ public class BeiPuSleepingTigerActivity extends AppCompatActivity implements Vie
                             flag="2";
                         }else if ("ARCOUPON3".equals(coupon.getCoupon_id())&& !flag.equals("1")){
                             flag="3";
+                        }else if ("ARCOUPON6".equals(coupon.getCoupon_id())&& !flag.equals("1")){
+                            flag="4";
                         }
                     });
                     if (!flag.equals("1")){
@@ -292,7 +299,6 @@ public class BeiPuSleepingTigerActivity extends AppCompatActivity implements Vie
             binding.imgBlackPosition9.setVisibility(View.GONE);
         }
     }
-
 
     @Override
     public void onClick(View view) {

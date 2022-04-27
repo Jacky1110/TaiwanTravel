@@ -276,10 +276,10 @@
             android:textSize="22dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/horizontalLine" />
+            app:layout_constraintTop_toBottomOf="@id/verticalLine" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/horizontalLine"
+            android:id="@+id/verticalLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

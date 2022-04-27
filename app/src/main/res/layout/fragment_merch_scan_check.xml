@@ -60,11 +60,11 @@
         android:background="@color/white"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/horizontalLine"
+        app:layout_constraintTop_toBottomOf="@id/verticalLine"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalLine"
+        android:id="@+id/verticalLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

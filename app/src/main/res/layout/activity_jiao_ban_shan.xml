@@ -128,14 +128,14 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/horizontalLine"
+                android:id="@+id/verticalLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.53" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/verticalLine"
+                android:id="@+id/horizontalLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -176,10 +176,10 @@
                 android:layout_height="40dp"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-                app:layout_constraintBottom_toTopOf="@+id/horizontalLine"
+                app:layout_constraintBottom_toTopOf="@+id/verticalLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.086"
-                app:layout_constraintStart_toStartOf="@+id/verticalLine"
+                app:layout_constraintStart_toStartOf="@+id/horizontalLine"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.28"
                 app:srcCompat="@drawable/ic_jiao_mushroom" />
@@ -191,8 +191,8 @@
                 android:layout_marginTop="@dimen/dp_15"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-                app:layout_constraintStart_toStartOf="@+id/verticalLine"
-                app:layout_constraintTop_toBottomOf="@id/horizontalLine"
+                app:layout_constraintStart_toStartOf="@+id/horizontalLine"
+                app:layout_constraintTop_toBottomOf="@id/verticalLine"
                 app:srcCompat="@drawable/ic_jiao_persimmon" />
 
             <ImageButton
@@ -203,7 +203,7 @@
                 android:layout_marginBottom="@dimen/dp_10"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-                app:layout_constraintBottom_toTopOf="@+id/horizontalLine"
+                app:layout_constraintBottom_toTopOf="@+id/verticalLine"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/ic_jiao_bamboo_shoots" />
 
@@ -217,7 +217,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/horizontalLine"
+                app:layout_constraintTop_toTopOf="@+id/verticalLine"
                 app:srcCompat="@drawable/ic_jiao_persimmon" />
 
             <ImageButton
@@ -227,7 +227,7 @@
                 android:layout_marginStart="@dimen/dp_30"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-                app:layout_constraintStart_toEndOf="@id/verticalLine"
+                app:layout_constraintStart_toEndOf="@id/horizontalLine"
                 app:layout_constraintTop_toBottomOf="@+id/B2"
                 app:srcCompat="@drawable/ic_jaio_peach" />
 
@@ -239,7 +239,7 @@
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/verticalLine"
+                app:layout_constraintEnd_toEndOf="@id/horizontalLine"
                 app:layout_constraintTop_toBottomOf="@id/B5"
                 app:srcCompat="@drawable/ic_jaio_peach" />
 
@@ -252,7 +252,7 @@
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/verticalLine"
+                app:layout_constraintStart_toEndOf="@id/horizontalLine"
                 app:layout_constraintTop_toTopOf="@id/B4"
                 app:srcCompat="@drawable/ic_jiao_mushroom" />
 
@@ -263,8 +263,8 @@
                 android:layout_marginStart="@dimen/dp_25"
                 android:background="@color/zxing_transparent"
                 android:scaleType="fitCenter"
-                app:layout_constraintBottom_toTopOf="@id/horizontalLine"
-                app:layout_constraintStart_toStartOf="@id/verticalLine"
+                app:layout_constraintBottom_toTopOf="@id/verticalLine"
+                app:layout_constraintStart_toStartOf="@id/horizontalLine"
                 app:layout_constraintTop_toTopOf="@id/B1"
                 app:srcCompat="@drawable/ic_jiao_bamboo_shoots" />
 

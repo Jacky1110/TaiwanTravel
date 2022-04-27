@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import javax.crypto.Cipher;
@@ -539,6 +540,14 @@ public class AppUtility {
         return d * Math.PI / 180.0;
     }
 
+    private static double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    private static double rad2deg(double rad) {
+        return (rad * 180.0 / Math.PI);
+    }
+
     /**
      * 根據兩個位置的經緯度，來計算兩地的距離（單位為KM）
      * 引數為String型別
@@ -557,12 +566,12 @@ public class AppUtility {
         Double lat2 = Double.valueOf(Double.parseDouble(lat2Str));
         Double lng2 = Double.valueOf(Double.parseDouble(lng2Str));
 
-        double radLat1 = rad(lat1);
-        double radLat2 = rad(lat2);
-        double difference = radLat1 - radLat2;
+//        double radLat1 = rad(lat1);
+//        double radLat2 = rad(lat2);
+        final double difference = rad(lat1) - rad(lat2);
         double mDifference = rad(lng1) - rad(lng2);
         double distance = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(difference / 2), 2)
-                + Math.cos(radLat1) * Math.cos(radLat2)
+                + Math.cos(rad(lat1)) * Math.cos(rad(lat2))
                 * Math.pow(Math.sin(mDifference / 2), 2)));
         distance = distance * EARTH_RADIUS;
         distance = Math.round(distance * 10000) / 10000;
@@ -571,6 +580,49 @@ public class AppUtility {
                 substring(0, distanceStr.indexOf("."));
 
         return distanceStr;
+    }
+
+    public static String getDistance2(Double lat1, Double lon1, Double lat2, Double lon2) {
+        if ((Objects.equals(lat1, lat2)) && (Objects.equals(lon1, lon2))) {
+            return "0";
+        } else {
+//            double theta = lon1 - lon2;
+//            double dist = Math.sin(deg2rad(lat1))
+//                    * Math.sin(deg2rad(lat2))
+//                    + Math.cos(deg2rad(lat1))
+//                    * Math.cos(deg2rad(lat2))
+//                    * Math.cos(deg2rad(theta));
+//            dist = Math.acos(dist);
+//            dist = rad2deg(dist);
+//            dist = dist * 60 * 1.1515 * 1.603 * 100;
+//            String distanceStr = Math.round(dist) + "";
+//            return distanceStr;
+
+//            float[] results = new float[1];
+//            Location.distanceBetween(lat1, lon1, lat2, lon2, results);
+//            return  String.valueOf(Math.round(results[0]));
+
+            final double EARTH_RADIUS = 6378.137;
+
+            double radLat1 = rad(lat1);
+
+            double radLat2 = rad(lat2);
+
+            double a = radLat1 - radLat2;
+
+            double b = rad(lon1) - rad(lon2);
+
+            double s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLat1)
+                    * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
+
+            s = s * EARTH_RADIUS;
+
+            s = Math.round(s * 10000000) / 10000;
+
+            String ss = s + "";
+            return ss.substring(0, ss.indexOf("."));
+
+        }
     }
 
     /**

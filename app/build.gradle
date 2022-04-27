@@ -9,13 +9,13 @@ plugins {
 android {
     signingConfigs {
         debug {
-            storeFile file('../key/Untitled')
+            storeFile file('/home/qinzhongli/TaiwanShop/key/Untitled')
             storePassword '123456'
             keyPassword '123456'
             keyAlias 'key0'
         }
         release {
-            storeFile file('/Users/nickyen/TaiwanTravelShop/key/Untitled')
+            storeFile file('/home/qinzhongli/TaiwanShop/key/Untitled')
             storePassword '123456'
             keyPassword '123456'
             keyAlias 'key0'
@@ -28,8 +28,8 @@ android {
         applicationId "com.jotangi.nickyen"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 74
-        versionName "1.73"
+        versionCode 75
+        versionName "1.74"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

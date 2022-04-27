@@ -13,7 +13,7 @@
         android:text="2021-07-12 \n 2021-0715"
         android:textColor="@color/black"
         android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="@id/verticalLine"
+        app:layout_constraintEnd_toEndOf="@id/horizontalLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +27,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/verticalLine2"
         app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintStart_toEndOf="@id/verticalLine"
+       app:layout_constraintStart_toEndOf="@id/horizontalLine"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/verticalLine"
+        android:id="@+id/horizontalLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"

@@ -9,7 +9,7 @@ package com.jotangi.nickyen.argame.model;
  *     "coupon_id": "ARCOUPON3",
  *     "coupon_name": "魅力金三角商圈好禮_民族風特色醫療口罩一組五入",
  *     "coupon_type": "8",
- *     "coupon_description": "憑本券可免費兌換 民族風特色醫療口罩一組五入\n\n兌換地點：黑山銀花\n營業地址：桃園市平鎮區中山路46號，忠貞新村文創園區內\n營業電話：03-4161393\n活動期間：111年04月01日~05月01日",
+ *     "coupon_description": "憑本券可免費兌換 民族風特色醫療口罩一組五入\n\n兌換地點：黑山銀花\n營業地址：桃園市平鎮區中山路46號，忠貞新村文化園區內\n營業電話：03-4161393\n活動期間：111年04月01日~05月01日",
  *     "coupon_startdate": "2022-03-31",
  *     "coupon_enddate": "2022-05-01",
  *     "coupon_status": "1",

@@ -33,7 +33,7 @@
                 android:layout_marginTop="@dimen/dp_75"
                 android:layout_marginEnd="@dimen/dp_25"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@id/verticalLine"
+                app:layout_constraintEnd_toStartOf="@id/horizontalLine"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
@@ -110,8 +110,8 @@
                 android:layout_marginEnd="@dimen/dp_40"
                 android:elevation="1dp"
                 android:orientation="vertical"
-                app:layout_constraintStart_toEndOf="@id/verticalLine"
-                app:layout_constraintTop_toBottomOf="@id/horizontalLine">
+                app:layout_constraintStart_toEndOf="@id/horizontalLine"
+                app:layout_constraintTop_toBottomOf="@id/verticalLine">
 
                 <ImageView
                     android:id="@+id/btnImg5"
@@ -136,7 +136,7 @@
                 android:layout_marginEnd="@dimen/dp_20"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/horizontalLine">
+                app:layout_constraintTop_toBottomOf="@id/verticalLine">
 
                 <ImageView
                     android:id="@+id/btnImg6"
@@ -161,7 +161,7 @@
                 android:layout_marginEnd="@dimen/dp_40"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/horizontalLine">
+                app:layout_constraintTop_toBottomOf="@id/verticalLine">
 
                 <ImageView
                     android:id="@+id/btnImg4"
@@ -186,7 +186,7 @@
                 android:layout_marginTop="@dimen/dp_80"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/horizontalLine">
+                app:layout_constraintTop_toBottomOf="@id/verticalLine">
 
                 <ImageView
                     android:id="@+id/btnImg7"
@@ -211,7 +211,7 @@
                 android:layout_marginBottom="@dimen/dp_55"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/verticalLine">
+                app:layout_constraintEnd_toStartOf="@id/horizontalLine">
 
                 <ImageView
                     android:id="@+id/btnImg8"
@@ -230,14 +230,14 @@
             </LinearLayout>
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/horizontalLine"
+                android:id="@+id/verticalLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.53" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/verticalLine"
+                android:id="@+id/horizontalLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

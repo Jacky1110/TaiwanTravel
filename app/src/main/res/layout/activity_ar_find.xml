@@ -75,7 +75,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/bg_ar_back"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/horizontalLine">
+            app:layout_constraintEnd_toStartOf="@id/verticalLine">
 
             <TextView
                 android:id="@+id/textView10"
@@ -107,7 +107,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/bg_ar_find"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/horizontalLine">
+            app:layout_constraintStart_toEndOf="@id/verticalLine">
 
             <TextView
                 android:id="@+id/textView11"
@@ -121,7 +121,7 @@
         </FrameLayout>
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/horizontalLine"
+            android:id="@+id/verticalLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"

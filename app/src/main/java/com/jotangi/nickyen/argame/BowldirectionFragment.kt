@@ -1,17 +1,15 @@
 package com.jotangi.nickyen.argame
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.jotangi.nickyen.R
-import com.jotangi.nickyen.databinding.FragmentBowldirectionBinding
+import androidx.fragment.app.Fragment
+import com.jotangi.nickyen.databinding.DialogBowldirectionBinding
 
 
 class BowldirectionFragment : Fragment() {
-    private var _binding: FragmentBowldirectionBinding? = null
+    private var _binding: DialogBowldirectionBinding? = null
 
     companion object {
         const val TAG = "BowldirectionFragment"
@@ -27,7 +25,7 @@ class BowldirectionFragment : Fragment() {
     ): View? {
 
 
-        _binding = FragmentBowldirectionBinding.inflate(inflater, container, false)
+        _binding = DialogBowldirectionBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.apply {

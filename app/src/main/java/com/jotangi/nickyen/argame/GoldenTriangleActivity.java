@@ -254,6 +254,11 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
                             sharedPreferences.edit()
                                     .putBoolean("isGift", true)
                                     .commit();
+                        }else if("ARCOUPON6".equals(coupon.getCoupon_id())){
+                            sharedPreferences = getSharedPreferences("park", MODE_PRIVATE);
+                            sharedPreferences.edit()
+                                    .putBoolean("isGift", true)
+                                    .commit();
                         }
                         if ("ARCOUPON3".equals(coupon.getCoupon_id())) {
                             flag ="1";
@@ -264,6 +269,8 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
                             flag = "2";
                         }else if ("ARCOUPON5".equals(coupon.getCoupon_id())&& !flag.equals("1")){
                            flag= "3";
+                        }else if ("ARCOUPON6".equals(coupon.getCoupon_id())&& !flag.equals("1")){
+                            flag= "4";
                         }
                     });
                     if (!flag.equals("1")){
@@ -366,56 +373,56 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
 //                                    return;
 //                                }
                                 /*2022/03/21延續原本rd邏輯*/
-                                if (storeList.get(0).getAid().equals("38") && bowl1) //雲滄小館
-                                {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("39") && bowl2) //楊家將
-                                {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("41") && bowl3) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("43") && bowl4) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("42") && bowl5) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("47") && bowl6) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("44") && bowl7) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("40") && bowl8) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("45") && bowl9) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("46") && bowl10) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("48") && bowl11) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                if (storeList.get(0).getAid().equals("49") && bowl12) {
-                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
+//                                if (storeList.get(0).getAid().equals("38") && bowl1) //雲滄小館
+//                                {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("39") && bowl2) //楊家將
+//                                {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("41") && bowl3) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("43") && bowl4) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("42") && bowl5) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("47") && bowl6) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("44") && bowl7) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("40") && bowl8) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("45") && bowl9) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("46") && bowl10) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("48") && bowl11) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//                                if (storeList.get(0).getAid().equals("49") && bowl12) {
+//                                    Toast.makeText(GoldenTriangleActivity.this, "您已領取過", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
                                 if (dialog != null) {
                                     dialog.dismiss();
                                 }
@@ -454,8 +461,8 @@ public class GoldenTriangleActivity extends AppCompatActivity implements View.On
     private void showDialog() {
         runOnUiThread(() -> {
             closeLayout();
-            Dialog dialog = new Dialog(GoldenTriangleActivity.this);
-            dialog.setContentView(R.layout.fragment_bowldirection);
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.dialog_bowldirection);
             dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
             dialog.show();
             dialog.setCanceledOnTouchOutside(false);

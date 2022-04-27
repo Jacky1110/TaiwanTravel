@@ -105,44 +105,44 @@ public class BeiPuSleepingTigerNextActivity extends AppCompatActivity implements
         position8 = sharedPreferences.getBoolean("isStatus7", false);
         position9 = sharedPreferences.getBoolean("isStatus9", false);
         isGift = sharedPreferences.getBoolean("isGift", false);
-        if (storeBean.getAid().equals("58") && position1 && isGift) // 柿餅 aid 58
-        {
-            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (storeBean.getAid().equals("59") && position2 && isGift) // 膨風茶 aid 59
-        {
-            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (storeBean.getAid().equals("60") && position3 && isGift) { // 擂茶 aid 60
-            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (storeBean.getAid().equals("61") && position4 && isGift) { // 客家美食 aid 61
-            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (storeBean.getAid().equals("62") && position5 && isGift) { // 北埔睡虎 aid 62
-            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (storeBean.getAid().equals("63") && position6 && isGift) { // 客家糕餅 aid 63
-            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (storeBean.getAid().equals("65") && position7 && isGift) { // 鹹豬肉 aid 65
-            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (storeBean.getAid().equals("64") && position8 && isGift) { // 客家美食 aid 64
-            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (storeBean.getAid().equals("66") && position9 && isGift) { // 胡椒鴨 aid 6
-            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
-            return;
-        }
+//        if (storeBean.getAid().equals("58") && position1 && isGift) // 柿餅 aid 58
+//        {
+//            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (storeBean.getAid().equals("59") && position2 && isGift) // 膨風茶 aid 59
+//        {
+//            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (storeBean.getAid().equals("60") && position3 && isGift) { // 擂茶 aid 60
+//            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (storeBean.getAid().equals("61") && position4 && isGift) { // 客家美食 aid 61
+//            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (storeBean.getAid().equals("62") && position5 && isGift) { // 北埔睡虎 aid 62
+//            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (storeBean.getAid().equals("63") && position6 && isGift) { // 客家糕餅 aid 63
+//            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (storeBean.getAid().equals("65") && position7 && isGift) { // 鹹豬肉 aid 65
+//            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (storeBean.getAid().equals("64") && position8 && isGift) { // 客家美食 aid 64
+//            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (storeBean.getAid().equals("66") && position9 && isGift) { // 胡椒鴨 aid 6
+//            Toast.makeText(this, "您已領取過", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
         Intent i = new Intent(this, BeiPuSleepingCameraActivity.class);
         i.putExtra("sleeping", new Gson().toJson(storeBean));
         startActivity(i);

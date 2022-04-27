@@ -1557,6 +1557,25 @@ public class ApiConnection {
         createApiCall(request, onConnectResultListener);
     }
 
+    public static void getDistance(String lat1, String lng1, String lat2, String lng2, OnConnectResultListener onConnectResultListener) {
+        String url = ApiConstant.API_URL + ApiConstant.getDistance;
+
+        FormBody formBody = new FormBody
+                .Builder()
+                .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .add("loc_lat1", lat1)
+                .add("loc_lng1", lng1)
+                .add("loc_lat2", lat2)
+                .add("loc_lng2", lng2)
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        createApiCall(request, onConnectResultListener);
+    }
+
     /**
      * 美容美髮相關
      */

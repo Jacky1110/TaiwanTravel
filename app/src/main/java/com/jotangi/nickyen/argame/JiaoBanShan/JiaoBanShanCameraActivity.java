@@ -52,8 +52,8 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
-    private boolean position1, position2, position3, position4, position5, position6, position7, position8 , isGift;
-    int count = 0;
+    private boolean position1, position2, position3, position4, position5, position6, position7, position8, isGift;
+    int count;
 
     private StoreBean storeBean;
 
@@ -85,6 +85,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
         position6 = sharedPreferences.getBoolean("isStatus6", false);
         position7 = sharedPreferences.getBoolean("isStatus7", false);
         position8 = sharedPreferences.getBoolean("isStatus8", false);
+        count = sharedPreferences.getInt("count", 0);
         isGift = sharedPreferences.getBoolean("isGift", false);
 
         //=============這是目前位置的經緯度 計算結果跟公式在最下方(也有API可以CALL)========================
@@ -118,35 +119,6 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
         booleanArrayList.add(position6);
         booleanArrayList.add(position7);
         booleanArrayList.add(position8);
-
-        for (int i = 0; i < booleanArrayList.size(); i++) {
-
-            if (position1) {
-                count += 1;
-                position1 = false;
-            } else if (position2) {
-                count += 1;
-                position2 = false;
-            } else if (position3) {
-                count += 1;
-                position3 = false;
-            } else if (position4) {
-                count += 1;
-                position4 = false;
-            } else if (position5) {
-                count += 1;
-                position5 = false;
-            } else if (position6) {
-                count += 1;
-                position6 = false;
-            } else if (position7) {
-                count += 1;
-                position7 = false;
-            } else if (position8) {
-                count += 1;
-                position8 = false;
-            }
-        }
 
         ARCamera = new CameraSource.Builder(this, barcodeDetector)
                 .setAutoFocusEnabled(true).setRequestedPreviewSize(720, 480).build();
@@ -226,7 +198,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
         } else {
             btnCatch.setOnClickListener(v ->
             {
-                Toast.makeText(this, "未獲取您的定位資訊，請退出重新", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "請划掉點點app並操作重新啟動", Toast.LENGTH_SHORT).show();
             });
         }
     }
@@ -234,57 +206,66 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
     private void countNumber() {
 
         if (storeBean.getAid().equals("50") && storeBean.getAid() != null && !position1) { // 復興區歷史文化館 50
+            count += 1;
             sharedPreferences.edit()
-                    .putString("isNumber1", "1")
+                    .putInt("count", count)
                     .putBoolean("isStatus1", true)
                     .commit();
         }
         if (storeBean.getAid().equals("51") && storeBean.getAid() != null && !position2) { // 復興區介壽國小 51
+            count += 1;
             sharedPreferences.edit()
-                    .putString("isNumber2", "2")
+                    .putInt("count", count)
                     .putBoolean("isStatus2", true)
                     .commit();
         }
         if (storeBean.getAid().equals("52") && storeBean.getAid() != null && !position3) { // 角板山行館 52
+            count += 1;
             sharedPreferences.edit()
-                    .putString("isNumber3", "3")
+                    .putInt("count", count)
                     .putBoolean("isStatus3", true)
                     .commit();
         }
         if (storeBean.getAid().equals("53") && storeBean.getAid() != null && !position4) { // 角板山公園 53
+            count += 1;
             sharedPreferences.edit()
-                    .putString("isNumber4", "4")
+                    .putInt("count", count)
                     .putBoolean("isStatus4", true)
                     .commit();
         }
         if (storeBean.getAid().equals("54") && storeBean.getAid() != null && !position5) { // 角板山時光隧道 54
+            count += 1;
             sharedPreferences.edit()
-                    .putString("isNumber5", "5")
+                    .putInt("count", count)
                     .putBoolean("isStatus5", true)
                     .commit();
         }
         if (storeBean.getAid().equals("55") && storeBean.getAid() != null && !position6) {  // 復興青年活動中心 55
+            count += 1;
             sharedPreferences.edit()
-                    .putString("isNumber6", "6")
+                    .putInt("count", count)
                     .putBoolean("isStatus6", true)
                     .commit();
         }
         if (storeBean.getAid().equals("56") && storeBean.getAid() != null && !position7) { // 角板山天幕廣場 56
+            count += 1;
             sharedPreferences.edit()
-                    .putString("isNumber7", "7")
+                    .putInt("count", count)
                     .putBoolean("isStatus7", true)
                     .commit();
         }
         if (storeBean.getAid().equals("57") && storeBean.getAid() != null && !position8) { // 福興宮 57
+            count += 1;
             sharedPreferences.edit()
-                    .putString("isNumber8", "8")
+                    .putInt("count", count)
                     .putBoolean("isStatus8", true)
                     .commit();
         }
+        showDialog();
     }
 
     private void showDialog() {
-        if (count >= 3 && !isGift) {
+        if (count > 3 && !isGift) {
             getCoupon();
             runOnUiThread(() -> {
                 Dialog dialog = new Dialog(this);
@@ -300,7 +281,6 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
 
                 btnBack.setOnClickListener(v1 -> {
                     if (dialog != null) {
-                        countNumber();
                         dialog.dismiss();
                         Intent i = new Intent(this, JiaoBanShanActivity.class);
                         i.putExtra("gain", "gain");
@@ -310,7 +290,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                 });
             });
 
-        } else if (count >= 3 && isGift) {
+        } else if (count > 3 && isGift) {
             getCoupon();
             runOnUiThread(() -> {
                 Dialog dialog = new Dialog(this);
@@ -330,7 +310,6 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (dialog != null) {
-                            countNumber();
                             dialog.dismiss();
                             startActivity(new Intent(JiaoBanShanCameraActivity.this, JiaoBanShanActivity.class));
                             finish();
@@ -338,7 +317,7 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                     }
                 });
             });
-        } else if (count < 3) {
+        } else {
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.dialog_ar_success);
             dialog.setCanceledOnTouchOutside(false);
@@ -356,7 +335,6 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (dialog != null) {
-                        countNumber();
                         dialog.dismiss();
                         startActivity(new Intent(JiaoBanShanCameraActivity.this, JiaoBanShanActivity.class));
                         finish();
@@ -403,15 +381,15 @@ public class JiaoBanShanCameraActivity extends AppCompatActivity {
                     TextView txtTitle = dialogCollect.findViewById(R.id.gdT);
                     TextView txtContent = dialogCollect.findViewById(R.id.gdTC);
                     ImageView img = dialogCollect.findViewById(R.id.gdI);
-                    txtTitle.setText("恭喜您找到「"+storeList.get(0).getAr_name2()+"」");
+                    txtTitle.setText("恭喜您找到「" + storeList.get(0).getAr_name2() + "」");
                     txtContent.setText(storeList.get(0).getArDescript2());
                     Picasso.with(JiaoBanShanCameraActivity.this).load(ApiConstant.API_IMAGE + storeList.get(0).getAr_picture2()).into(img);
 
                     Button btnFind = dialogCollect.findViewById(R.id.gdC);
                     btnFind.setOnClickListener(v -> {
                         if (dialogCollect != null) {
+                            countNumber();
                             dialogCollect.dismiss();
-                            showDialog();
                         }
 
                     });

@@ -34,6 +34,12 @@
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".argame.LoyaltyCulturalPark.ParkCameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".argame.LoyaltyCulturalPark.LoyaltyCulturalParkActivity"
+            android:exported="false" />
+        <activity
             android:name=".argame.BeiPuSleepingTiger.BeiPuSleepingCameraActivity"
             android:exported="false" />
         <activity
@@ -41,9 +47,6 @@
             android:exported="false" />
         <activity
             android:name=".argame.BeiPuSleepingTiger.ResultActivity"
-            android:exported="false" />
-        <activity
-            android:name=".argame.JiaoBanShan.QuintupleActivity"
             android:exported="false" />
         <activity
             android:name=".argame.BeiPuSleepingTiger.BeiPuSleepingTigerActivity"

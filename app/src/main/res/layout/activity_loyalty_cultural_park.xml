@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ar_loyalty_cultural_park"
+    tools:context=".argame.LoyaltyCulturalPark.LoyaltyCulturalParkActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/dp_350"
+                android:layout_height="@dimen/dp_500"
+                android:background="@drawable/bg_loyalty_cultural_park"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontalLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <FrameLayout
+                android:id="@+id/btnARBack"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/dp_11"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:background="@drawable/bg_ar_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="返回"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLayoutPosition1"
+                android:layout_width="@dimen/dp_28"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginEnd="@dimen/dp_35"
+                android:layout_marginTop="@dimen/dp_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgLockPosition1"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_lock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUnlockPosition1"
+                    android:layout_width="@dimen/dp_28"
+                    android:layout_height="@dimen/dp_42"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_unlock"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLayoutPosition2"
+                android:layout_width="@dimen/dp_28"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginStart="@dimen/dp_40"
+                android:layout_marginTop="@dimen/dp_15"
+                app:layout_constraintStart_toStartOf="@id/horizontalLine"
+                app:layout_constraintTop_toBottomOf="@id/verticalLine">
+
+                <ImageView
+                    android:id="@+id/imgLockPosition2"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_lock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUnlockPosition2"
+                    android:layout_width="@dimen/dp_28"
+                    android:layout_height="@dimen/dp_42"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_unlock"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLayoutPosition3"
+                android:layout_width="@dimen/dp_28"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_50"
+                android:layout_marginEnd="@dimen/dp_15"
+                app:layout_constraintBottom_toBottomOf="@id/verticalLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgLockPosition3"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_lock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUnlockPosition3"
+                    android:layout_width="@dimen/dp_28"
+                    android:layout_height="@dimen/dp_42"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_unlock"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLayoutPosition4"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginStart="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_35"
+                app:layout_constraintBottom_toBottomOf="@id/verticalLine"
+                app:layout_constraintStart_toStartOf="@id/horizontalLine"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgLockPosition4"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_lock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUnlockPosition4"
+                    android:layout_width="@dimen/dp_28"
+                    android:layout_height="@dimen/dp_42"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_unlock"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLayoutPosition5"
+                android:layout_width="@dimen/dp_28"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_30"
+                app:layout_constraintBottom_toBottomOf="@id/verticalLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgLockPosition5"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_lock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUnlockPosition5"
+                    android:layout_width="@dimen/dp_28"
+                    android:layout_height="@dimen/dp_42"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_unlock"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLayoutPosition6"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginStart="@dimen/dp_55"
+                android:layout_marginBottom="@dimen/dp_35"
+                app:layout_constraintBottom_toBottomOf="@id/verticalLine"
+                app:layout_constraintStart_toStartOf="@id/horizontalLine">
+
+                <ImageView
+                    android:id="@+id/imgLockPosition6"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_lock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUnlockPosition6"
+                    android:layout_width="@dimen/dp_28"
+                    android:layout_height="@dimen/dp_42"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_unlock"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLayoutPosition7"
+                android:layout_width="@dimen/dp_28"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_40"
+                app:layout_constraintBottom_toBottomOf="@id/verticalLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/horizontalLine"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgLockPosition7"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_lock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUnlockPosition7"
+                    android:layout_width="@dimen/dp_28"
+                    android:layout_height="@dimen/dp_42"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_unlock"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLayoutPosition8"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_50"
+                android:layout_marginStart="@dimen/dp_10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/verticalLine">
+
+                <ImageView
+                    android:id="@+id/imgLockPosition8"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_lock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUnlockPosition8"
+                    android:layout_width="@dimen/dp_28"
+                    android:layout_height="@dimen/dp_42"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_unlock"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLayoutPosition9"
+                android:layout_width="@dimen/dp_28"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_45"
+                app:layout_constraintBottom_toBottomOf="@id/cLayoutPosition1"
+                app:layout_constraintEnd_toEndOf="@id/horizontalLine">
+
+                <ImageView
+                    android:id="@+id/imgLockPosition9"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_dot_lock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUnlockPosition9"
+                    android:layout_width="@dimen/dp_28"
+                    android:layout_height="@dimen/dp_42"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_unlock"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/bg_loyalty_text"
+        app:layout_constraintEnd_toStartOf="@id/menuSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menuSection"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="@dimen/dp_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/tvMenuFalse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="1dp"
+            android:src="@drawable/ic_gold_user" />
+
+        <ImageView
+            android:id="@+id/tvMenuTrue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="1dp"
+            android:src="@drawable/ic_gold_user"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:elevation="1dp"
+        android:id="@+id/menuLayout"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/menuSection"
+        app:layout_constraintTop_toTopOf="@id/menuSection">
+
+        <TextView
+            android:id="@+id/tvMenuActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif-condensed-light"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            android:text="活動說明"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/tvMenuCoupon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif-condensed-light"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            android:text="優惠券"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

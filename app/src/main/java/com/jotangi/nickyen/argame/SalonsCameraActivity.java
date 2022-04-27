@@ -412,7 +412,7 @@ public class SalonsCameraActivity extends AppCompatActivity
         {
             btnCatch.setOnClickListener(v ->
             {
-                Toast.makeText(this, "未獲取您的定位資訊，請退出重新", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "請划掉點點app並操作重新啟動", Toast.LENGTH_SHORT).show();
             });
         }
     }
