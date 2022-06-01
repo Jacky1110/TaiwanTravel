@@ -236,7 +236,19 @@ public class AppUtility {
                 status = "金三角商圈";
                 break;
             case "5":
+                status = "美容美髮";
+                break;
+            case "6":
                 status = "角板山商圈";
+                break;
+            case "7":
+                status = "AR導覽";
+                break;
+            case "8":
+                status = "關西魅力商圈";
+                break;
+            case "9":
+                status = "寶山特色商圈";
                 break;
         }
         return status;

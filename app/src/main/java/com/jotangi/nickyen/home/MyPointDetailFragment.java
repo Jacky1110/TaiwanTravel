@@ -30,7 +30,7 @@ public class MyPointDetailFragment extends BaseFragment
     private ProgressBar progressBar;
     private TextView txtTitle, txtContent, txtStoreName, txtOrderDate, txtBonus
             , txtOrderStatus, txtPayType, txtOrderAmount, txtActualAmount, txtMemberName
-            , txtMemberTel, txtNoData, txtHongLiZengDian, txtHongLiDate, txtDiscount;
+            , txtMemberTel, txtNoData, txtHongLiZengDian, txtHongLiDate, txtExpireDate, txtDiscount;
 
     private List<OrderListBean> orderListBeanList;
 
@@ -110,6 +110,7 @@ public class MyPointDetailFragment extends BaseFragment
         txtActualAmount.setText(orderListBean.getOrderPay());
         txtHongLiZengDian.setText(orderListBean.getBonusGet());
         txtHongLiDate.setText(orderListBean.getBonusDate());
+        txtExpireDate.setText(orderListBean.getBonusEndDate());
         txtDiscount.setText(orderListBean.getDiscountAmount());
     }
 
@@ -169,6 +170,8 @@ public class MyPointDetailFragment extends BaseFragment
         txtHongLiZengDian = v.findViewById(R.id.tv_hongLiZengDian);
         // 紅利歸戶日期
         txtHongLiDate = v.findViewById(R.id.tv_hongLiDate);
+        // 紅利到期日期
+        txtExpireDate = v.findViewById(R.id.tv_Expire_Date);
         // 現金折抵
         txtDiscount = v.findViewById(R.id.tv_cash_ticket);
         //會員姓名

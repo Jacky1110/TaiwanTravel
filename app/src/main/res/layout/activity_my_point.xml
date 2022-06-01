@@ -318,6 +318,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="點數到期日期"
+                        android:visibility="gone"
                         android:textColor="@color/darkAF"
                         android:textSize="16dp"
                         android:textStyle="bold"
@@ -329,6 +330,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:textColor="@color/black"
+                        android:visibility="gone"
                         android:textSize="16dp"
                         android:textStyle="bold"
                         tools:ignore="SpUsage" />

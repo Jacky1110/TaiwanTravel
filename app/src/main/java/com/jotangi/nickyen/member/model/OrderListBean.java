@@ -27,6 +27,7 @@ import java.io.Serializable;
  * member_name: "陳竹婷"
  * bonus_get："22"
  * bonus_date: "2021-12-13 10:24:29",
+ * bonus_end_date: "2022-05-27 10:24:29",
  * sid: "124",
  * store_name: "七彩雲南 (桃園店)"
  * }
@@ -68,6 +69,8 @@ public class OrderListBean implements Serializable
     private String bonusGet;
     @SerializedName("bonus_date")
     private String bonusDate;
+    @SerializedName("bonus_end_date")
+    private String bonusEndDate;
     @SerializedName("sid")
     private String sid;
     @SerializedName("store_name")
@@ -255,6 +258,14 @@ public class OrderListBean implements Serializable
         this.bonusDate = bonusDate;
     }
 
+    public String getBonusEndDate() {
+        return this.bonusEndDate;
+    }
+
+    public void setBonusEndDate(final String bonusEndDate) {
+        this.bonusEndDate = bonusEndDate;
+    }
+
     public String getSid()
     {
         return this.sid;
@@ -276,8 +287,7 @@ public class OrderListBean implements Serializable
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "OrderListBean{" +
                 "oid='" + oid + '\'' +
                 ", orderNo='" + orderNo + '\'' +
@@ -296,6 +306,7 @@ public class OrderListBean implements Serializable
                 ", memberName='" + memberName + '\'' +
                 ", bonusGet='" + bonusGet + '\'' +
                 ", bonusDate='" + bonusDate + '\'' +
+                ", bonusEndDate='" + bonusEndDate + '\'' +
                 ", sid='" + sid + '\'' +
                 ", apiStoreName='" + apiStoreName + '\'' +
                 ", storeName='" + storeName + '\'' +

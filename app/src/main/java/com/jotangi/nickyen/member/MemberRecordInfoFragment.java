@@ -35,7 +35,7 @@ public class MemberRecordInfoFragment extends BaseFragment
     private ImageButton btnGoBack;
     private TextView txtTitle, txtContent, txtStoreName, txtOrderDate, txtBonus, txtOrderStatus
             , txtPayType, txtOrderAmount, txtActualAmount, txtMemberName, txtMemberTel
-            , txtHongLiZengDian, txtHongLiDate, txtDiscount;
+            , txtHongLiZengDian, txtHongLiDate, txtExpireDate, txtDiscount;
     private List<OrderListBean> orderListBeanList = new ArrayList<>();
 
     public MemberRecordInfoFragment()
@@ -78,6 +78,7 @@ public class MemberRecordInfoFragment extends BaseFragment
                 {
                     txtHongLiZengDian.setText(orderListBeanList.get(0).getBonusGet());
                     txtHongLiDate.setText(orderListBeanList.get(0).getBonusDate());
+                    txtExpireDate.setText(orderListBeanList.get(0).getBonusEndDate());
                     txtDiscount.setText(orderListBeanList.get(0).getDiscountAmount());
                 });
             }
@@ -89,6 +90,7 @@ public class MemberRecordInfoFragment extends BaseFragment
                 {
                     txtHongLiZengDian.setText("-");
                     txtHongLiDate.setText("-");
+                    txtExpireDate.setText("-");
                     txtDiscount.setText("-");
                 });
             }
@@ -147,6 +149,8 @@ public class MemberRecordInfoFragment extends BaseFragment
         txtHongLiZengDian = v.findViewById(R.id.tv_hongLiZengDian);
         // 紅利歸戶日期
         txtHongLiDate = v.findViewById(R.id.tv_hongLiDate);
+        // 紅利過期日期
+        txtExpireDate = v.findViewById(R.id.tv_Expire_Date);
         // 現金折抵
         txtDiscount = v.findViewById(R.id.tv_cash_ticket);
         //會員姓名

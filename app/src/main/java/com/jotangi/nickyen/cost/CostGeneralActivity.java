@@ -147,14 +147,7 @@ public class CostGeneralActivity extends AppCompatActivity implements View.OnCli
                         orderListBeanArrayList = new Gson().fromJson(jsonString, type);
                         txtNoData.setVisibility(View.GONE);
 
-                        Collections.sort(orderListBeanArrayList, new Comparator<OrderListBean>()
-                        {
-                            @Override
-                            public int compare(OrderListBean o1, OrderListBean o2)
-                            {
-                                return o2.getOrderDate().compareTo(o1.getOrderDate());
-                            }
-                        });
+                        orderListBeanArrayList.stream().sorted(Comparator.comparing(OrderListBean::getOrderDate));
                         try
                         {
                             CompareTo(orderListBeanArrayList);

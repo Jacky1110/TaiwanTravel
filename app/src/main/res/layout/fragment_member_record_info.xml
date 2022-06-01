@@ -422,6 +422,37 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/lightGray" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="紅利到期日期"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightGray" />
+
+                <TextView
+                    android:id="@+id/tv_Expire_Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22sp"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGray" />
+
             <TextView
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
