@@ -97,6 +97,7 @@ public class ApiConstant
      */
     //會員點數清單
     static final String BonusList = "bonus_list.php";
+    static final String bonus_deadline = "bonus_deadline.php";
 
     /**
      * 店長相關

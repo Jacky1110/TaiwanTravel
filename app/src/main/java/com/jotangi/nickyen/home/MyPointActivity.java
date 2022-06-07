@@ -52,7 +52,7 @@ public class MyPointActivity extends AppCompatActivity implements View.OnClickLi
     private ProgressBar progressBar;
     private ImageButton btnGoBack;
     private ConstraintLayout btnDate;
-    private TextView txtStartDate, txtEndDate, txtPoint, tvPointYet, txtCount, txt1, txtNoData, txtPointsExpiryTime;
+    private TextView txtStartDate, txtEndDate, txtPoint, tvPointYet, txtCount, txt1, txtNoData, txtPointsExpiry , txtTimeExpiry;
     private RecyclerView recyclerView;
     private LinearLayoutManager mManager;
     private FetchAdapter adapter;
@@ -98,7 +98,10 @@ public class MyPointActivity extends AppCompatActivity implements View.OnClickLi
         txtCount = findViewById(R.id.tv_count);
         txt1 = findViewById(R.id.text);
         txtNoData = findViewById(R.id.tv_noData);
-        txtPointsExpiryTime = findViewById(R.id.txtPointsExpiryTime);
+        // 即將到期點數
+        txtPointsExpiry = findViewById(R.id.txtPointsExpiry);
+        // 即將到期日
+        txtTimeExpiry = findViewById(R.id.txtTimeExpiry);
         recyclerView = findViewById(R.id.recycler);
 
         Calendar calendar = Calendar.getInstance();
@@ -169,15 +172,15 @@ public class MyPointActivity extends AppCompatActivity implements View.OnClickLi
                                 cal.add(Calendar.YEAR, 1);
                                 date = cal.getTime();
                                 String expireDate = sdf.format(date);
-                                txtPointsExpiryTime.setText(expireDate);
+                                txtPointsExpiry.setText(expireDate);
 
                             } catch (ParseException e)
                             {
                                 e.printStackTrace();
-                                txtPointsExpiryTime.setText("-");
+                                txtPointsExpiry.setText("-");
                             }
                         }else {
-                            txtPointsExpiryTime.setText("-");
+                            txtPointsExpiry.setText("-");
                         }
                         layoutViews(data);
                     }
@@ -187,7 +190,7 @@ public class MyPointActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onFailure(String message)
             {
-                runOnUiThread(() -> txtPointsExpiryTime.setText("-"));
+                runOnUiThread(() -> txtPointsExpiry.setText("-"));
             }
         });
     }

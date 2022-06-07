@@ -9,13 +9,13 @@ plugins {
 android {
     signingConfigs {
         debug {
-            storeFile file('/home/qinzhongli/TaiwanShop/key/Untitled')
+            storeFile file('/Users/dinghan/Desktop/Jotangi/TaiwanTravelShop/keystore/Untitled')
             storePassword '123456'
             keyPassword '123456'
             keyAlias 'key0'
         }
         release {
-            storeFile file('/home/qinzhongli/TaiwanShop/key/Untitled')
+            storeFile file('/Users/dinghan/Desktop/Jotangi/TaiwanTravelShop/keystore/Untitled')
             storePassword '123456'
             keyPassword '123456'
             keyAlias 'key0'
