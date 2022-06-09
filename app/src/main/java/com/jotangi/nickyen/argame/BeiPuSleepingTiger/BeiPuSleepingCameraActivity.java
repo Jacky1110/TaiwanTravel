@@ -37,6 +37,7 @@ import com.jotangi.nickyen.member.RegisterActivity;
 import com.jotangi.nickyen.scanner.SurfaceViewActivity;
 
 public class BeiPuSleepingCameraActivity extends AppCompatActivity implements View.OnClickListener {
+    private String TAG = getClass().getSimpleName() + "TAG";
 
     ActivityBeiPuSleepingCameraBinding binding;
 
@@ -109,7 +110,7 @@ public class BeiPuSleepingCameraActivity extends AppCompatActivity implements Vi
                     if (barcodes.size() != 0) {
                         isRunning = true;
                         barcodeScanned = barcodes.valueAt(0).displayValue;
-                        Log.d("receiveDetections", "Barcode = " + barcodeScanned);
+                        Log.d(TAG, "Barcode = " + barcodeScanned);
                         if (barcodeScanned.contains("tiger")) {
                             String[] arrays = barcodeScanned.split("=");
                             String qid = arrays[1];

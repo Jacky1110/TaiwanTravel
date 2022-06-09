@@ -58,6 +58,8 @@ public class MemberInfoBean
 
 
     public static int member_points;
+    public static String bonus_end_date;
+    public static String totalBonus;
     public static String decryptId;
     public static String decryptPwd;
     public static String decryptName;

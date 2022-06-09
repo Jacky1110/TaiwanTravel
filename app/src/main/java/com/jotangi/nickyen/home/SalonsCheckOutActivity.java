@@ -40,6 +40,8 @@ import java.util.Optional;
 
 public class SalonsCheckOutActivity extends AppCompatActivity implements View.OnClickListener
 {
+    private String TAG = getClass().getSimpleName() + "TAG";
+
     private static final int EDIT = 1;
 
     private ConstraintLayout checkPointLayout;
@@ -259,7 +261,7 @@ public class SalonsCheckOutActivity extends AppCompatActivity implements View.On
         if (isStatus2)
         {
             String s = String.valueOf(point);
-            txtUse.setText("使用" + s + "點");
+            txtUse.setText("可使用" + s + "點");
             btnCheck.setVisibility(View.VISIBLE);
             btnNoCheck.setVisibility(View.INVISIBLE);
             last = Integer.parseInt(total) - discountAmount - point;
@@ -274,6 +276,7 @@ public class SalonsCheckOutActivity extends AppCompatActivity implements View.On
             txtUse.setText("您未使用點數");
             point = 0;
             txtPoint.setText(String.valueOf(MemberInfoBean.member_points));
+            Log.d(TAG, "txtPoint: " + txtPoint);
             btnCheck.setVisibility(View.INVISIBLE);
             btnNoCheck.setVisibility(View.VISIBLE);
             last = Integer.parseInt(total) - discountAmount - point;
@@ -317,6 +320,7 @@ public class SalonsCheckOutActivity extends AppCompatActivity implements View.On
                         {
                             txtUse.setText("使用" + s + "點");
                             txtPoint.setText(String.valueOf(point));
+                            Log.d(TAG, "txtPoint: " + txtPoint);
 //                            editAmount.setText(String.valueOf(point));
                             btnCheck.setVisibility(View.VISIBLE);
                             btnNoCheck.setVisibility(View.INVISIBLE);

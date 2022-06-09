@@ -36,21 +36,39 @@
         <entry key="app/src/main/res/layout/activity_ar_camera.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_ar_find.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_ar_game.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_ar_store.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_bei_pu_sleeping_camera.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_bei_pu_sleeping_tiger.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_bei_pu_sleeping_tiger_next.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_beipu_sleeping_tiger.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/activity_cost_general.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/activity_cost_shop.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_false.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/activity_forget_passord.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_golden_triangle.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_gui_hua_camera.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_jiao_ban_mountain.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_jiao_ban_shan.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_my_discount_new.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_my_point.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_notify.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_pay.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_phone_verify.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_point_change.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_point_commodity.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_pointshop_order_record.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_pointshop_order_record_detail.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_pointshop_pay.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_pointshop_pay_result.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_quintuple.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_result.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_salons_check_out.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_shop.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_shop_new.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_store_area.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_success.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/activity_surface_view.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/calendar_header.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/dialog_ar_collection.xml" value="0.15416666666666667" />
         <entry key="app/src/main/res/layout/dialog_ar_coupon.xml" value="0.375" />
         <entry key="app/src/main/res/layout/dialog_ar_jiao_activity.xml" value="0.22735507246376813" />
@@ -62,14 +80,21 @@
         <entry key="app/src/main/res/layout/dialog_coupon.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/dialog_gold_recipe.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/dialog_jiao_activity.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/dialog_merch_serach.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/dialog_questionnaire.xml" value="0.10729166666666666" />
         <entry key="app/src/main/res/layout/dialog_sleeping_tiger_activity.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/fragment_all.xml" value="0.2346014492753623" />
         <entry key="app/src/main/res/layout/fragment_bowldirection.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_check_designer.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_check_service.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/fragment_industry_reserve.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_member_record_info.xml" value="0.21467391304347827" />
         <entry key="app/src/main/res/layout/fragment_merch_record.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/fragment_merch_result.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_order_check.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_point_discount.xml" value="0.37500356038411464" />
+        <entry key="app/src/main/res/layout/fragment_point_shop_payment.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/item_ar_shop.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_bei_pu_sleeping_tiger.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_couponlist.xml" value="0.22735507246376813" />
@@ -80,13 +105,14 @@
         <entry key="app/src/main/res/layout/item_merch_reserve.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_normal.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_order_record.xml" value="0.22735507246376813" />
-        <entry key="app/src/main/res/layout/item_point_record.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/item_point_record.xml" value="0.4232489323270494" />
         <entry key="app/src/main/res/layout/item_point_recycle.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_point_shop_ecorder.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_salons_record.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_service.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_shopping_cart.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_store_area.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/slide_home_item.xml" value="0.3098958333333333" />
       </map>
     </option>
   </component>

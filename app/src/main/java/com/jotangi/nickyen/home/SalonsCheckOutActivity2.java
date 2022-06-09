@@ -40,14 +40,16 @@ import java.util.Optional;
 
 public class SalonsCheckOutActivity2 extends AppCompatActivity implements View.OnClickListener {
 
+    private String TAG = getClass().getSimpleName() + "TAG";
+
     private static final int EDIT = 1;
 
     private ConstraintLayout checkPointLayout;
     private CheckBox cbCreditCard, cbLinePay, cbJKO, cbCash;
     private ImageButton btnBack;
     private Button btnEnter, btnChoice, btnNoChoice;
-    private TextView txtCost, txtStoreName, txtTicket;
-    //            , txtUse, txtPoint;
+    private TextView txtCost, txtStoreName, txtTicket, txtUse;
+//            , txtPoint;
     private TextView txtCredit, txtLinePay, txtJKO, txtCash;
     private EditText editAmount;
     private ProgressBar progressBar;
@@ -110,7 +112,7 @@ public class SalonsCheckOutActivity2 extends AppCompatActivity implements View.O
         txtStoreName = findViewById(R.id.tv_store_name);
         txtStoreName.setText(storeName);
 //        txtPoint = findViewById(R.id.tv_point);
-//        txtUse = findViewById(R.id.tv_use);
+        txtUse = findViewById(R.id.tv_use);
 
         cbCreditCard = findViewById(R.id.check_credit_card);
         cbCreditCard.setClickable(false);
@@ -193,7 +195,7 @@ public class SalonsCheckOutActivity2 extends AppCompatActivity implements View.O
                 }
                 editAmount.setSelection(editAmount.getText().length());
                 txtCost.setText(AppUtility.strAddComma(String.valueOf(total - discountAmount - Integer.parseInt(editAmount.getText().toString().trim()))));
-                Log.d("嘿嘿", "afterTextChanged: " + total + "\n" + editAmount.getText().toString().trim());
+                Log.d(TAG, "afterTextChanged: " + total + "\n" + editAmount.getText().toString().trim());
             }
         });
     }
@@ -252,13 +254,16 @@ public class SalonsCheckOutActivity2 extends AppCompatActivity implements View.O
                 runOnUiThread(() ->
                 {
                     if (isStatus) {
-                        point = MemberInfoBean.member_points;
-                        Log.d("嘿嘿", "監測1: " + point);
+                        // 預設訂單點數為0
+                        point = 0;
+                        Log.d(TAG, "point :" + point);
                         txtCost.setText(AppUtility.strAddComma(calculationAmount()));
-                        Log.d("嘿嘿", "監測2: " + point);
+                        Log.d(TAG, "txtCost: " + txtCost.getText());
                         editAmount.setText(String.valueOf(point));
-                        Log.d("嘿嘿", "onSuccess: " + point);
-                        Log.d("嘿嘿", "onSuccess: " + editAmount.getText());
+                        Log.d(TAG, "editAmount: " + editAmount.getText());
+                        // 修改可使用點數文字
+                        txtUse.setText("可使用紅利點數為" + MemberInfoBean.member_points + "點");
+                        Log.d(TAG, "txtUse: " + txtUse.getText());
                     } else {
                         txtCost.setText(AppUtility.strAddComma(calculationAmount()));
                     }

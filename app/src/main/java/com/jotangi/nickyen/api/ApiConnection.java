@@ -973,6 +973,25 @@ public class ApiConnection {
         createSuccessCall(request, listener);
     }
 
+    // 紅利到期日
+    public static void bonus_deadline(OnConnectResultListener listener) {
+        String url = ApiConstant.API_URL + ApiConstant.bonus_deadline;
+        Log.d(TAG, "URL: " + url);
+
+        FormBody formBody = new FormBody.Builder()
+                .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .build();
+        Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+        Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        createSuccessCall(request, listener);
+    }
+
     //會員獲取消費記錄
     public static void getMemberOrderList(String startDate, String endDate, OnConnectResultListener listener) {
         String url = ApiConstant.API_URL + ApiConstant.MemberOrderList;
@@ -2390,7 +2409,7 @@ public class ApiConnection {
                     body = responseBody.string();
                 try {
                     JSONArray jsonArray = new JSONArray(body);
-                    Log.e(TAG, jsonArray.toString());
+                    Log.d(TAG, "jsonArray" + jsonArray);
 
                     listener.onSuccess(jsonArray.toString());
 
