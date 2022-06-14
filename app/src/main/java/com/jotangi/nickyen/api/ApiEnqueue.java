@@ -34,6 +34,7 @@ public class ApiEnqueue {
     public static String runTask = "";
 
     public final String TASK_BONUS_DEADLINE = "TASK_BONUS_DEADLINE";
+    public final String TASK_STORE_MEMBER_COUNT = "TASK_STORE_MEMBER_COUNT";
 
 
     // 紅利到期日
@@ -57,6 +58,31 @@ public class ApiEnqueue {
         runOkHttp(url, requestBody);
 
     }
+
+    //店家會員的人數統計資料
+    public void StoreMemberCount(resultListener listen){
+
+        runTask = TASK_STORE_MEMBER_COUNT;
+
+        listener = listen;
+
+        String url = ApiConstant.API_URL + ApiConstant.StoreMemberCount;
+        Log.d(TAG, "URL: " + url);
+
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .addFormDataPart("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .build();
+        Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+        Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
+
+
+        runOkHttp(url, requestBody);
+    }
+
+
+
 
     private void runOkHttp(String url,  RequestBody requestBody) {
 
@@ -96,10 +122,18 @@ public class ApiEnqueue {
             case TASK_BONUS_DEADLINE:
                 taskBonusDeadline(body);
                 break;
+
+            case TASK_STORE_MEMBER_COUNT:
+                taskStoreMemberCount(body);
+                break;
         }
     }
 
+
     private void taskBonusDeadline(String body) {
+        listener.onSuccess(body);
+    }
+    private void taskStoreMemberCount(String body) {
         listener.onSuccess(body);
     }
 }

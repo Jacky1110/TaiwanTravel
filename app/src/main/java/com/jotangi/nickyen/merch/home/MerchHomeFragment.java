@@ -21,16 +21,23 @@ import com.jotangi.nickyen.PicassoTrustAll;
 import com.jotangi.nickyen.R;
 import com.jotangi.nickyen.api.ApiConnection;
 import com.jotangi.nickyen.api.ApiConstant;
+import com.jotangi.nickyen.api.ApiEnqueue;
 import com.jotangi.nickyen.base.BaseFragment;
 import com.jotangi.nickyen.home.notify.NotifyActivity;
 import com.jotangi.nickyen.home.notify.NotifyModel;
 import com.jotangi.nickyen.merch.model.MerchMemberInfoBean;
+import com.jotangi.nickyen.model.MemberInfoBean;
 import com.jotangi.nickyen.model.ShopBean;
 import com.jotangi.nickyen.model.UserBean;
 import com.jotangi.nickyen.utils.SharedPreferencesUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.jar.JarException;
 
 //import static com.jotangi.nickyen.merch.MerchMainActivity.notifyChangePage;
 
@@ -42,9 +49,12 @@ import java.util.ArrayList;
  * \/\/\/\/\/\/\/\/\/\/\/\/\/\
  **/
 public class MerchHomeFragment extends BaseFragment {
+    private String TAG = getClass().getSimpleName() + "TAG";
+
     //UI
-    TextView txtStoreName;
+    TextView txtStoreName, tvDay, tvWeek, tvMonth;
     ImageView imgContent, btnNotify, imgRemind;
+    ApiEnqueue apiEnqueue;
 
     ConstraintLayout btnCheck, btnExchange, btnSetting, btnRecord, btnReserve, btnIndustryReserve, btnReconciliation;
 
@@ -66,15 +76,22 @@ public class MerchHomeFragment extends BaseFragment {
         }
         initView(view);
         getNotify();
+        getMemberCount();
         return view;
     }
 
     private void initView(View v) {
+        apiEnqueue = new ApiEnqueue();
         btnNotify = v.findViewById(R.id.iv_notify);
         btnNotify.setOnClickListener(this);
         imgRemind = v.findViewById(R.id.iv_remind);
         txtStoreName = v.findViewById(R.id.tv_store_name);
         imgContent = v.findViewById(R.id.iv_store);
+        tvDay = v.findViewById(R.id.tv_day_member);
+        tvWeek = v.findViewById(R.id.tv_week_member);
+        tvMonth = v.findViewById(R.id.tv_month_member);
+
+
         //結帳核銷
         btnCheck = v.findViewById(R.id.layout_check);
         btnCheck.setOnClickListener(this);
@@ -241,6 +258,41 @@ public class MerchHomeFragment extends BaseFragment {
                 controller.navigate(R.id.action_merchHomeFragment_to_merchSettingFragment);
                 break;
         }
+    }
+
+    private void getMemberCount() {
+        apiEnqueue.StoreMemberCount(new ApiEnqueue.resultListener() {
+            @Override
+            public void onSuccess(String message) {
+                requireActivity().runOnUiThread(()->{
+                    try {
+                        JSONArray jsonArray = new JSONArray(message);
+                        Log.d(TAG, "jsonArray: " + jsonArray);
+                        JSONObject jsonObject = (JSONObject) jsonArray.get(0);
+                        Log.d(TAG, "jsonObject: " + jsonObject);
+                        MemberInfoBean.day = jsonObject.getString("day");
+                        MemberInfoBean.week = jsonObject.getString("week");
+                        MemberInfoBean.month = jsonObject.getString("month");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    tvDay.setText(MemberInfoBean.day);
+                    tvWeek.setText(MemberInfoBean.week);
+                    tvMonth.setText(MemberInfoBean.month);
+
+
+                });
+
+
+            }
+
+            @Override
+            public void onFailure(String message) {
+
+            }
+        });
     }
 
 //    private void changePage()

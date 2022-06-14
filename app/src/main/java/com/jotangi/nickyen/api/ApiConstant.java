@@ -102,6 +102,8 @@ public class ApiConstant
     /**
      * 店長相關
      */
+    //店家會員的人數統計資料
+    static final String StoreMemberCount = "store_membercount.php";
     //店長檢查點數狀態
     static final String CheckBonus = "check_bonus.php";
     //店長結帳核銷用
