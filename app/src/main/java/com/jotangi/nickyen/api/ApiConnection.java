@@ -1268,6 +1268,8 @@ public class ApiConnection {
                 .add("order_startdate", startDate)
                 .add("order_enddate", endDate)
                 .build();
+        Log.d(TAG, "order_startdate: " + startDate);
+        Log.d(TAG, "order_enddate: " + endDate);
         Request request = new Request.Builder()
                 .url(url)
                 .post(formBody)

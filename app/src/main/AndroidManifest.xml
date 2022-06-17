@@ -29,11 +29,14 @@
         android:icon="@drawable/new_app_icon"
         android:label="@string/app_name"
         android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_new_launcher_round"
         android:supportsRtl="true"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".MemberMangementActivity"
+            android:exported="false" />
         <activity
             android:name=".argame.LoyaltyCulturalPark.ParkCameraActivity"
             android:exported="false" />

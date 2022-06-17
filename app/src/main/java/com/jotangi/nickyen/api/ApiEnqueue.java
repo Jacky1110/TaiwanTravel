@@ -35,6 +35,8 @@ public class ApiEnqueue {
 
     public final String TASK_BONUS_DEADLINE = "TASK_BONUS_DEADLINE";
     public final String TASK_STORE_MEMBER_COUNT = "TASK_STORE_MEMBER_COUNT";
+    public final String TASK_MEMBER_LIST = "TASK_MEMBER_LIST";
+    public final String TASK_STORE_MEMBER_INFO = "TASK_STORE_MEMBER_INFO";
 
 
     // 紅利到期日
@@ -81,6 +83,53 @@ public class ApiEnqueue {
         runOkHttp(url, requestBody);
     }
 
+    // 會員管理
+    public void MemberList(String startDate, String endDate, resultListener listen){
+
+        runTask = TASK_MEMBER_LIST;
+
+        listener = listen;
+
+        String url = ApiConstant.API_URL + ApiConstant.Member_list;
+        Log.d(TAG, "URL: " + url);
+
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .addFormDataPart("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .addFormDataPart("order_startdate", startDate)
+                .addFormDataPart("order_enddate", endDate)
+                .build();
+        Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+        Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
+
+        runOkHttp(url, requestBody);
+    }
+
+    // 會員管理資訊
+    public void StoreMemberInfo(String mid, resultListener listen){
+
+        runTask = TASK_STORE_MEMBER_INFO;
+
+        listener = listen;
+
+        String url = ApiConstant.API_URL + ApiConstant.Store_member_info;
+        Log.d(TAG, "URL: " + url);
+
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .addFormDataPart("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .addFormDataPart("mid", mid)
+                .build();
+        Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+        Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
+        Log.d(TAG, "mid: " + mid);
+
+        runOkHttp(url, requestBody);
+
+    }
+
 
 
 
@@ -123,17 +172,33 @@ public class ApiEnqueue {
                 taskBonusDeadline(body);
                 break;
 
+            //店家會員的人數統計資料
             case TASK_STORE_MEMBER_COUNT:
                 taskStoreMemberCount(body);
                 break;
+
+            // 會員管理
+            case TASK_MEMBER_LIST:
+                taskMemberList(body);
+                break;
+
+            // 會員管理資訊
+            case TASK_STORE_MEMBER_INFO:
+                taskStoreMemberInfo(body);
+                break;
         }
     }
-
 
     private void taskBonusDeadline(String body) {
         listener.onSuccess(body);
     }
     private void taskStoreMemberCount(String body) {
+        listener.onSuccess(body);
+    }
+    private void taskMemberList(String body) {
+        listener.onSuccess(body);
+    }
+    private void taskStoreMemberInfo(String body) {
         listener.onSuccess(body);
     }
 }

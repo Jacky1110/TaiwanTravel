@@ -35,44 +35,51 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_merchHomeFragment_to_reserveFragment"
             app:destination="@id/reserveFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_merchHomeFragment_to_industryReserveFragment"
             app:destination="@id/industryReserveFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_merchHomeFragment_to_reconciliationFragment"
             app:destination="@id/reconciliationFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_merchHomeFragment_to_memberManagementFragment"
+            app:destination="@id/memberManagementFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/merchSettingFragment"
         android:name="com.jotangi.nickyen.merch.setting.MerchSettingFragment"
         android:label="MerchSettingFragment"
-        tools:layout="@layout/fragment_merch_setting"/>
+        tools:layout="@layout/fragment_merch_setting" />
     <fragment
         android:id="@+id/merchScanFragment"
         android:name="com.jotangi.nickyen.merch.scan.MerchScanFragment"
         android:label="MerchScanFragment"
-        tools:layout="@layout/fragment_merch_scan"/>
+        tools:layout="@layout/fragment_merch_scan" />
     <fragment
         android:id="@+id/merchInputFragment"
         android:name="com.jotangi.nickyen.merch.checkout.MerchInputFragment"
         android:label="fragment_merch_input"
-        tools:layout="@layout/fragment_merch_input" >
+        tools:layout="@layout/fragment_merch_input">
         <action
             android:id="@+id/action_merchInputFragment_to_merchScanCheckFragment"
             app:destination="@id/merchScanCheckFragment" />
@@ -84,7 +91,7 @@
         android:id="@+id/merchResultFragment"
         android:name="com.jotangi.nickyen.merch.checkout.MerchResultFragment"
         android:label="fragment_merch_result"
-        tools:layout="@layout/fragment_merch_result" >
+        tools:layout="@layout/fragment_merch_result">
         <action
             android:id="@+id/action_merchResultFragment_to_merchHomeFragment"
             app:destination="@id/merchHomeFragment"
@@ -98,7 +105,7 @@
         android:id="@+id/merchScanCheckFragment"
         android:name="com.jotangi.nickyen.merch.scan.MerchScanCheckFragment"
         android:label="fragment_merch_scan_check"
-        tools:layout="@layout/fragment_merch_scan_check" >
+        tools:layout="@layout/fragment_merch_scan_check">
         <action
             android:id="@+id/action_merchScanCheckFragment_to_merchHomeFragment"
             app:destination="@id/merchHomeFragment" />
@@ -113,7 +120,7 @@
         android:id="@+id/merchRecordFragment"
         android:name="com.jotangi.nickyen.merch.record.MerchRecordFragment"
         android:label="fragment_merch_record"
-        tools:layout="@layout/fragment_merch_record" >
+        tools:layout="@layout/fragment_merch_record">
         <action
             android:id="@+id/action_merchRecordFragment_to_merchRecordDetailFragment"
             app:destination="@id/merchRecordDetailFragment" />
@@ -167,7 +174,7 @@
         android:id="@+id/industryReserveFragment"
         android:name="com.jotangi.nickyen.merch.industryReserve.IndustryReserveFragment"
         android:label="fragment_industry_reserve"
-        tools:layout="@layout/fragment_industry_reserve" >
+        tools:layout="@layout/fragment_industry_reserve">
         <action
             android:id="@+id/action_industryReserveFragment_to_industryReserveDetailFragment"
             app:destination="@id/industryReserveDetailFragment"
@@ -181,7 +188,7 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right"/>
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/industryReserveDetailFragment"
@@ -194,7 +201,7 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right"/>
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/industryReserveInputFragment"
@@ -207,13 +214,13 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right"/>
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/industryReserveQRFragment"
         android:name="com.jotangi.nickyen.merch.industryReserve.IndustryReserveQRFragment"
         android:label="IndustryReserveQRFragment"
-        tools:layout="@layout/fragment_reserve_q_r"/>
+        tools:layout="@layout/fragment_reserve_q_r" />
     <fragment
         android:id="@+id/reserveModifyFragment"
         android:name="com.jotangi.nickyen.merch.reserve.ReserveModifyFragment"
@@ -228,23 +235,37 @@
         android:id="@+id/merchRecordDetailFragment"
         android:name="com.jotangi.nickyen.merch.record.MerchRecordDetailFragment"
         android:label="MerchRecordDetailFragment"
-        tools:layout="@layout/fragment_member_record_info"/>
+        tools:layout="@layout/fragment_member_record_info" />
     <fragment
         android:id="@+id/reconciliationFragment"
         android:name="com.jotangi.nickyen.merch.reconciliation.ReconciliationFragment"
         android:label="fragment_reconciliation"
-        tools:layout="@layout/fragment_reconciliation" >
+        tools:layout="@layout/fragment_reconciliation">
         <action
             android:id="@+id/action_reconciliationFragment_to_paymentFragment"
             app:destination="@id/paymentFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
         android:name="com.jotangi.nickyen.merch.reconciliation.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/memberManagementFragment"
+        android:name="com.jotangi.nickyen.MemberManagementFragment"
+        android:label="fragment_member_management"
+        tools:layout="@layout/fragment_member_management" >
+        <action
+            android:id="@+id/action_memberManagementFragment_to_memberDataFragment"
+            app:destination="@id/memberDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memberDataFragment"
+        android:name="com.jotangi.nickyen.MemberDataFragment"
+        android:label="fragment_member_data"
+        tools:layout="@layout/fragment_member_data" />
 </navigation>

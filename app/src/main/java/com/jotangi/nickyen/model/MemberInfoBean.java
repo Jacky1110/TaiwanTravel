@@ -63,6 +63,12 @@ public class MemberInfoBean
     public static String day;
     public static String week;
     public static String month;
+    public static String memberName;
+    public static String memberNumber;
+    public static String memberBirthday;
+    public static String memberSex;
+    public static String memberEmail;
+    public static String memberAddress;
     public static String decryptId;
     public static String decryptPwd;
     public static String decryptName;

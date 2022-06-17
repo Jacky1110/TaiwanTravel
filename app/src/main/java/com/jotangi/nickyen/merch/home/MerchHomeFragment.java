@@ -56,7 +56,7 @@ public class MerchHomeFragment extends BaseFragment {
     ImageView imgContent, btnNotify, imgRemind;
     ApiEnqueue apiEnqueue;
 
-    ConstraintLayout btnCheck, btnExchange, btnSetting, btnRecord, btnReserve, btnIndustryReserve, btnReconciliation;
+    ConstraintLayout btnCheck, btnExchange, btnSetting, btnRecord, btnReserve, btnIndustryReserve, btnReconciliation, btnManagement;
 
     private NavController controller;
     private ArrayList<MerchMemberInfoBean> memberInfoArrayList = new ArrayList<>();
@@ -98,6 +98,9 @@ public class MerchHomeFragment extends BaseFragment {
         //商品兌換
         btnExchange = v.findViewById(R.id.layout_exchange);
         btnExchange.setOnClickListener(this);
+        //會員管理
+        btnManagement = v.findViewById(R.id.layout_manage);
+        btnManagement.setOnClickListener(this);
         //交易紀錄
         btnRecord = v.findViewById(R.id.layout_record);
         btnRecord.setOnClickListener(this);
@@ -225,6 +228,11 @@ public class MerchHomeFragment extends BaseFragment {
                 controller = Navigation.findNavController(v);
                 controller.navigate(R.id.action_merchHomeFragment_to_merchScanFragment, bundle);
                 break;
+            case R.id.layout_manage:
+                controller = Navigation.findNavController(v);
+                controller.navigate(R.id.action_merchHomeFragment_to_memberManagementFragment);
+                break;
+
             case R.id.layout_record:
                 controller = Navigation.findNavController(v);
                 controller.navigate(R.id.action_merchHomeFragment_to_merchRecordFragment);

@@ -128,6 +128,10 @@ public class ApiConstant
     static final String STORE_CLASS_BOOKING_UPDATE = "storeclassbooking_update.php";
     // 店長對帳
     static final String PROFIT_INFO = "profit_info.php";
+    // 會員管理
+    static final String Member_list = "member_list.php";
+    // 會員管理會員資訊
+    static final String Store_member_info = "store_member_info.php";
 
     /**
      * 會員結帳相關
