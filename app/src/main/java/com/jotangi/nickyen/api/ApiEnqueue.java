@@ -37,6 +37,7 @@ public class ApiEnqueue {
     public final String TASK_STORE_MEMBER_COUNT = "TASK_STORE_MEMBER_COUNT";
     public final String TASK_MEMBER_LIST = "TASK_MEMBER_LIST";
     public final String TASK_STORE_MEMBER_INFO = "TASK_STORE_MEMBER_INFO";
+    public final String TASK_STORE_MEMBER_PAYMENTINDEX = "TASK_STORE_MEMBER_PAYMENTINDEX";
 
 
     // 紅利到期日
@@ -130,6 +131,34 @@ public class ApiEnqueue {
 
     }
 
+    // 消費紀錄
+    public void StoreMemberPaymentindex(String mid, String startDate, String endDate, resultListener listen) {
+
+        runTask = TASK_STORE_MEMBER_PAYMENTINDEX;
+
+        listener = listen;
+
+        String url = ApiConstant.API_URL + ApiConstant.Store_member_paymentindex;
+        Log.d(TAG, "URL: " + url);
+
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .addFormDataPart("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .addFormDataPart("mid", mid)
+                .addFormDataPart("order_startdate", startDate)
+                .addFormDataPart("order_enddate", endDate)
+                .build();
+        Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+        Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
+        Log.d(TAG, "mid: " + mid);
+        Log.d(TAG, "order_startdate: " + startDate);
+        Log.d(TAG, "order_enddate: " + endDate);
+
+        runOkHttp(url, requestBody);
+
+    }
+
 
 
 
@@ -186,6 +215,11 @@ public class ApiEnqueue {
             case TASK_STORE_MEMBER_INFO:
                 taskStoreMemberInfo(body);
                 break;
+
+            // 消費紀錄
+            case TASK_STORE_MEMBER_PAYMENTINDEX:
+                taskStoreMemberPaymenindex(body);
+                break;
         }
     }
 
@@ -199,6 +233,9 @@ public class ApiEnqueue {
         listener.onSuccess(body);
     }
     private void taskStoreMemberInfo(String body) {
+        listener.onSuccess(body);
+    }
+    private void taskStoreMemberPaymenindex(String body) {
         listener.onSuccess(body);
     }
 }

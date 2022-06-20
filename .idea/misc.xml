@@ -119,6 +119,7 @@
         <entry key="app/src/main/res/layout/fragment_industry_reserve.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_member.xml" value="0.19972826086956522" />
         <entry key="app/src/main/res/layout/fragment_member_card.xml" value="0.1766304347826087" />
+        <entry key="app/src/main/res/layout/fragment_member_cost_general.xml" value="0.27844311377245506" />
         <entry key="app/src/main/res/layout/fragment_member_data.xml" value="0.285042605192765" />
         <entry key="app/src/main/res/layout/fragment_member_management.xml" value="0.1766304347826087" />
         <entry key="app/src/main/res/layout/fragment_member_record_info.xml" value="0.21467391304347827" />
@@ -143,6 +144,7 @@
         <entry key="app/src/main/res/layout/item_industry.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_industry_select.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_mamber_manage.xml" value="0.1766304347826087" />
+        <entry key="app/src/main/res/layout/item_member_record.xml" value="0.1766304347826087" />
         <entry key="app/src/main/res/layout/item_merch_record.xml" value="0.1766304347826087" />
         <entry key="app/src/main/res/layout/item_merch_reserve.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/item_normal.xml" value="0.22735507246376813" />

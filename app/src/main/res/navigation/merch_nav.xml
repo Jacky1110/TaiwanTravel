@@ -267,5 +267,14 @@
         android:id="@+id/memberDataFragment"
         android:name="com.jotangi.nickyen.MemberDataFragment"
         android:label="fragment_member_data"
-        tools:layout="@layout/fragment_member_data" />
+        tools:layout="@layout/fragment_member_data" >
+        <action
+            android:id="@+id/action_memberDataFragment_to_memberCostGeneralFragment"
+            app:destination="@id/memberCostGeneralFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memberCostGeneralFragment"
+        android:name="com.jotangi.nickyen.MemberCostGeneralFragment"
+        android:label="fragment_member_cost_general"
+        tools:layout="@layout/fragment_member_cost_general" />
 </navigation>

@@ -38,7 +38,6 @@ public class MemberDataFragment extends Fragment implements View.OnClickListener
     // value
     private String mid;
 
-    private String[] from = {"title", "id"};
     private TextView txtName, txtNumber, txtBirthday, txtSex, txtEmail, txtAddress;
 
     @Override
@@ -66,6 +65,10 @@ public class MemberDataFragment extends Fragment implements View.OnClickListener
         apiEnqueue = new ApiEnqueue();
         btnGoBack = v.findViewById(R.id.ib_go_back);
         btnGoBack.setOnClickListener(this);
+        btnConsumption = v.findViewById(R.id.btn_consumption);
+        btnConsumption.setOnClickListener(this);
+        btnVoucher = v.findViewById(R.id.btn_voucher);
+        btnVoucher.setOnClickListener(this);
 
         //會員性名
         txtName = v.findViewById(R.id.tv_memberName);
@@ -132,6 +135,11 @@ public class MemberDataFragment extends Fragment implements View.OnClickListener
             case R.id.ib_go_back:
                 Navigation.findNavController(v).popBackStack();
                 break;
+            case R.id.btn_consumption:
+                Bundle bundle = new Bundle();
+                bundle.putString("mid",mid);
+                Log.d(TAG, "mid: " + mid);
+                Navigation.findNavController(v).navigate(R.id.action_memberDataFragment_to_memberCostGeneralFragment, bundle);
         }
 
     }

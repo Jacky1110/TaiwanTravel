@@ -132,6 +132,10 @@ public class ApiConstant
     static final String Member_list = "member_list.php";
     // 會員管理會員資訊
     static final String Store_member_info = "store_member_info.php";
+    // 消費紀錄
+    static final String Store_member_paymentindex = "store_member_paymentindex.php";
+    // 累積金額及比數
+    static final String Store_member_paymentindex_amount = "store_member_paymentindex_amount.php";
 
     /**
      * 會員結帳相關

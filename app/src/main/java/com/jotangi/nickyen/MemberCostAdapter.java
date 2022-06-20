@@ -1,36 +1,33 @@
 package com.jotangi.nickyen;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.Navigation;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder>{
+public class MemberCostAdapter extends RecyclerView.Adapter<MemberCostAdapter.ViewHolder>{
 
-    private String TAG = MemberAdapter.class.getSimpleName() + "(TAG)";
-    private List<MemberModel> mData = new ArrayList<>();
+    private String TAG = MemberCostAdapter.class.getSimpleName() + "(TAG)";
+    private List<MemberCostModel> mData = new ArrayList<>();
     private ItemClickListener clickListener;
+
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView txtname, txtday, txtdata;
+        TextView txtStoreName, txtOrderDate, txtAmount;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtname = itemView.findViewById(R.id.tv_name);
-            txtday = itemView.findViewById(R.id.tv_day);
-            txtdata = itemView.findViewById(R.id.tv_member_data);
-            itemView.setOnClickListener(this);
+            txtStoreName = itemView.findViewById(R.id.tv_store_name);
+            txtOrderDate = itemView.findViewById(R.id.tv_order_date);
+            txtAmount = itemView.findViewById(R.id.tv_amount);
         }
 
         @Override
@@ -53,24 +50,19 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_mamber_manage,parent,false);
+                .inflate(R.layout.item_member_record,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MemberCostAdapter.ViewHolder holder, int position) {
 
-        holder.txtname.setText(mData.get(position).name);
-        holder.txtday.setText(mData.get(position).day);
-        holder.txtdata.setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("mid",mData.get(position).mid);
-            Navigation.findNavController(v).navigate(R.id.action_memberManagementFragment_to_memberDataFragment, bundle);
-        });
+        holder.txtStoreName.setText(mData.get(position).storeName);
+        holder.txtOrderDate.setText(mData.get(position).orderDate);
+        holder.txtAmount.setText("消費金額：NT$" +AppUtility.strAddComma(mData.get(position).amount));
     }
 
-
-    public void setmData(List<MemberModel> data) {
+    public void setmData(List<MemberCostModel> data) {
         mData = data;
         notifyDataSetChanged();
     }
@@ -81,10 +73,16 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     }
 }
 
+class MemberCostModel{
+    String storeName = "";
+    String orderDate = "";
+    String amount = "";
 
+    public String getAmount() {
+        return this.amount;
+    }
 
-class MemberModel{
-    String name = "";
-    String day = "";
-    String mid = "";
+    public void setAmount(final String amount) {
+        this.amount = amount;
+    }
 }
