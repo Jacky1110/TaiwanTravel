@@ -140,6 +140,12 @@ public class MemberDataFragment extends Fragment implements View.OnClickListener
                 bundle.putString("mid",mid);
                 Log.d(TAG, "mid: " + mid);
                 Navigation.findNavController(v).navigate(R.id.action_memberDataFragment_to_memberCostGeneralFragment, bundle);
+                break;
+            case R.id.btn_voucher:
+                Bundle mode = new Bundle();
+                mode.putString("mid",mid);
+                Navigation.findNavController(v).navigate(R.id.action_memberDataFragment_to_discountMemberFragment, mode);
+                break;
         }
 
     }

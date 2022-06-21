@@ -1,11 +1,16 @@
 package com.jotangi.nickyen.api;
 
+import android.os.Handler;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import com.jotangi.nickyen.AppUtility;
 import com.jotangi.nickyen.model.UserBean;
+
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.IOException;
 
@@ -31,6 +36,9 @@ public class ApiEnqueue {
 
     private ApiEnqueue.resultListener listener;
 
+    private static OkHttpClient client;
+    private static Handler handler;
+
     public static String runTask = "";
 
     public final String TASK_BONUS_DEADLINE = "TASK_BONUS_DEADLINE";
@@ -38,6 +46,8 @@ public class ApiEnqueue {
     public final String TASK_MEMBER_LIST = "TASK_MEMBER_LIST";
     public final String TASK_STORE_MEMBER_INFO = "TASK_STORE_MEMBER_INFO";
     public final String TASK_STORE_MEMBER_PAYMENTINDEX = "TASK_STORE_MEMBER_PAYMENTINDEX";
+    public final String TASK_STORE_MEMBER_COUPON = "TASK_STORE_MEMBER_COUPON";
+    public final String TASK_STORE_SETTING = "TASK_STORE_SETTING";
 
 
     // 紅利到期日
@@ -84,7 +94,7 @@ public class ApiEnqueue {
         runOkHttp(url, requestBody);
     }
 
-    // 會員管理
+    // (1)查看會員名單
     public void MemberList(String startDate, String endDate, resultListener listen){
 
         runTask = TASK_MEMBER_LIST;
@@ -107,7 +117,7 @@ public class ApiEnqueue {
         runOkHttp(url, requestBody);
     }
 
-    // 會員管理資訊
+    // (2)會員詳細資料
     public void StoreMemberInfo(String mid, resultListener listen){
 
         runTask = TASK_STORE_MEMBER_INFO;
@@ -131,7 +141,7 @@ public class ApiEnqueue {
 
     }
 
-    // 消費紀錄
+    // (3)會員消費紀錄
     public void StoreMemberPaymentindex(String mid, String startDate, String endDate, resultListener listen) {
 
         runTask = TASK_STORE_MEMBER_PAYMENTINDEX;
@@ -159,7 +169,94 @@ public class ApiEnqueue {
 
     }
 
+    //取得優惠券列表
+    public void storeMemberCcoupon(String member_id, String member_pwd, String sid, String use, String mid, ApiConnection.OnConnectResultListener listener) {
+        String url = ApiConstant.API_URL + ApiConstant.store_member_coupon;
+        FormBody formBody = new FormBody
+                .Builder()
+                .add("member_id", member_id)
+                .add("member_pwd", member_pwd)
+                .add("sid", sid)
+                .add("using_flag", use)
+                .add("mid", mid)
+                .build();
+        Log.d(TAG, "member_id: " + member_id);
+        Log.d(TAG, "member_pwd: " + member_pwd);
+        Log.d(TAG, "sid: " + sid);
+        Log.d(TAG, "using_flag: " + use);
+        Log.d(TAG, "mid: " + mid);
 
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        createSuccessCall(request, listener);
+    }
+
+    private void createSuccessCall(Request request, ApiConnection.OnConnectResultListener listener) {
+//        OkHttpClient client1 = new OkHttpClient.Builder()
+//                .sslSocketFactory(createSSLSocketFactory(), mMyTrustManager).build();
+//        if (client1 == null)
+//            client1 = new OkHttpClient();
+        if (client == null)
+            client = new OkHttpClient();
+
+        if (handler == null)
+            handler = new Handler();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                if (e.getLocalizedMessage() != null) {
+                    Log.d(TAG, e.getLocalizedMessage());
+                }
+                listener.onFailure("與伺服器連線失敗");
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                String body = null;
+                ResponseBody responseBody = response.body();
+
+                if (responseBody != null)
+                    body = responseBody.string();
+                Log.d(TAG, "body: " + body);
+                try {
+                    JSONArray jsonArray = new JSONArray(body);
+                    Log.d(TAG, "jsonArray" + jsonArray);
+
+                    listener.onSuccess(jsonArray.toString());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener.onFailure(e.getMessage());
+                }
+            }
+        });
+    }
+
+    // 店家設定
+    public void storeSetting(resultListener listen) {
+
+        runTask = TASK_STORE_SETTING;
+
+        listener = listen;
+
+        String url = ApiConstant.API_URL + ApiConstant.StoreSetting;
+        Log.d(TAG, "URL: " + url);
+
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .addFormDataPart("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .build();
+        Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+        Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
+
+
+        runOkHttp(url, requestBody);
+    }
 
 
     private void runOkHttp(String url,  RequestBody requestBody) {
@@ -220,6 +317,14 @@ public class ApiEnqueue {
             case TASK_STORE_MEMBER_PAYMENTINDEX:
                 taskStoreMemberPaymenindex(body);
                 break;
+
+            case TASK_STORE_MEMBER_COUPON:
+                taskStoreMemberCoupon(body);
+                break;
+
+            case TASK_STORE_SETTING:
+                taskStoreSetting(body);
+                break;
         }
     }
 
@@ -236,6 +341,13 @@ public class ApiEnqueue {
         listener.onSuccess(body);
     }
     private void taskStoreMemberPaymenindex(String body) {
+        listener.onSuccess(body);
+    }
+    private void taskStoreMemberCoupon(String body) {
+        listener.onSuccess(body);
+    }
+
+    private void taskStoreSetting(String body) {
         listener.onSuccess(body);
     }
 }

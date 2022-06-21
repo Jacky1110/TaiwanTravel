@@ -279,6 +279,7 @@ public class ApiConnection {
                         JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                         Log.e(TAG, jsonObject.toString());
                         MemberInfoBean.member_id = jsonObject.getString("member_id");
+                        Log.d(TAG, "MemberInfoBean.member_id: " + AppUtility.DecryptAES2(MemberInfoBean.member_id));
                         MemberInfoBean.member_pwd = jsonObject.getString("member_pwd");
                         MemberInfoBean.member_name = jsonObject.getString("member_name");
                         MemberInfoBean.member_type = jsonObject.getString("member_type");
@@ -703,6 +704,11 @@ public class ApiConnection {
                 .add("sid", sid)
                 .add("using_flag", use)
                 .build();
+        Log.d(TAG, "member_id: " + member_id);
+        Log.d(TAG, "member_pwd: " + member_pwd);
+        Log.d(TAG, "sid: " + sid);
+        Log.d(TAG, "using_flag: " + use);
+
         Request request = new Request.Builder()
                 .url(url)
                 .post(formBody)

@@ -101,6 +101,7 @@ public class MemberManagementFragment extends Fragment implements View.OnClickLi
         recyclerView.addItemDecoration(new DividerItemDecoration(requireActivity(), DividerItemDecoration.VERTICAL));
 
         initThisMonth();
+        allhandle();
     }
 
     private void initThisMonth() {
@@ -112,8 +113,18 @@ public class MemberManagementFragment extends Fragment implements View.OnClickLi
         Calendar calendar2 = Calendar.getInstance();
         calendar2.set(Calendar.DAY_OF_MONTH, calendar2.getActualMaximum(Calendar.DAY_OF_MONTH));
         endDate = simpleDateFormat.format(calendar2.getTime());
-        txtStartDate.setText(startDate);
-        txtEndDate.setText(endDate);
+        txtStartDate.setText("");
+        txtEndDate.setText("");
+
+    }
+
+    private void allhandle() {
+        txtStartDate.setText("");
+        txtEndDate.setText("");
+        txt1.setText("全部");
+        startDate = "";
+        endDate = "";
+        getOrderList(startDate, endDate);
     }
 
     @Override

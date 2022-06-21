@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".DiscountMemberFragment" >
+
+    <ImageButton
+        android:id="@+id/ib_go_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:elevation="5dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/typeRed"
+        android:gravity="center"
+        android:text="@string/title_member_discount"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24"
+        app:tabIndicatorColor="@color/typeRed"
+        app:tabSelectedTextColor="@color/typeRed"
+        app:tabTextColor="#C0C0C0" />
+
+    <RadioGroup
+        android:id="@+id/btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout">
+
+
+        <RadioButton
+            android:id="@+id/rb_all"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_my_discount"
+            android:button="@android:color/transparent"
+            android:text="全部票券"
+            android:checked="true"
+            android:textAlignment="center"
+            android:textColor="@drawable/selector_my_discount_text_color"
+            android:textSize="14sp" />
+        <RadioButton
+            android:id="@+id/rb_commodity"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_my_discount"
+            android:button="@android:color/transparent"
+            android:text="商品券"
+            android:textAlignment="center"
+            android:textColor="@drawable/selector_my_discount_text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_money"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_my_discount"
+            android:button="@android:color/transparent"
+            android:text="現金券"
+            android:textAlignment="center"
+            android:textColor="@drawable/selector_my_discount_text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_point"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_my_discount"
+            android:button="@android:color/transparent"
+            android:text="點數券"
+            android:textAlignment="center"
+            android:textColor="@drawable/selector_my_discount_text_color" />
+
+    </RadioGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:paddingBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_layout" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_noData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查無消費記錄"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="姓名"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textColor="@color/white"
                     android:background="@color/typeRed"
                     android:textStyle="bold"/>
@@ -160,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="加入日期"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textColor="@color/white"
                     android:background="@color/typeRed"
                     android:textStyle="bold"/>

@@ -69,6 +69,8 @@ public class ApiConstant
     public static final String StoreInfo = "store_info.php";
     //商家資訊
     static final String GetMemberCard = "membercard_list.php";
+    //
+    static final String StoreSetting = "store_setting.php";
 
     /**
      * 優惠券
@@ -136,6 +138,8 @@ public class ApiConstant
     static final String Store_member_paymentindex = "store_member_paymentindex.php";
     // 累積金額及比數
     static final String Store_member_paymentindex_amount = "store_member_paymentindex_amount.php";
+    // (5)會員優惠券紀錄
+    static final String store_member_coupon = "store_member_coupon.php";
 
     /**
      * 會員結帳相關
