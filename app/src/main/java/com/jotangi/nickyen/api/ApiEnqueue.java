@@ -171,71 +171,28 @@ public class ApiEnqueue {
     }
 
     //取得優惠券列表
-    public void storeMemberCcoupon(String member_id, String member_pwd, String sid, String use, String mid, ApiConnection.OnConnectResultListener listener) {
+    public void storeMemberCcoupon(String use, String mid, resultListener listen) {
+
+        runTask = TASK_STORE_MEMBER_COUPON;
+
+        listener = listen;
+
         String url = ApiConstant.API_URL + ApiConstant.store_member_coupon;
-        FormBody formBody = new FormBody
-                .Builder()
-                .add("member_id", member_id)
-                .add("member_pwd", member_pwd)
-                .add("sid", sid)
-                .add("using_flag", use)
-                .add("mid", mid)
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .addFormDataPart("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .addFormDataPart("using_flag", use)
+                .addFormDataPart("mid", mid)
                 .build();
-        Log.d(TAG, "member_id: " + member_id);
-        Log.d(TAG, "member_pwd: " + member_pwd);
-        Log.d(TAG, "sid: " + sid);
+        Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+        Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
         Log.d(TAG, "using_flag: " + use);
         Log.d(TAG, "mid: " + mid);
 
-
-        Request request = new Request.Builder()
-                .url(url)
-                .post(formBody)
-                .build();
-        createSuccessCall(request, listener);
+        runOkHttp(url, requestBody);
     }
 
-    private void createSuccessCall(Request request, ApiConnection.OnConnectResultListener listener) {
-//        OkHttpClient client1 = new OkHttpClient.Builder()
-//                .sslSocketFactory(createSSLSocketFactory(), mMyTrustManager).build();
-//        if (client1 == null)
-//            client1 = new OkHttpClient();
-        if (client == null)
-            client = new OkHttpClient();
-
-        if (handler == null)
-            handler = new Handler();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                if (e.getLocalizedMessage() != null) {
-                    Log.d(TAG, e.getLocalizedMessage());
-                }
-                listener.onFailure("與伺服器連線失敗");
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                String body = null;
-                ResponseBody responseBody = response.body();
-
-                if (responseBody != null)
-                    body = responseBody.string();
-                Log.d(TAG, "body: " + body);
-                try {
-                    JSONArray jsonArray = new JSONArray(body);
-                    Log.d(TAG, "jsonArray" + jsonArray);
-
-                    listener.onSuccess(jsonArray.toString());
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    listener.onFailure(e.getMessage());
-                }
-            }
-        });
-    }
 
     // 店家設定
     public void storeSetting(resultListener listen) {

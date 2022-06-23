@@ -716,6 +716,29 @@ public class ApiConnection {
         createSuccessCall(request, listener);
     }
 
+    //優惠券列表
+    public static void storeMemberCcoupon(String member_id, String member_pwd, String sid, String use, String mid, OnConnectResultListener listener) {
+        String url = ApiConstant.API_URL + ApiConstant.store_member_coupon;
+        FormBody formBody = new FormBody
+                .Builder()
+                .add("member_id", member_id)
+                .add("member_pwd", member_pwd)
+                .add("sid", sid)
+                .add("using_flag", use)
+                .add("mid", mid)
+                .build();
+        Log.d(TAG, "member_id: " + member_id);
+        Log.d(TAG, "member_pwd: " + member_pwd);
+        Log.d(TAG, "sid: " + sid);
+        Log.d(TAG, "using_flag: " + use);
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        createSuccessCall(request, listener);
+    }
+
     //取得優惠券列表2
     public static void getMyCouponList2(String member_id, String member_pwd, String sid, String use, OnConnectResultListener listener) {
         String url = ApiConstant.API_URL + ApiConstant.MyCouponList;

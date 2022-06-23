@@ -40,69 +40,6 @@
         app:tabSelectedTextColor="@color/typeRed"
         app:tabTextColor="#C0C0C0" />
 
-    <RadioGroup
-        android:id="@+id/btn_layout"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/tab_layout">
-
-
-        <RadioButton
-            android:id="@+id/rb_all"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/selector_my_discount"
-            android:button="@android:color/transparent"
-            android:text="全部票券"
-            android:checked="true"
-            android:textAlignment="center"
-            android:textColor="@drawable/selector_my_discount_text_color"
-            android:textSize="14sp" />
-        <RadioButton
-            android:id="@+id/rb_commodity"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/selector_my_discount"
-            android:button="@android:color/transparent"
-            android:text="商品券"
-            android:textAlignment="center"
-            android:textColor="@drawable/selector_my_discount_text_color" />
-
-        <RadioButton
-            android:id="@+id/rb_money"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/selector_my_discount"
-            android:button="@android:color/transparent"
-            android:text="現金券"
-            android:textAlignment="center"
-            android:textColor="@drawable/selector_my_discount_text_color" />
-
-        <RadioButton
-            android:id="@+id/rb_point"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/selector_my_discount"
-            android:button="@android:color/transparent"
-            android:text="點數券"
-            android:textAlignment="center"
-            android:textColor="@drawable/selector_my_discount_text_color" />
-
-    </RadioGroup>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -110,7 +47,8 @@
         android:background="@color/white"
         android:paddingBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_layout" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
 
     <ProgressBar
         android:id="@+id/progressBar"
