@@ -140,7 +140,8 @@ public class ApiConstant
     static final String Store_member_paymentindex_amount = "store_member_paymentindex_amount.php";
     // (5)會員優惠券紀錄
     static final String store_member_coupon = "store_member_coupon.php";
-
+    //
+    static final String Store_coupon_usestate = "store_coupon_usestate.php";
     /**
      * 會員結帳相關
      */

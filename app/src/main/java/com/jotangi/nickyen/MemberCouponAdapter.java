@@ -65,17 +65,17 @@ public class MemberCouponAdapter extends RecyclerView.Adapter<MemberCouponAdapte
         }
     }
 
-    @NonNull
+
     @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new ViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_membercoupon, parent, false)
-        );
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_membercoupon, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.txtTitle.setText(couponList.get(position).getCouponName());
         holder.txtContent.setText(couponList.get(position).getCouponDescription());
@@ -96,78 +96,6 @@ public class MemberCouponAdapter extends RecyclerView.Adapter<MemberCouponAdapte
         }
         String imagerUrl = ApiConstant.API_IMAGE + couponList.get(position).getCouponPicture();
         PicassoTrustAll.getInstance((holder.imgCoupon.getContext())).load(imagerUrl).into(holder.imgCoupon);
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        long systemTime = System.currentTimeMillis();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date();
-        try {
-            date = simpleDateFormat.parse(couponList.get(position).getCouponEnddate());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Date dateFuture = new Date();
-        try {
-            dateFuture = simpleDateFormat.parse(couponList.get(position).getCouponStartdate());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (couponList.get(position).getUsingFlag().equals("1")) {
-            holder.btnUse.setBackgroundResource(R.drawable.bg_dcdcdc);
-            holder.btnUse.setText("已\n" + "使\n" + "用");
-            holder.btnUse.setClickable(false);
-
-        } else if (couponList.get(position).getUsingFlag().equals("0") && systemTime > date.getTime() + 86400000) {
-            holder.btnUse.setBackgroundResource(R.drawable.bg_dcdcdc);
-            holder.btnUse.setText("已\n" + "過\n" + "期");
-            holder.btnUse.setClickable(false);
-        } else if (couponList.get(position).getUsingFlag().equals("0") && systemTime < dateFuture.getTime()) {
-            holder.btnUse.setBackgroundResource(R.drawable.bg_dcdcdc);
-            holder.btnUse.setText("使\n" + "用\n");
-            holder.btnUse.setClickable(false);
-        } else {
-            //針對積點折抵進來商品券無法使用由店長端
-            if (discount != null && discount.equals("1") && (couponList.get(position).getCouponType().equals("3") || couponList.get(position).getCouponType().equals("6") || couponList.get(position).getCouponType().equals("7"))) {
-                holder.btnUse.setBackgroundResource(R.drawable.bg_dcdcdc);
-                holder.btnUse.setText("無\n" + "法\n" + "使\n" + "用");
-                holder.btnUse.setClickable(false);
-            } else if (total != null && !total.equals("") && discount.equals("1") && Integer.parseInt(total) < Integer.parseInt(couponList.get(position).getCouponRule())) { //這是對美髮結帳處理的金額不足無法使用優惠券由user端
-                holder.btnUse.setBackgroundResource(R.drawable.bg_dcdcdc);
-                holder.btnUse.setText("消\n" + "費\n" + "不\n" + "足");
-                holder.btnUse.setClickable(false);
-            } else {
-                holder.btnUse.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-
-                        if (MyDiscountNew2Activity.class.isInstance(context))
-                        {
-                            // 轉化為activity，然后finish就行了
-                            MyDiscountNew2Activity activity = (MyDiscountNew2Activity) context;
-                            Intent i;
-                            if (discount != null && discount.equals("1"))
-                            { //從有關結帳頁面進來選取的
-                                i = new Intent();
-                                i.putExtra("dis", couponList.get(position).getCouponNo());
-                                i.putExtra("name", couponList.get(position).getCouponName());
-                                i.putExtra("coupon", new Gson().toJson(couponList.get(position))); //美容美髮要用到的
-                                activity.setResult(RESULT_OK, i);
-                            } else
-                            { //普通優惠券頁面進入
-                                i = new Intent(context, MemberQRActivity.class);
-                                i.putExtra("ticket", new Gson().toJson(couponList.get(position)));
-                                activity.startActivity(i);
-
-                            }
-                            activity.finish();
-                        }
-                    }
-                });
-            }
-        }
     }
 
     @Override

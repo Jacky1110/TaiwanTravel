@@ -59,8 +59,6 @@ public class MemberProductFragment extends BaseFragment implements View.OnClickL
         btnGoBack = v.findViewById(R.id.ib_go_back);
         btnGoBack.setOnClickListener(this);
         productView = v.findViewById(R.id.iv_product);
-        String imageUrl = API_IMAGE + DataMemberBeen.store_picture;
-        PicassoTrustAll.getInstance(getContext()).load(imageUrl).into(productView);
 
         //店家資訊區塊控件
         txtStoreName = v.findViewById(R.id.tv_info_store_name);
@@ -97,6 +95,8 @@ public class MemberProductFragment extends BaseFragment implements View.OnClickL
                             txtStoreBusinessTime.setText(DataMemberBeen.store_opentime);
                             txtStoreTel.setText(DataMemberBeen.store_phone);
                             txtStoreDescript.setText(DataMemberBeen.store_descript);
+                            String imageUrl = API_IMAGE + DataMemberBeen.store_picture;
+                            PicassoTrustAll.getInstance(getContext()).load(imageUrl).into(productView);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

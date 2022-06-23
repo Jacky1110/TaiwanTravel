@@ -48,6 +48,7 @@ public class ApiEnqueue {
     public final String TASK_STORE_MEMBER_PAYMENTINDEX = "TASK_STORE_MEMBER_PAYMENTINDEX";
     public final String TASK_STORE_MEMBER_COUPON = "TASK_STORE_MEMBER_COUPON";
     public final String TASK_STORE_SETTING = "TASK_STORE_SETTING";
+    public final String TASK_STORE_COUPON_USESTATE = "TASK_STORE_COUPON_USESTATE";
 
 
     // 紅利到期日
@@ -73,7 +74,7 @@ public class ApiEnqueue {
     }
 
     //店家會員的人數統計資料
-    public void StoreMemberCount(resultListener listen){
+    public void StoreMemberCount(resultListener listen) {
 
         runTask = TASK_STORE_MEMBER_COUNT;
 
@@ -95,7 +96,7 @@ public class ApiEnqueue {
     }
 
     // (1)查看會員名單
-    public void MemberList(String startDate, String endDate, resultListener listen){
+    public void MemberList(String startDate, String endDate, resultListener listen) {
 
         runTask = TASK_MEMBER_LIST;
 
@@ -118,7 +119,7 @@ public class ApiEnqueue {
     }
 
     // (2)會員詳細資料
-    public void StoreMemberInfo(String mid, resultListener listen){
+    public void StoreMemberInfo(String mid, resultListener listen) {
 
         runTask = TASK_STORE_MEMBER_INFO;
 
@@ -254,12 +255,32 @@ public class ApiEnqueue {
         Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
         Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
 
+        runOkHttp(url, requestBody);
+    }
+
+    // (6)店家優惠券使用狀況
+    public void storeCouponUsestate(resultListener listen) {
+
+        runTask = TASK_STORE_COUPON_USESTATE;
+
+        listener = listen;
+
+        String url = ApiConstant.API_URL + ApiConstant.Store_coupon_usestate;
+        Log.d(TAG, "URL: " + url);
+
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("member_id", AppUtility.DecryptAES2(UserBean.member_id))
+                .addFormDataPart("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
+                .build();
+        Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+        Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
 
         runOkHttp(url, requestBody);
     }
 
 
-    private void runOkHttp(String url,  RequestBody requestBody) {
+    private void runOkHttp(String url, RequestBody requestBody) {
 
         Request request = new Request.Builder().url(url).post(requestBody).build();
 
@@ -325,29 +346,42 @@ public class ApiEnqueue {
             case TASK_STORE_SETTING:
                 taskStoreSetting(body);
                 break;
+
+            case TASK_STORE_COUPON_USESTATE:
+                taskStoreCouponUsestate(body);
+                break;
         }
     }
 
     private void taskBonusDeadline(String body) {
         listener.onSuccess(body);
     }
+
     private void taskStoreMemberCount(String body) {
         listener.onSuccess(body);
     }
+
     private void taskMemberList(String body) {
         listener.onSuccess(body);
     }
+
     private void taskStoreMemberInfo(String body) {
         listener.onSuccess(body);
     }
+
     private void taskStoreMemberPaymenindex(String body) {
         listener.onSuccess(body);
     }
+
     private void taskStoreMemberCoupon(String body) {
         listener.onSuccess(body);
     }
 
     private void taskStoreSetting(String body) {
+        listener.onSuccess(body);
+    }
+
+    private void taskStoreCouponUsestate(String body) {
         listener.onSuccess(body);
     }
 }

@@ -56,7 +56,7 @@ public class MerchHomeFragment extends BaseFragment {
     ImageView imgContent, btnNotify, imgRemind;
     ApiEnqueue apiEnqueue;
 
-    ConstraintLayout btnCheck, btnExchange, btnSetting, btnRecord, btnReserve, btnIndustryReserve, btnReconciliation, btnManagement, btnMemberSetting;
+    ConstraintLayout btnCheck, btnExchange, btnSetting, btnRecord, btnReserve, btnIndustryReserve, btnReconciliation, btnManagement, btnMemberSetting, btnMarketingCampaign;
 
     private NavController controller;
     private ArrayList<MerchMemberInfoBean> memberInfoArrayList = new ArrayList<>();
@@ -107,6 +107,9 @@ public class MerchHomeFragment extends BaseFragment {
         //預約記錄
         btnReserve = v.findViewById(R.id.layoutReserve);
         btnReserve.setOnClickListener(this);
+        //行銷活動
+        btnMarketingCampaign = v.findViewById(R.id.layout_MarketingCampaign);
+        btnMarketingCampaign.setOnClickListener(this);
         // 體驗記錄
         btnIndustryReserve = v.findViewById(R.id.layoutIndustryReserve);
         btnIndustryReserve.setOnClickListener(this);
@@ -259,6 +262,10 @@ public class MerchHomeFragment extends BaseFragment {
                 } else {
                     Toast.makeText(getActivity(), "該店家目前無此權限", Toast.LENGTH_SHORT).show();
                 }
+                break;
+            case R.id.layout_MarketingCampaign:
+                controller = Navigation.findNavController(v);
+                controller.navigate(R.id.action_merchHomeFragment_to_usageFragment);
                 break;
             case R.id.layoutReconciliation:
                 controller = Navigation.findNavController(v);

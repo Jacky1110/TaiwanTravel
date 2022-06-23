@@ -66,10 +66,21 @@
             app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_merchHomeFragment_to_memberProductFragment"
-            app:destination="@id/memberProductFragment" />
+            app:destination="@id/memberProductFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_merchHomeFragment_self"
             app:destination="@id/merchHomeFragment" />
+        <action
+            android:id="@+id/action_merchHomeFragment_to_usageFragment"
+            app:destination="@id/usageFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/merchSettingFragment"
@@ -296,4 +307,9 @@
         android:name="com.jotangi.nickyen.DiscountMemberFragment"
         android:label="fragment_discount_member"
         tools:layout="@layout/fragment_discount_member" />
+    <fragment
+        android:id="@+id/usageFragment"
+        android:name="com.jotangi.nickyen.UsageFragment"
+        android:label="fragment_usage"
+        tools:layout="@layout/fragment_usage"/>
 </navigation>
