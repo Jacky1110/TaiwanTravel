@@ -226,8 +226,10 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
                 Type type = new TypeToken<ArrayList<CouponListBean>>() {
                 }.getType();
 
-                couponList2 = new Gson().fromJson(jsonString, type);
-                loadCouponData("0");
+
+                    couponList2 = new Gson().fromJson(jsonString, type);
+                    loadCouponData("0");
+
             }
 
             @Override
@@ -265,7 +267,7 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
                 }.getType();
 
                 couponList = new Gson().fromJson(jsonString, type);
-//                }
+
                 if (couponList3 != null) {
                     couponList3.clear();
                 }
@@ -278,7 +280,9 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if (systemTime > date.getTime() + 86400000) {
+                    if (systemTime > date.getTime() + 86400000 &&
+                    //確認有沒有一樣的資料
+                    !couponList2.contains(coupon)) {
                         couponList2.add(coupon);
                     } else {
                         couponList3.add(coupon);
@@ -355,7 +359,6 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
     }
 
     private void layoutViews2(ArrayList<CouponListBean> couponList2, String str) {
-
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         memberCouponAdapter = new MemberCouponAdapter(couponList2, requireActivity(), str, total);
         recyclerView.setAdapter(memberCouponAdapter);

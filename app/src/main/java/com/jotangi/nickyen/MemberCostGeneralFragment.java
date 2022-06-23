@@ -159,7 +159,7 @@ public class MemberCostGeneralFragment extends Fragment implements View.OnClickL
                                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                                 model.storeName = jsonObject.getString("store_name");
                                 model.orderDate = jsonObject.getString("order_date");
-                                model.amount = jsonObject.getString("order_amount");
+                                model.amount = jsonObject.getString("order_pay");
                                 data.add(model);
                             }
                             getActivity().runOnUiThread(new Runnable() {
@@ -206,6 +206,7 @@ public class MemberCostGeneralFragment extends Fragment implements View.OnClickL
     private void layoutViews(ArrayList<MemberCostModel> memberCostModelArrayList) {
         mManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mManager);
+
         int total = 0;
 
         for (int i = 0; i < memberCostModelArrayList.size(); i++)
