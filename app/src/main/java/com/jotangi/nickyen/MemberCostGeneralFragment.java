@@ -60,7 +60,6 @@ public class MemberCostGeneralFragment extends Fragment implements View.OnClickL
 
     private String datePicker1, datePicker2;
 
-    private ArrayList<MemberCostModel> memberCostModelArrayList; //model跟info的一樣
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private PopupWindow searchWindow;
 
@@ -80,6 +79,7 @@ public class MemberCostGeneralFragment extends Fragment implements View.OnClickL
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mid = getArguments().getString("mid");
+
         }
     }
 
@@ -115,6 +115,7 @@ public class MemberCostGeneralFragment extends Fragment implements View.OnClickL
         recyclerView.addItemDecoration(new DividerItemDecoration(requireActivity(), DividerItemDecoration.VERTICAL));
 
         initThisMonth();
+        allhandle();
     }
 
     private void initThisMonth() {
@@ -126,8 +127,17 @@ public class MemberCostGeneralFragment extends Fragment implements View.OnClickL
         Calendar calendar2 = Calendar.getInstance();
         calendar2.set(Calendar.DAY_OF_MONTH, calendar2.getActualMaximum(Calendar.DAY_OF_MONTH));
         endDate = simpleDateFormat.format(calendar2.getTime());
-        txtStartDate.setText(startDate);
-        txtEndDate.setText(endDate);
+        txtStartDate.setText("");
+        txtEndDate.setText("");
+    }
+
+    private void allhandle() {
+        txtStartDate.setText("");
+        txtEndDate.setText("");
+        txt1.setText("全部");
+        startDate = "";
+        endDate = "";
+        getOrderList(startDate, endDate);
     }
 
     @Override
@@ -139,7 +149,7 @@ public class MemberCostGeneralFragment extends Fragment implements View.OnClickL
     private void getOrderList(String startDate, String endDate) {
 
         progressBar.setVisibility(View.VISIBLE);
-        apiEnqueue.StoreMemberPaymentindex(mid, startDate, endDate, new ApiEnqueue.resultListener() {
+        apiEnqueue.StoreMemberPaymentindex(startDate, endDate, new ApiEnqueue.resultListener() {
             @Override
             public void onSuccess(String message) {
 
@@ -209,8 +219,7 @@ public class MemberCostGeneralFragment extends Fragment implements View.OnClickL
 
         int total = 0;
 
-        for (int i = 0; i < memberCostModelArrayList.size(); i++)
-        {
+        for (int i = 0; i < memberCostModelArrayList.size(); i++) {
 //            if (filterMotoBeanList.size() != 0){
             total += Integer.parseInt(memberCostModelArrayList.get(i).getAmount());
 //            }
@@ -286,12 +295,7 @@ public class MemberCostGeneralFragment extends Fragment implements View.OnClickL
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (btnThisMonth.isChecked())
-//                {
-//                    getOrderList(startDate, endDate);
-//                }
-//                else
-//                {
+//
                 if (datePicker1 == null && datePicker2 == null) {
 
                     txtStartDate.setText(startDate);

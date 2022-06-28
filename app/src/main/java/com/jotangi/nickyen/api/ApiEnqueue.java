@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.jotangi.nickyen.AppUtility;
+import com.jotangi.nickyen.DataMemberBeen;
 import com.jotangi.nickyen.model.UserBean;
 
 import org.jetbrains.annotations.NotNull;
@@ -143,7 +144,7 @@ public class ApiEnqueue {
     }
 
     // (3)會員消費紀錄
-    public void StoreMemberPaymentindex(String mid, String startDate, String endDate, resultListener listen) {
+    public void StoreMemberPaymentindex(String startDate, String endDate, resultListener listen) {
 
         runTask = TASK_STORE_MEMBER_PAYMENTINDEX;
 
@@ -156,13 +157,13 @@ public class ApiEnqueue {
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("member_id", AppUtility.DecryptAES2(UserBean.member_id))
                 .addFormDataPart("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
-                .addFormDataPart("mid", mid)
+                .addFormDataPart("mid", DataMemberBeen.mid)
                 .addFormDataPart("order_startdate", startDate)
                 .addFormDataPart("order_enddate", endDate)
                 .build();
         Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
         Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
-        Log.d(TAG, "mid: " + mid);
+        Log.d(TAG, "mid: " + DataMemberBeen.mid);
         Log.d(TAG, "order_startdate: " + startDate);
         Log.d(TAG, "order_enddate: " + endDate);
 

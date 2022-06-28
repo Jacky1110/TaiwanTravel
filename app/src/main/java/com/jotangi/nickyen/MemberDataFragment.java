@@ -41,12 +41,12 @@ public class MemberDataFragment extends Fragment implements View.OnClickListener
     private TextView txtName, txtNumber, txtBirthday, txtSex, txtEmail, txtAddress;
 
     @Override
-    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState)
-    {
+    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null)
-        {
+        if (getArguments() != null) {
             mid = getArguments().getString("mid");
+
+            DataMemberBeen.mid = mid;
         }
     }
 
@@ -96,21 +96,37 @@ public class MemberDataFragment extends Fragment implements View.OnClickListener
                             Log.d(TAG, "jsonObject: " + jsonObject);
                             MemberInfoBean.memberName = jsonObject.getString("member_name");
                             MemberInfoBean.memberNumber = jsonObject.getString("member_phone");
+                            Log.d(TAG, "MemberInfoBean.memberNumber: " + MemberInfoBean.memberNumber);
                             MemberInfoBean.memberBirthday = jsonObject.getString("member_birthday");
                             MemberInfoBean.memberSex = jsonObject.getString("member_gender");
                             MemberInfoBean.memberEmail = jsonObject.getString("member_email");
                             MemberInfoBean.memberAddress = jsonObject.getString("member_address");
 
-                            txtName.setText(MemberInfoBean.memberName);
-                            txtNumber.setText(MemberInfoBean.memberNumber);
-                            txtBirthday.setText(MemberInfoBean.memberBirthday);
-                            txtEmail.setText(MemberInfoBean.memberEmail);
-                            txtAddress.setText(MemberInfoBean.memberAddress);
 
-                            if (MemberInfoBean.memberSex.equals("1")){
+                            txtName.setText(MemberInfoBean.memberName);
+                            if (MemberInfoBean.memberNumber.equals("null")) {
+                                txtNumber.setText("");
+                            } else {
+                                txtNumber.setText(MemberInfoBean.memberNumber);
+                            }
+                            if (MemberInfoBean.memberBirthday.equals("null")) {
+                                txtBirthday.setText("");
+                            } else {
+                                txtBirthday.setText(MemberInfoBean.memberBirthday);
+                            }
+                            if (MemberInfoBean.memberEmail.equals("null")) {
+                                txtEmail.setText("");
+                            } else {
+                                txtEmail.setText(MemberInfoBean.memberEmail);
+                            }
+                            if (MemberInfoBean.memberAddress.equals("null")) {
+                                txtAddress.setText("");
+                            } else {
+                                txtAddress.setText(MemberInfoBean.memberAddress);
+                            }
+                            if (MemberInfoBean.memberSex.equals("1")) {
                                 txtSex.setText("男");
-                            } else if (MemberInfoBean.memberSex.equals("0"))
-                            {
+                            } else if (MemberInfoBean.memberSex.equals("0")) {
                                 txtSex.setText("女");
                             }
 
@@ -130,20 +146,19 @@ public class MemberDataFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.ib_go_back:
                 Navigation.findNavController(v).popBackStack();
                 break;
             case R.id.btn_consumption:
                 Bundle bundle = new Bundle();
-                bundle.putString("mid",mid);
+                bundle.putString("mid", mid);
                 Log.d(TAG, "mid: " + mid);
                 Navigation.findNavController(v).navigate(R.id.action_memberDataFragment_to_memberCostGeneralFragment, bundle);
                 break;
             case R.id.btn_voucher:
                 Bundle mode = new Bundle();
-                mode.putString("mid",mid);
+                mode.putString("mid", mid);
                 Navigation.findNavController(v).navigate(R.id.action_memberDataFragment_to_discountMemberFragment, mode);
                 break;
         }

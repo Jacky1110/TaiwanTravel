@@ -633,6 +633,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                         bannerData.setBanner_link(jsonObject.getString("banner_link"));
                         bannerListBeans.add(bannerData);
                         Log.d("banner", "onResponse: " + bannerData.getBanner_picture());
+                        Log.d("banner", "onResponse: " + bannerData.getBanner_link());
                     }
 
                     if (getActivity() == null)

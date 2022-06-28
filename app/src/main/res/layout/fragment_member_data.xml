@@ -305,7 +305,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/shape_button_gradient"
-            android:text="優惠卷紀錄"
+            android:text="優惠券紀錄"
             app:layout_constraintEnd_toStartOf="@+id/guideline10"
             app:layout_constraintStart_toStartOf="@+id/guideline9"
             app:layout_constraintTop_toBottomOf="@+id/btn_consumption" />

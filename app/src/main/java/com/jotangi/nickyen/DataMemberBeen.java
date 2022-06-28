@@ -8,5 +8,6 @@ public class DataMemberBeen {
     public static String store_descript;
     public static String store_opentime;
     public static String store_picture;
+    public static String mid;
 
 }

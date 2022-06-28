@@ -147,6 +147,13 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
             }
         });
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        loadCouponData("1");
+    }
+
     //可使用
     private void loadCouponData(String s) {
         progressBar.setVisibility(View.VISIBLE);

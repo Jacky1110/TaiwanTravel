@@ -48,7 +48,7 @@
         android:layout_height="50dp"
         android:background="@color/typeRed"
         android:gravity="center"
-        android:text="優惠卷使用狀況"
+        android:text="優惠券使用狀況"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"

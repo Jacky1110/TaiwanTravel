@@ -19,6 +19,8 @@
         <entry key="app/src/main/res/drawable/bg_ar_radius_gray.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_ar_store.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_ar_store_gray.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/carousel_gray.xml" value="0.207" />
+        <entry key="app/src/main/res/drawable/carousel_wh.xml" value="0.285" />
         <entry key="app/src/main/res/drawable/ic_ar_game.xml" value="0.1605" />
         <entry key="app/src/main/res/drawable/ic_bowl7.xml" value="0.163" />
         <entry key="app/src/main/res/drawable/ic_close.xml" value="0.122" />
@@ -81,8 +83,10 @@
         <entry key="app/src/main/res/layout/activity_pointshop_order_record_detail.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_pointshop_pay.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_pointshop_pay_result.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_privacy.xml" value="0.23671497584541062" />
         <entry key="app/src/main/res/layout/activity_quintuple.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_registered.xml" value="0.1766304347826087" />
+        <entry key="app/src/main/res/layout/activity_registered_terms.xml" value="0.23496076721883175" />
         <entry key="app/src/main/res/layout/activity_result.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_salons_check_out.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_scan_result.xml" value="0.19972826086956522" />
@@ -92,7 +96,7 @@
         <entry key="app/src/main/res/layout/activity_success.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_surface_view.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/calendar_header.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/custom_layout.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/custom_layout.xml" value="0.29153605015673983" />
         <entry key="app/src/main/res/layout/dialog.xml" value="0.19972826086956522" />
         <entry key="app/src/main/res/layout/dialog_add_member.xml" value="0.19972826086956522" />
         <entry key="app/src/main/res/layout/dialog_ar_collection.xml" value="0.15416666666666667" />
@@ -102,6 +106,7 @@
         <entry key="app/src/main/res/layout/dialog_ar_quintuple_stimulus_vouchers.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_ar_success.xml" value="0.2346014492753623" />
         <entry key="app/src/main/res/layout/dialog_ar_triangle.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/dialog_bowldirection.xml" value="0.1766304347826087" />
         <entry key="app/src/main/res/layout/dialog_confirm_succee_layout.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/dialog_coupon.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/dialog_gold_recipe.xml" value="0.23802083333333332" />
