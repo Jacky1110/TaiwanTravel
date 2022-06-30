@@ -135,6 +135,7 @@ class MemberCouponMode{
     String type = "";
     String discount = "";
     String amount = "";
+    String using = "";
 
 
 

@@ -55,9 +55,6 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
     static ArrayList<MemberCouponMode> couponList = new ArrayList<>(); //可以使用
     static ArrayList<MemberCouponMode> couponList2 = new ArrayList<>(); //已過期或已使用
     static ArrayList<MemberCouponMode> couponList3 = new ArrayList<>(); //已過濾的可以使用的
-    static ArrayList<MemberCouponMode> commodityList = new ArrayList<>();
-    static ArrayList<MemberCouponMode> moneyList = new ArrayList<>();
-    static ArrayList<MemberCouponMode> pointList = new ArrayList<>();
 
     //如果是積點折抵的進來的參數藉此辨識
     private String discount = "";
@@ -68,10 +65,11 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
 
     private String status = "1"; //tab標籤蘭
 
-    private long systemTime;
+    private long systemTime = System.currentTimeMillis();
 
     // value
     private String mid;
+    private String use;
 
     public DiscountMemberFragment() {
         // Required empty public constructor
@@ -121,12 +119,12 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (Objects.requireNonNull(tab.getText()).toString()) {
                     case "可使用":
-                        loadCouponData("1");
+                        loadCouponData();
 //                        layoutViews(couponList3, discount);
                         status = "1";
                         break;
                     case "使用完畢":
-                        loadCouponData2("0");
+                        loadCouponData2();
 //                        layoutViews(couponList2, discount);
                         status = "2";
                         break;
@@ -151,14 +149,14 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
     @Override
     public void onStart() {
         super.onStart();
-        loadCouponData("1");
+        loadCouponData();
     }
 
     //可使用
-    private void loadCouponData(String s) {
+    private void loadCouponData() {
         progressBar.setVisibility(View.VISIBLE);
 
-        apiEnqueue.storeMemberCcoupon(s, mid, new ApiEnqueue.resultListener() {
+        apiEnqueue.storeMemberCcoupon(mid, new ApiEnqueue.resultListener() {
             @Override
             public void onSuccess(String message) {
                 requireActivity().runOnUiThread(new Runnable() {
@@ -167,7 +165,7 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
                         progressBar.setVisibility(View.GONE);
                         noDataTV.setVisibility(View.GONE);
 
-                        data = new ArrayList();
+                        couponList = new ArrayList();
 
                         try {
                             JSONArray jsonArray = new JSONArray(message);
@@ -184,16 +182,51 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
                                 model.type = jsonObject.getString("coupon_type");
                                 model.discount = jsonObject.getString("coupon_discount");
                                 model.amount = jsonObject.getString("discount_amount");
-                                data.add(model);
+                                model.using = jsonObject.getString("using_flag");
+                                couponList.add(model);
                             }
+
+                            if (couponList3 != null) {
+
+                                couponList3.clear();
+                            }
+
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.setTimeInMillis(System.currentTimeMillis());
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            for (int i = 0; i < couponList.size(); i++) {
+                                MemberCouponMode coupon = couponList.get(i);
+                                Date date = new Date();
+                                try {
+                                    date = simpleDateFormat.parse(coupon.endDate);
+                                    Log.d(TAG, "date: " + date);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                if (coupon.using.equals("0") && systemTime < date.getTime() + 86400000) {
+                                    couponList3.add(coupon);
+                                }
+//
+                            }
+
                             getActivity().runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     memberCouponAdapter = new MemberCouponAdapter();
-                                    memberCouponAdapter.setmData(data);
+                                    memberCouponAdapter.setmData(couponList3);
                                     recyclerView.setAdapter(memberCouponAdapter);
                                 }
                             });
+                            if (couponList3.isEmpty()){
+                                getActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        progressBar.setVisibility(View.INVISIBLE);
+                                        noDataTV.setVisibility(View.VISIBLE);
+                                        recyclerView.setAdapter(null);
+                                    }
+                                });
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -220,14 +253,6 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
                         progressBar.setVisibility(View.INVISIBLE);
                         noDataTV.setVisibility(View.VISIBLE);
                         noDataTV.setText(R.string.non_ticket);
-                        if (commodityList != null)
-                            couponList.clear();
-                        if (commodityList != null)
-                            commodityList.clear();
-                        if (moneyList != null)
-                            moneyList.clear();
-                        if (pointList != null)
-                            pointList.clear();
                         recyclerView.setAdapter(null);
                     }
                 });
@@ -236,10 +261,10 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
     }
 
     //已使用
-    private void loadCouponData2(String s) {
+    private void loadCouponData2() {
         progressBar.setVisibility(View.VISIBLE);
 
-        apiEnqueue.storeMemberCcoupon(s, mid, new ApiEnqueue.resultListener() {
+        apiEnqueue.storeMemberCcoupon(mid, new ApiEnqueue.resultListener() {
             @Override
             public void onSuccess(String message) {
                 requireActivity().runOnUiThread(new Runnable() {
@@ -248,7 +273,7 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
                         progressBar.setVisibility(View.GONE);
                         noDataTV.setVisibility(View.GONE);
 
-                        data = new ArrayList();
+                        couponList = new ArrayList();
 
                         try {
                             JSONArray jsonArray = new JSONArray(message);
@@ -265,16 +290,51 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
                                 model.type = jsonObject.getString("coupon_type");
                                 model.discount = jsonObject.getString("coupon_discount");
                                 model.amount = jsonObject.getString("discount_amount");
-                                data.add(model);
+                                model.using = jsonObject.getString("using_flag");
+                                couponList.add(model);
                             }
+
+                            if (couponList2 != null){
+                                couponList2.clear();
+                            }
+
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.setTimeInMillis(System.currentTimeMillis());
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            for (int i = 0; i < couponList.size(); i++) {
+                                MemberCouponMode coupon = couponList.get(i);
+                                Date date = new Date();
+                                try {
+                                    date = simpleDateFormat.parse(coupon.endDate);
+                                    Log.d(TAG, "date: " + date);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                if (coupon.using.equals("1") || systemTime > date.getTime() + 86400000) {
+                                    couponList2.add(coupon);
+                                }
+//
+                            }
+
+
                             getActivity().runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     memberCouponAdapter = new MemberCouponAdapter();
-                                    memberCouponAdapter.setmData(data);
+                                    memberCouponAdapter.setmData(couponList2);
                                     recyclerView.setAdapter(memberCouponAdapter);
                                 }
                             });
+                            if (couponList2.isEmpty()){
+                                getActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        progressBar.setVisibility(View.INVISIBLE);
+                                        noDataTV.setVisibility(View.VISIBLE);
+                                        recyclerView.setAdapter(null);
+                                    }
+                                });
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -301,14 +361,6 @@ public class DiscountMemberFragment extends Fragment implements View.OnClickList
                         progressBar.setVisibility(View.INVISIBLE);
                         noDataTV.setVisibility(View.VISIBLE);
                         noDataTV.setText(R.string.non_ticket);
-                        if (commodityList != null)
-                            couponList.clear();
-                        if (commodityList != null)
-                            commodityList.clear();
-                        if (moneyList != null)
-                            moneyList.clear();
-                        if (pointList != null)
-                            pointList.clear();
                         recyclerView.setAdapter(null);
                     }
                 });

@@ -172,7 +172,7 @@ public class ApiEnqueue {
     }
 
     //取得優惠券列表
-    public void storeMemberCcoupon(String use, String mid, resultListener listen) {
+    public void storeMemberCcoupon(String mid, resultListener listen) {
 
         runTask = TASK_STORE_MEMBER_COUPON;
 
@@ -183,12 +183,10 @@ public class ApiEnqueue {
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("member_id", AppUtility.DecryptAES2(UserBean.member_id))
                 .addFormDataPart("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
-                .addFormDataPart("using_flag", use)
                 .addFormDataPart("mid", mid)
                 .build();
         Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
         Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
-        Log.d(TAG, "using_flag: " + use);
         Log.d(TAG, "mid: " + mid);
 
         runOkHttp(url, requestBody);
