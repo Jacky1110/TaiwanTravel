@@ -1,34 +1,50 @@
 {
   "project_info": {
-    "project_number": "207730501712",
-    "project_id": "taiwantravelshop",
-    "storage_bucket": "taiwantravelshop.appspot.com"
+    "project_number": "418395320332",
+    "project_id": "tripspot-9281c",
+    "storage_bucket": "tripspot-9281c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:207730501712:android:69c9a56c83cd31b7690955",
+        "mobilesdk_app_id": "1:418395320332:android:8bc4d914ff63a427c37e29",
         "android_client_info": {
           "package_name": "com.jotangi.nickyen"
         }
       },
       "oauth_client": [
         {
-          "client_id": "207730501712-b17i2v2msu7gqsh7ikjsgiil6mn3vim6.apps.googleusercontent.com",
+          "client_id": "418395320332-hauc0g1pgfom7hhumrq5pts10i5hurtr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jotangi.nickyen",
+            "certificate_hash": "919978cd89c398b914d43083caaedb278b197bd7"
+          }
+        },
+        {
+          "client_id": "418395320332-5ospeuikihm34rlb5sotrt04d132gis0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyATm6LMvcqpPiGTxKiXhvY_HSefD2RTnnM"
+          "current_key": "AIzaSyCdq3Q6nzUONMK6tsJlosYtFrshE24y1s8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "207730501712-b17i2v2msu7gqsh7ikjsgiil6mn3vim6.apps.googleusercontent.com",
+              "client_id": "418395320332-5ospeuikihm34rlb5sotrt04d132gis0.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "418395320332-dmf0f2l9otuc7csqcelsid8aqg8bd2s1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jotangi.TripSpot",
+                "app_store_id": "1551917653"
+              }
             }
           ]
         }
@@ -36,28 +52,73 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:207730501712:android:002f8030134b83ed690955",
+        "mobilesdk_app_id": "1:418395320332:android:9973ab20b988aad4c37e29",
         "android_client_info": {
           "package_name": "com.jotangi.nickyen.beta"
         }
       },
       "oauth_client": [
         {
-          "client_id": "207730501712-b17i2v2msu7gqsh7ikjsgiil6mn3vim6.apps.googleusercontent.com",
+          "client_id": "418395320332-5ospeuikihm34rlb5sotrt04d132gis0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyATm6LMvcqpPiGTxKiXhvY_HSefD2RTnnM"
+          "current_key": "AIzaSyCdq3Q6nzUONMK6tsJlosYtFrshE24y1s8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "207730501712-b17i2v2msu7gqsh7ikjsgiil6mn3vim6.apps.googleusercontent.com",
+              "client_id": "418395320332-5ospeuikihm34rlb5sotrt04d132gis0.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "418395320332-dmf0f2l9otuc7csqcelsid8aqg8bd2s1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jotangi.TripSpot",
+                "app_store_id": "1551917653"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418395320332:android:77ddeeb887487120c37e29",
+        "android_client_info": {
+          "package_name": "com.jotangi.nickyen.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418395320332-5ospeuikihm34rlb5sotrt04d132gis0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdq3Q6nzUONMK6tsJlosYtFrshE24y1s8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418395320332-5ospeuikihm34rlb5sotrt04d132gis0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "418395320332-dmf0f2l9otuc7csqcelsid8aqg8bd2s1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jotangi.TripSpot",
+                "app_store_id": "1551917653"
+              }
             }
           ]
         }

@@ -15,7 +15,8 @@ android {
             keyAlias 'key0'
         }
         release {
-            storeFile file('/Users/dinghan/Desktop/Jotangi/TaiwanTravelShop/keystore/Untitled')
+//            storeFile file('/Users/dinghan/Desktop/Jotangi/TaiwanTravelShop/keystore/Untitled')
+            storeFile file('/Users/jtg_harley/Project/2022_0711_點點/99. Source Code/TaiwanTravelShop/keystore/Untitled')
             storePassword '123456'
             keyPassword '123456'
             keyAlias 'key0'
@@ -28,8 +29,8 @@ android {
         applicationId "com.jotangi.nickyen"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 78
-        versionName "1.77"
+        versionCode 82
+        versionName "1.82"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -112,9 +113,11 @@ dependencies {
     //掃描QRcode
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 
-    implementation 'com.google.firebase:firebase-dynamic-links'
-    implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    // GA
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+//    implementation 'com.google.firebase:firebase-dynamic-links'
     implementation 'com.google.firebase:firebase-analytics'
+
     //獲取崩潰
     implementation 'com.google.firebase:firebase-crashlytics'
     //FCM推播

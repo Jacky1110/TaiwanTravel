@@ -76,14 +76,23 @@ public class StoreAreaFragment extends BaseFragment
             position2 = "";
             switch (s)
             {
-                case "魅力金三角商圈":
-                    position2 = "4";
+                case "桂花巷商圈":
+                    position2 = "1";
                     break;
                 case "北埔商圈":
                     position2 = "3";
                     break;
-                case "桂花巷商圈":
-                    position2 = "1";
+                case "魅力金三角商圈":
+                    position2 = "4";
+                    break;
+                case "角板山形象商圈":
+                    position2 = "6";
+                    break;
+                case "關西魅力商圈":
+                    position2 = "8";
+                    break;
+                case "寶山特色商圈":
+                    position2 = "9";
                     break;
                 case "楊梅四維商圈":
                 case "尖石五峰商圈":
@@ -290,6 +299,30 @@ public class StoreAreaFragment extends BaseFragment
 //            imgMap.setImageResource(R.drawable.bg_map_wufeng);
             txtAddress.setText("新竹縣尖石鄉錦屏村");
         }
+        if (position2.equals("6")) //角板山形象商圈
+        {
+            imgContent.setImageResource(R.drawable.bg_jiaobanshan);
+            txtContent.setText("角板山形象商圈以中正路、忠孝路與中山路為主軸，特產為香菇、水蜜桃、桂竹筍、甜杮、水梨、野生靈芝、茶葉等，於民國八十三年十月獲經濟部商業司選定成為全台灣第一座形象商圈示範點，屬於觀光型態的示範性商圈。由於本地盛產品質優良的農特產品，特別是香菇，數十年前就成為重要的香菇批發集散地，各式品種的香菇齊聚街道兩側，成為名副其實的香菇大道。另一項重要的農特產－拉拉山水蜜桃，每年約5～8月為盛產期，近年來朝品種多樣化發展，高海拔的拉拉山水蜜桃因其果肉柔嫩，入口即化、甜蜜多汁的口感獨占鰲頭，在產季時吸引不少老饕準時上山品嚐。\n 周邊景點包含角板山行館、新溪口吊橋、戰備隧道、樟腦收納所、復興公園等，每逢花開季節或假日時吸引無數遊客前往。遊客可遊歷角板山行館和公園之後，品嘗酥炸溪蝦、馬告香腸、竹筒飯、烤山豬肉…等道地的原民佳餚，或快炒段木耳、白斬土雞、薑絲炒大腸等精緻的客家菜。離開時也別忘了把山間好味帶著走，如季節限定的水蜜桃、綠竹筍、桂竹筍、甜杮，以及香菇、金針、金線蓮、小米酒等農特產，都是本地的伴手好禮。來一趟角板山，就能輕鬆優閒享受放鬆抒壓的美食美景之旅。");
+//            shopViewPager.setVisibility(View.INVISIBLE);
+//            imgMap.setImageResource(R.drawable.bg_map_meili);
+            txtAddress.setText("桃園市復興區中正路");
+        }
+        if (position2.equals("8")) //關西魅力商圈
+        {
+            imgContent.setImageResource(R.drawable.bg_kansai);
+            txtContent.setText("關西鎮舊名為「鹹菜甕」，直到日據時代，因客家人擅長製作「鹹菜」，與日語「關西」諧音，乃改名為關西。關西鎮內無污染之重型工業，復因早期交通不便，開發較晚，卻因此得天獨厚保留傳統農村樣貌；加上水質佳，居民生活仍需進行勞動，又因健康之生活型態及居住條件，鎮內居民多高壽者，爰有「長壽之鄉」美譽。\n 關西為以農業為主要生活型態的客家小鎮，氣候宜人、風光明媚、民風淳樸，觀光資源豐富。較有名氣的農產品有被稱為「關西三寶」的鹹菜、仙草、蕃茄及桔醬。\n 關西魅力商圈範圍以大同路、中山東路、正義路、中正路為主要商業街道，並以東安古橋為中心，方圓2公里內均屬商圈範圍。自日據時期以來，即設有茶廠、麵廠，屬於比較沒有過度商業開發的城市，規模是步行兩個小時可以走完的老城鎮，而且小鎮保存很多美麗與完整的歷史空間及古蹟，近年來則強化鎮內主要農產品之行銷，包括：仙草工廠、柿餅工廠、果園、農場都吸引外地遊客參訪。除此之外，鎮內有許多具有悠久歷史的建築物，例如歐式建築的關西天主堂、近200年歷史的太和宮、洋式風格的分駐所及所長宿舍、頗負建築之美的樹德醫院、紅茶公司，以及古樸的東安橋等，幽靜佇立關西街頭，各領風騷。");
+//            shopViewPager.setVisibility(View.INVISIBLE);
+//            imgMap.setImageResource(R.drawable.bg_map_meili);
+            txtAddress.setText("新竹縣關西鎮正義路");
+        }
+        if (position2.equals("9")) //寶山特色商圈
+        {
+            imgContent.setImageResource(R.drawable.bg_baoshan);
+            txtContent.setText("寶山特色商圈以寶山糖廠為中心，山多丘陵起伏，早期是甘蔗的生產地，以學名紅糖(俗稱黑糖)聞名，寶山糖廠創立時間昭和3年(西元1928年)至今九十餘年，山上種蔗為多地形特殊，環山蜿蜒古路，湖光山色、埤塘美景，走到高處挑高遠望甚至可以眺望香山海邊美景美不勝收，猶如大型博物館，自實施OTOP後開發出糖的精美禮品並以客家美食聞名，商圈內經營型態、商品內容，都薈萃了本地的歷史變遷與人文特質，在在都蘊含深度的人文底蘊。\n寶山素有長壽村及雙胞胎遺傳較多之鄉，歷史人文景觀及自然環境特色，包含柑橘、茶花與黑糖等特色產業、客家文化與景觀步道資源，以休閒農業、客家文化、景觀步道與周邊遊憩資源串聯各觀光元素，打造竹科後花園漫遊農村體驗模式，開創慢活的新生態環境成為都市居民假日休閒的度假勝地。");
+//            shopViewPager.setVisibility(View.INVISIBLE);
+//            imgMap.setImageResource(R.drawable.bg_map_meili);
+            txtAddress.setText("新竹縣寶山鄉");
+        }
         if (shopList != null)
         {
             shopViewPagerAdapter = new ShopViewPagerAdapter(getContext(), shopList);
@@ -332,6 +365,21 @@ public class StoreAreaFragment extends BaseFragment
                 if (s.equals("尖石五峰商圈"))
                 {
                     Uri uri = Uri.parse("https://goo.gl/maps/fmC4LtFDP1jMPNYn7");
+                    startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                }
+                if (position2.equals("6")) //角板山形象商圈
+                {
+                    Uri uri = Uri.parse("https://goo.gl/maps/sF91PNyrnxuNxwCn9");
+                    startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                }
+                if (position2.equals("8")) //關西魅力商圈
+                {
+                    Uri uri = Uri.parse("https://goo.gl/maps/bJeKtnBgUviBUP7w5");
+                    startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                }
+                if (position2.equals("9")) //寶山特色商圈
+                {
+                    Uri uri = Uri.parse("https://goo.gl/maps/wSUyopUFNobq5UVQ6");
                     startActivity(new Intent(Intent.ACTION_VIEW, uri));
                 }
                 break;

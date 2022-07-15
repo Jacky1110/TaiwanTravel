@@ -35,7 +35,8 @@ public class MemberProductFragment extends BaseFragment implements View.OnClickL
 
     private ApiEnqueue apiEnqueue;
 
-    private FirebaseAnalytics mFirebaseAnalytics; //firebaseGA分析
+    //firebaseGA分析
+    private FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(getActivity());
 
     //資訊區塊內的控件
     private TextView txtStoreName, txtStoreAddress, txtStoreTel, txtStoreBusinessTime, txtStoreDescript, txtGlobe, txtFb, txtStoreInformation;

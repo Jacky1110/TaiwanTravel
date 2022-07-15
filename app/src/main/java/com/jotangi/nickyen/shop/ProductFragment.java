@@ -473,10 +473,22 @@ public class ProductFragment extends BaseFragment implements View.OnClickListene
                             imgClock.setVisibility(View.GONE);
                         }
 
+                        String storeName = shopBean2.get(0).getStoreName();
+                        String shoppingArea = AppUtility.getShoppingAreaChinese(shopBean2.get(0).getShoppingArea());
+
                         Bundle params = new Bundle();
-                        params.putString("store_name", shopBean2.get(0).getStoreName());
-                        params.putString("shopping_area", AppUtility.getShoppingAreaChinese(shopBean2.get(0).getShoppingArea()));
-                        mFirebaseAnalytics.logEvent("Click_Store", params);
+                        params.putString(
+                                "store_name",
+                                storeName
+                        );
+                        params.putString(
+                                "shopping_area",
+                                shoppingArea
+                        );
+                        mFirebaseAnalytics.logEvent(
+                                "Click_Store", //FirebaseAnalytics.Event.SELECT_CONTENT,
+                                params
+                        );
                         tabSelect();
                     }
                 });

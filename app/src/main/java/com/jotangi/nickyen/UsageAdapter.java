@@ -61,7 +61,7 @@ public class UsageAdapter extends RecyclerView.Adapter<UsageAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.txtTitle.setText(mData.get(position).title);
         holder.txtReceive.setText("已領取人數:" + mData.get(position).receive);
-        holder.txtReceiveUse.setText("已領取使用人數:" + mData.get(position).receiveUse);
+        holder.txtReceiveUse.setText("已兌換人數:" + mData.get(position).receiveUse);
 
         String imagerUrl = ApiConstant.API_IMAGE + mData.get(position).imgCoupon;
         PicassoTrustAll.getInstance((holder.imgCoupon.getContext())).load(imagerUrl).into(holder.imgCoupon);

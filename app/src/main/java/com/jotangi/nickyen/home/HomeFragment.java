@@ -86,8 +86,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class HomeFragment extends BaseFragment implements View.OnClickListener
-{
+public class HomeFragment extends BaseFragment implements View.OnClickListener {
     //banner
     private XBanner mXBanner;
     private ViewPager shopViewPager;
@@ -99,9 +98,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 
     private ConstraintLayout btn_myPoint;
     private LinearLayout btnConstellation;
-    private ImageView btnScan, btnNotify, imgRemind, btnPointMall, btn_myDiscount
-            , btnMemberCard, btnStoreArea, btnNearbyStore, btnArGame, btnQuestionnaire
-            , btnSalons, btnNewsAll, btnShopAll, btnIndustry, btnFestival;
+    private ImageView btnScan, btnNotify, imgRemind, btnPointMall, btn_myDiscount, btnMemberCard, btnStoreArea, btnNearbyStore, btnArGame, btnQuestionnaire, btnSalons, btnNewsAll, btnShopAll, btnIndustry, btnFestival;
     private TextView txtPoint;
     //nearbyStore
     private List<ShopBean> shopList = new ArrayList<>();
@@ -125,35 +122,30 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         Log.d("豪豪", "時間: " + Calendar.getInstance().getTimeInMillis() / 1000);
         Intent giftIntent = getActivity().getIntent();
-        if (giftIntent != null)
-        {
+        if (giftIntent != null) {
             isGift = giftIntent.getBooleanExtra("gift", false);
             isScan = giftIntent.getBooleanExtra("scan", false);
             isRecommend = giftIntent.getBooleanExtra("recommend", false);
             String str = giftIntent.getStringExtra("tId");
 
-            if (isGift && isScan)
-            {
+            if (isGift && isScan) {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, new ProductFragment(), null).addToBackStack(null).commit();
                 giftIntent.removeExtra("gift");
                 giftIntent.removeExtra("scan");
                 giftIntent.removeExtra("recommend");
             }
-            if (isGift)
-            {
+            if (isGift) {
                 isMemberStatus2(str);
                 giftIntent.removeExtra("gift");
                 giftIntent.removeExtra("scan");
                 giftIntent.removeExtra("recommend");
             }
-            if (isRecommend)
-            {
+            if (isRecommend) {
                 //一般會員註冊沒有推薦碼拿取入會禮
                 getGift2();
                 giftIntent.removeExtra("gift");
@@ -210,36 +202,27 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
         return v;
     }
 
-    private void getNotify()
-    {
-        ApiConnection.getPushList(new ApiConnection.OnConnectResultListener()
-        {
+    private void getNotify() {
+        ApiConnection.getPushList(new ApiConnection.OnConnectResultListener() {
             @Override
-            public void onSuccess(String jsonString)
-            {
+            public void onSuccess(String jsonString) {
                 new SharedPreferencesUtil(getActivity(), "notify");
                 String info = (String) SharedPreferencesUtil.getData("info", "");
-                if (info != null && !info.equals(""))
-                {
-                    Type type = new TypeToken<ArrayList<NotifyModel>>()
-                    {
+                if (info != null && !info.equals("")) {
+                    Type type = new TypeToken<ArrayList<NotifyModel>>() {
                     }.getType();
                     ArrayList<NotifyModel> old = new ArrayList<>();
                     old = new Gson().fromJson(info, type);
                     ArrayList<NotifyModel> newD = new ArrayList<>();
                     newD = new Gson().fromJson(jsonString, type);
 
-                    if (newD.size() > old.size())
-                    {
-                        if (getActivity() == null)
-                        {
+                    if (newD.size() > old.size()) {
+                        if (getActivity() == null) {
                             return;
                         }
-                        getActivity().runOnUiThread(new Runnable()
-                        {
+                        getActivity().runOnUiThread(new Runnable() {
                             @Override
-                            public void run()
-                            {
+                            public void run() {
                                 imgRemind.setVisibility(View.VISIBLE);
                             }
                         });
@@ -249,62 +232,48 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
             }
 
             @Override
-            public void onFailure(String message)
-            {
+            public void onFailure(String message) {
 
             }
         });
     }
 
-    private void getGift2()
-    {
+    private void getGift2() {
         String sid = "";
         String use = "0";
-        ApiConnection.getMyCouponList(AppUtility.DecryptAES2(UserBean.member_id), AppUtility.DecryptAES2(UserBean.member_pwd), sid, use, new ApiConnection.OnConnectResultListener()
-        {
+        ApiConnection.getMyCouponList(AppUtility.DecryptAES2(UserBean.member_id), AppUtility.DecryptAES2(UserBean.member_pwd), sid, use, new ApiConnection.OnConnectResultListener() {
             @Override
-            public void onSuccess(String jsonString)
-            {
-                Type type = new TypeToken<ArrayList<CouponListBean>>()
-                {
+            public void onSuccess(String jsonString) {
+                Type type = new TypeToken<ArrayList<CouponListBean>>() {
                 }.getType();
                 couponList = new ArrayList<>();
                 couponList = new Gson().fromJson(jsonString, type);
-                Collections.sort(couponList, new Comparator<CouponListBean>()
-                {
+                Collections.sort(couponList, new Comparator<CouponListBean>() {
                     @Override
-                    public int compare(CouponListBean o1, CouponListBean o2)
-                    {
+                    public int compare(CouponListBean o1, CouponListBean o2) {
                         return o1.getCouponType().compareTo(o2.getCouponType());
                     }
                 });
                 Log.d("豪豪", "onSuccess: " + couponList);
-                if (getActivity() == null)
-                {
+                if (getActivity() == null) {
                     return;
                 }
-                getActivity().runOnUiThread(new Runnable()
-                {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
-                        if (couponList.size() != 0)
-                        {
-                            for (int i = 0; i < couponList.size(); i++)
-                            {
+                    public void run() {
+                        if (couponList.size() != 0) {
+                            for (int i = 0; i < couponList.size(); i++) {
                                 Dialog dialog = new Dialog(getContext());
                                 dialog.setContentView(R.layout.dialog_gift);
                                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                                 dialog.show();
                                 TextView txtTitle = dialog.findViewById(R.id.tv_title);
 
-                                if (!couponList.get(i).getCouponType().equals("6"))
-                                {
+                                if (!couponList.get(i).getCouponType().equals("6")) {
 
                                     txtTitle.setText("店家入會禮");
 
-                                } else
-                                {
+                                } else {
 
                                     txtTitle.setText("會員註冊禮");
                                 }
@@ -316,23 +285,18 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                                 txtDate.setText("兌換期限：" + couponList.get(i).getCouponStartdate() + "～" + couponList.get(i).getCouponEnddate());
 
                                 Button btnClose = dialog.findViewById(R.id.btn_close);
-                                btnClose.setOnClickListener(new View.OnClickListener()
-                                {
+                                btnClose.setOnClickListener(new View.OnClickListener() {
                                     @Override
-                                    public void onClick(View v)
-                                    {
+                                    public void onClick(View v) {
                                         dialog.dismiss();
 
                                     }
                                 });
                                 Button btnEnter = dialog.findViewById(R.id.btn_enter);
-                                btnEnter.setOnClickListener(new View.OnClickListener()
-                                {
+                                btnEnter.setOnClickListener(new View.OnClickListener() {
                                     @Override
-                                    public void onClick(View v)
-                                    {
-                                        if (dialog != null)
-                                        {
+                                    public void onClick(View v) {
+                                        if (dialog != null) {
                                             dialog.dismiss();
                                             Intent myDiscountIntent = new Intent(getActivity(), MyDiscountNew2Activity.class);
                                             startActivity(myDiscountIntent);
@@ -347,59 +311,46 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
             }
 
             @Override
-            public void onFailure(String message)
-            {
+            public void onFailure(String message) {
 
             }
         });
     }
 
     //店家掃碼註冊獲取tid要到入會禮那關閉要拿取的sid
-    private void isMemberStatus2(String str)
-    {
-        ApiConnection.isMemberStatus(str, new ApiConnection.OnConnectResultListener()
-        {
+    private void isMemberStatus2(String str) {
+        ApiConnection.isMemberStatus(str, new ApiConnection.OnConnectResultListener() {
             @Override
-            public void onSuccess(String jsonString)
-            {
-                try
-                {
+            public void onSuccess(String jsonString) {
+                try {
                     Object obj = new JSONTokener(jsonString).nextValue();
                     Log.e("豪豪", "這是" + obj);
-                    if (obj instanceof JSONArray)
-                    {
+                    if (obj instanceof JSONArray) {
                         JSONArray jsonArray = new JSONArray(jsonString);
-                        Type type = new TypeToken<ArrayList<MemberBean>>()
-                        {
+                        Type type = new TypeToken<ArrayList<MemberBean>>() {
                         }.getType();
                         memberBeanList = new Gson().fromJson(String.valueOf(jsonArray), type);
-                        if (getActivity() == null)
-                        {
+                        if (getActivity() == null) {
                             return;
                         }
                         getActivity().runOnUiThread(() -> getGift(memberBeanList.get(0)));
 
-                    } else if (obj instanceof JSONObject)
-                    {
+                    } else if (obj instanceof JSONObject) {
                         JSONObject jsonObject = new JSONObject(jsonString);
                         String code = jsonObject.getString("code");
                         String storeInfo = jsonObject.getString("storeinfo");
                         ArrayList<MemberBean> memberBeans;
 //                        JSONArray jsonArray = new JSONArray(jsonString);
-                        Type type = new TypeToken<ArrayList<MemberBean>>()
-                        {
+                        Type type = new TypeToken<ArrayList<MemberBean>>() {
                         }.getType();
                         memberBeans = new Gson().fromJson(storeInfo, type);
 
-                        if (getActivity() == null)
-                        {
+                        if (getActivity() == null) {
                             return;
                         }
-                        getActivity().runOnUiThread(new Runnable()
-                        {
+                        getActivity().runOnUiThread(new Runnable() {
                             @Override
-                            public void run()
-                            {
+                            public void run() {
                                 getGift(memberBeans.get(0));
 
                             }
@@ -407,74 +358,59 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 
                     }
 
-                } catch (JSONException e)
-                {
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
             }
 
             @Override
-            public void onFailure(String message)
-            {
+            public void onFailure(String message) {
 
             }
         });
     }
 
     //取得入會禮
-    private void getGift(MemberBean sid)
-    {
+    private void getGift(MemberBean sid) {
         String type = "";
         String type2 = "0";
 
-        ApiConnection.getMyCouponList(AppUtility.DecryptAES2(UserBean.member_id), AppUtility.DecryptAES2(UserBean.member_pwd), type, type2, new ApiConnection.OnConnectResultListener()
-        {
+        ApiConnection.getMyCouponList(AppUtility.DecryptAES2(UserBean.member_id), AppUtility.DecryptAES2(UserBean.member_pwd), type, type2, new ApiConnection.OnConnectResultListener() {
             @Override
-            public void onSuccess(String jsonString)
-            {
-                Type type = new TypeToken<ArrayList<CouponListBean>>()
-                {
+            public void onSuccess(String jsonString) {
+                Type type = new TypeToken<ArrayList<CouponListBean>>() {
                 }.getType();
                 couponList = new ArrayList<>();
                 couponList = new Gson().fromJson(jsonString, type);
-                Collections.sort(couponList, new Comparator<CouponListBean>()
-                {
+                Collections.sort(couponList, new Comparator<CouponListBean>() {
                     @Override
-                    public int compare(CouponListBean o1, CouponListBean o2)
-                    {
+                    public int compare(CouponListBean o1, CouponListBean o2) {
                         return o1.getCouponType().compareTo(o2.getCouponType());
                     }
                 });
                 Log.d("豪豪", "onSuccess: " + couponList);
-                if (getActivity() == null)
-                {
+                if (getActivity() == null) {
                     return;
                 }
-                getActivity().runOnUiThread(new Runnable()
-                {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
-                        if (couponList.size() != 0)
-                        {
+                    public void run() {
+                        if (couponList.size() != 0) {
                             ProductFragment productFragment = ProductFragment.newInstance2(sid, "1");
                             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, productFragment, null).addToBackStack(null).commit();
-                            for (int i = 0; i < couponList.size(); i++)
-                            {
+                            for (int i = 0; i < couponList.size(); i++) {
                                 Dialog dialog = new Dialog(getContext());
                                 dialog.setContentView(R.layout.dialog_gift);
                                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                                 dialog.show();
                                 TextView txtTitle = dialog.findViewById(R.id.tv_title);
 
-                                if (!couponList.get(i).getCouponType().equals("6"))
-                                {
+                                if (!couponList.get(i).getCouponType().equals("6")) {
 
                                     txtTitle.setText("店家入會禮");
 
-                                } else
-                                {
+                                } else {
 
                                     txtTitle.setText("會員註冊禮");
                                 }
@@ -487,11 +423,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 
                                 CouponListBean couponListBean = couponList.get(i);
                                 Button btnClose = dialog.findViewById(R.id.btn_close);
-                                btnClose.setOnClickListener(new View.OnClickListener()
-                                {
+                                btnClose.setOnClickListener(new View.OnClickListener() {
                                     @Override
-                                    public void onClick(View v)
-                                    {
+                                    public void onClick(View v) {
 
                                         //                                        if (couponListBean == couponList.get(couponList.size() - 1))
                                         //                                        {
@@ -511,19 +445,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                                     }
                                 });
                                 Button btnEnter = dialog.findViewById(R.id.btn_enter);
-                                btnEnter.setOnClickListener(new View.OnClickListener()
-                                {
+                                btnEnter.setOnClickListener(new View.OnClickListener() {
                                     @Override
-                                    public void onClick(View v)
-                                    {
-                                        if (dialog != null)
-                                        {
+                                    public void onClick(View v) {
+                                        if (dialog != null) {
                                             dialog.dismiss();
                                             Intent myDiscountIntent = new Intent(getActivity(), MyDiscountNew2Activity.class);
                                             startActivity(myDiscountIntent);
                                         }
-                                        if (dialog == null)
-                                        {
+                                        if (dialog == null) {
                                             ProductFragment productFragment = ProductFragment.newInstance2(sid, "1");
                                             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, productFragment, null).addToBackStack(null).commit();
                                         }
@@ -537,43 +467,33 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
             }
 
             @Override
-            public void onFailure(String message)
-            {
+            public void onFailure(String message) {
 
             }
         });
     }
 
-    private void getShopList()
-    {
+    private void getShopList() {
         String la, lo;
-        if (MainActivity.myLocation == null)
-        {
+        if (MainActivity.myLocation == null) {
             la = "";
             lo = "";
-        } else
-        {
+        } else {
             la = String.valueOf(MainActivity.myLocation.getLatitude());
             lo = String.valueOf(MainActivity.myLocation.getLongitude());
         }
-        ApiConnection.getShopList(la, lo, "", "", new ApiConnection.OnConnectResultListener()
-        {
+        ApiConnection.getShopList(la, lo, "", "", new ApiConnection.OnConnectResultListener() {
             @Override
-            public void onSuccess(String jsonString)
-            {
-                final Type type = new TypeToken<ArrayList<ShopBean>>()
-                {
+            public void onSuccess(String jsonString) {
+                final Type type = new TypeToken<ArrayList<ShopBean>>() {
                 }.getType();
                 shopList = new Gson().fromJson(jsonString, type);
-                if (getActivity() == null)
-                {
+                if (getActivity() == null) {
                     return;
                 }
-                getActivity().runOnUiThread(new Runnable()
-                {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
+                    public void run() {
                         shopViewPagerAdapter = new ShopViewPagerAdapter(getContext(), shopList);
                         shopViewPager.setAdapter(shopViewPagerAdapter);
                     }
@@ -581,25 +501,25 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
             }
 
             @Override
-            public void onFailure(String message)
-            {
+            public void onFailure(String message) {
 
             }
         });
     }
 
-    private void requestBanner()
-    {
+    private void requestBanner() {
 
         FormBody body = null;
-        try
-        {
+        try {
             body = new FormBody.Builder()
                     .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
                     .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
                     .build();
-        } catch (Exception e)
-        {
+
+            Log.d("TAG", "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+            Log.d("TAG", "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -613,19 +533,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
         if (client == null)
             client = new OkHttpClient();
 
-        client.newCall(request).enqueue(new Callback()
-        {
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onResponse(@NotNull okhttp3.Call call, @NotNull okhttp3.Response response) throws IOException
-            {
+            public void onResponse(@NotNull okhttp3.Call call, @NotNull okhttp3.Response response) throws IOException {
 
                 String banner = response.body().string();
                 bannerListBeans = new ArrayList<BannerListBean>();
-                try
-                {
+                try {
                     JSONArray jsonArray = new JSONArray(banner);
-                    for (int i = 0; i < jsonArray.length(); i++)
-                    {
+                    for (int i = 0; i < jsonArray.length(); i++) {
 //                    JSONObject jsonObject = new JSONObject(banner);
                         JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                         bannerData = new BannerListBean();
@@ -636,41 +552,32 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                         Log.d("banner", "onResponse: " + bannerData.getBanner_link());
                     }
 
-                    if (getActivity() == null)
-                    {
+                    if (getActivity() == null) {
                         return;
                     }
-                    getActivity().runOnUiThread(new Runnable()
-                    {
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
-                        public void run()
-                        {
+                        public void run() {
 //                            setBannerImage();
                             setCarouselList(bannerListBeans);
 
                         }
 
-                        private void setCarouselList(ArrayList<BannerListBean> data)
-                        {
+                        private void setCarouselList(ArrayList<BannerListBean> data) {
                             mXBanner.setBannerData(R.layout.custom_layout, bannerListBeans);
-                            mXBanner.loadImage(new XBanner.XBannerAdapter()
-                            {
+                            mXBanner.loadImage(new XBanner.XBannerAdapter() {
                                 @Override
-                                public void loadBanner(XBanner banner, Object model, View view, int position)
-                                {
+                                public void loadBanner(XBanner banner, Object model, View view, int position) {
                                     ImageView img_carousel = view.findViewById(R.id.iv_commodity);
 
                                     String imageUrl = ApiConstant.API_IMAGE + data.get(position).getBanner_picture();
                                     PicassoTrustAll.getInstance(getActivity()).load(imageUrl).into(img_carousel);
                                 }
                             });
-                            mXBanner.setOnItemClickListener(new XBanner.OnItemClickListener()
-                            {
+                            mXBanner.setOnItemClickListener(new XBanner.OnItemClickListener() {
                                 @Override
-                                public void onItemClick(XBanner banner, Object model, View view, int position)
-                                {
-                                    if (!data.get(position).getBanner_link().isEmpty())
-                                    {
+                                public void onItemClick(XBanner banner, Object model, View view, int position) {
+                                    if (!data.get(position).getBanner_link().isEmpty()) {
                                         Intent intent = new Intent(Intent.ACTION_VIEW);
                                         Uri uri = Uri.parse(data.get(position).getBanner_link()); //拿官網測試用
                                         intent.setData(uri);
@@ -680,33 +587,33 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                             });
                         }
                     });
-                } catch (JSONException e)
-                {
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e)
-            {
+            public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
                 Log.d("連線", e.getStackTrace().toString());
             }
         });
 
     }
 
-    private void requestNews()
-    {
+    private void handleWeb() {
+
+
+    }
+
+    private void requestNews() {
 
         RequestBody body = null;
-        try
-        {
+        try {
             body = new FormBody.Builder()
                     .add("member_id", AppUtility.DecryptAES2(UserBean.member_id))
                     .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
                     .build();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -719,28 +626,22 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 //                .sslSocketFactory(ApiConnection.createSSLSocketFactory(), mMyTrustManager).build();
         if (client == null)
             client = new OkHttpClient();
-        client.newCall(request).enqueue(new Callback()
-        {
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e)
-            {
-                if (getActivity() == null)
-                {
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                if (getActivity() == null) {
                     return;
                 }
-                getActivity().runOnUiThread(new Runnable()
-                {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
+                    public void run() {
                         Toast.makeText(getActivity(), "網路出問題了!", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
 
             @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException
-            {
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
 
                 String json = response.body().string();
                 Log.d("OKHttp", "json=" + json);
@@ -750,14 +651,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
         });
     }
 
-    private void parseJson(String json)
-    {
+    private void parseJson(String json) {
         newsBeans = new ArrayList<>();
-        try
-        {
+        try {
             JSONArray jsonArray = new JSONArray(json);
-            for (int i = 0; i < jsonArray.length(); i++)
-            {
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 newsData = new NewsBean();
                 newsData.setNewsDate(jsonObject.getString("news_date"));
@@ -766,61 +664,47 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                 newsData.setNid(jsonObject.getString("nid"));
                 newsBeans.add(newsData);
             }
-            if (getActivity() == null)
-            {
+            if (getActivity() == null) {
                 return;
             }
-            getActivity().runOnUiThread(new Runnable()
-            {
+            getActivity().runOnUiThread(new Runnable() {
                 @Override
-                public void run()
-                {
+                public void run() {
                     setupRecyclerView(newsBeans);
                 }
             });
-        } catch (JSONException e)
-        {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
 
     //會員資料
-    private void getMemberInfo()
-    {
+    private void getMemberInfo() {
         String account = AppUtility.DecryptAES2(UserBean.member_id);
         String pwd = AppUtility.DecryptAES2(UserBean.member_pwd);
-        ApiConnection.getMemberInfo(AppUtility.DecryptAES2(UserBean.member_id), AppUtility.DecryptAES2(UserBean.member_pwd), new ApiConnection.OnConnectResultListener()
-        {
+        ApiConnection.getMemberInfo(AppUtility.DecryptAES2(UserBean.member_id), AppUtility.DecryptAES2(UserBean.member_pwd), new ApiConnection.OnConnectResultListener() {
             @Override
-            public void onSuccess(String jsonString)
-            {
-                if (getActivity() == null)
-                {
+            public void onSuccess(String jsonString) {
+                if (getActivity() == null) {
                     return;
                 }
-                getActivity().runOnUiThread(new Runnable()
-                {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
+                    public void run() {
                         txtPoint.setText(String.valueOf(MemberInfoBean.member_points));
                     }
                 });
             }
 
             @Override
-            public void onFailure(String message)
-            {
-                if (getActivity() == null)
-                {
+            public void onFailure(String message) {
+                if (getActivity() == null) {
                     return;
                 }
-                getActivity().runOnUiThread(new Runnable()
-                {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
+                    public void run() {
                         txtPoint.setText("0");
                     }
                 });
@@ -829,10 +713,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
     }
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.iv_scan:
                 Intent scanIntent = new Intent(getActivity(), SurfaceViewActivity.class);
                 startActivityForResult(scanIntent, EDIT);
@@ -847,6 +729,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                 startActivity(myPointIntent);
                 break;
             case R.id.iv_point_mall:
+                handleWeb();
 //                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, new PointShopFragment(), null).addToBackStack(null).commit();
 //                Intent pointShopIntent = new Intent(getActivity(), PointShopActivity.class);
 //                startActivity(pointShopIntent);
@@ -900,91 +783,72 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
         }
     }
 
+
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data)
-    {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode)
-        {
+        switch (requestCode) {
             case EDIT:
 //                Toast.makeText(getActivity(), data.getExtras().getString("tId"), Toast.LENGTH_LONG).show();
-                if (data != null)
-                {
+                if (data != null) {
                     //確認是否為掃描的店家會員
                     isMemberStatus(data.getExtras().getString("tId"));
                 }
         }
     }
 
-    private void isMemberStatus(String tId)
-    {
-        ApiConnection.isMemberStatus(tId, new ApiConnection.OnConnectResultListener()
-        {
+    private void isMemberStatus(String tId) {
+        ApiConnection.isMemberStatus(tId, new ApiConnection.OnConnectResultListener() {
             @Override
-            public void onSuccess(String jsonString)
-            {
+            public void onSuccess(String jsonString) {
 
-                try
-                {
+                try {
                     Object obj = new JSONTokener(jsonString).nextValue();
                     Log.e("豪豪", "這是" + obj);
-                    if (obj instanceof JSONArray)
-                    {
+                    if (obj instanceof JSONArray) {
                         JSONArray jsonArray = new JSONArray(jsonString);
-                        Type type = new TypeToken<ArrayList<MemberBean>>()
-                        {
+                        Type type = new TypeToken<ArrayList<MemberBean>>() {
                         }.getType();
                         memberBeanList = new Gson().fromJson(String.valueOf(jsonArray), type);
-                        if (getActivity() == null)
-                        {
+                        if (getActivity() == null) {
                             return;
                         }
-                        getActivity().runOnUiThread(new Runnable()
-                        {
+                        getActivity().runOnUiThread(new Runnable() {
                             @Override
-                            public void run()
-                            {
-                                AppUtility.showMyDialog(getActivity(), "您已是該店會員！！", "確認", null, new AppUtility.OnBtnClickListener()
-                                {
+                            public void run() {
+                                AppUtility.showMyDialog(getActivity(), "您已是該店會員！！", "確認", null, new AppUtility.OnBtnClickListener() {
                                     @Override
-                                    public void onCheck()
-                                    {
+                                    public void onCheck() {
                                         //你已經是會員了，跳轉至店家頁面
                                         ProductFragment productFragment = ProductFragment.newInstance2(memberBeanList.get(0), "1");
                                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, productFragment, null).addToBackStack(null).commit();
                                     }
 
                                     @Override
-                                    public void onCancel()
-                                    {
+                                    public void onCancel() {
 
                                     }
                                 });
                             }
                         });
 
-                    } else if (obj instanceof JSONObject)
-                    {
+                    } else if (obj instanceof JSONObject) {
                         JSONObject jsonObject = new JSONObject(jsonString);
                         String code = jsonObject.getString("code");
                         String storeInfo = jsonObject.getString("storeinfo");
                         ArrayList<MemberBean> memberBeans;
 //                        JSONArray jsonArray = new JSONArray(jsonString);
-                        Type type = new TypeToken<ArrayList<MemberBean>>()
-                        {
+                        Type type = new TypeToken<ArrayList<MemberBean>>() {
                         }.getType();
                         memberBeans = new Gson().fromJson(storeInfo, type);
 
                         ArrayList<MemberBean> finalMemberBeans = memberBeans;
-                        if (getActivity() == null)
-                        {
+                        if (getActivity() == null) {
                             return;
                         }
-                        getActivity().runOnUiThread(new Runnable()
-                        {
+                        getActivity().runOnUiThread(new Runnable() {
                             @Override
-                            public void run()
-                            {
+                            public void run() {
                                 Dialog dialog = new Dialog(getContext());
                                 dialog.setContentView(R.layout.dialog_add_member);
                                 dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
@@ -995,29 +859,23 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
                                 PicassoTrustAll.getInstance((getContext())).load(ApiConstant.API_IMAGE + finalMemberBeans.get(0).getStorePicture()).into(imgContent);
 
                                 Button btnClose = dialog.findViewById(R.id.btn_close);
-                                btnClose.setOnClickListener(new View.OnClickListener()
-                                {
+                                btnClose.setOnClickListener(new View.OnClickListener() {
                                     @Override
-                                    public void onClick(View v)
-                                    {
-                                        if (dialog != null)
-                                        {
+                                    public void onClick(View v) {
+                                        if (dialog != null) {
                                             dialog.dismiss();
                                         }
                                     }
                                 });
                                 Button btnAdd = dialog.findViewById(R.id.btn_add);
-                                btnAdd.setOnClickListener(new View.OnClickListener()
-                                {
+                                btnAdd.setOnClickListener(new View.OnClickListener() {
                                     @Override
-                                    public void onClick(View v)
-                                    {
+                                    public void onClick(View v) {
                                         //加入會員並顯示在會員卡
 
                                         addMemberCard(finalMemberBeans);
                                         sendIII(finalMemberBeans.get(0).getStoreName());
-                                        if (dialog != null)
-                                        {
+                                        if (dialog != null) {
                                             dialog.dismiss();
                                         }
 
@@ -1029,40 +887,32 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 
                     }
 
-                } catch (JSONException e)
-                {
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void onFailure(String message)
-            {
+            public void onFailure(String message) {
 
             }
         });
     }
 
     //加入會員
-    private void addMemberCard(ArrayList<MemberBean> memberBeans)
-    {
-        ApiConnection.addMemberCard(memberBeans.get(0).getSid(), new ApiConnection.OnConnectResultListener()
-        {
+    private void addMemberCard(ArrayList<MemberBean> memberBeans) {
+        ApiConnection.addMemberCard(memberBeans.get(0).getSid(), new ApiConnection.OnConnectResultListener() {
             @Override
-            public void onSuccess(String jsonString)
-            {
-                Type type = new TypeToken<ArrayList<CouponListBean>>()
-                {
+            public void onSuccess(String jsonString) {
+                Type type = new TypeToken<ArrayList<CouponListBean>>() {
                 }.getType();
                 couponList = new ArrayList<>();
                 couponList = new Gson().fromJson(jsonString, type);
 
                 ProductFragment productFragment;
-                if (couponList != null)
-                {
+                if (couponList != null) {
                     productFragment = ProductFragment.newInstance3(memberBeans.get(0), true, couponList);
-                } else
-                {
+                } else {
 
                     productFragment = ProductFragment.newInstance2(memberBeans.get(0), "1");
                 }
@@ -1072,48 +922,36 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
             }
 
             @Override
-            public void onFailure(String message)
-            {
-                if (getActivity() == null)
-                {
+            public void onFailure(String message) {
+                if (getActivity() == null) {
                     return;
                 }
-                getActivity().runOnUiThread(new Runnable()
-                {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
-                        if (message.equals("0x0206"))
-                        {
-                            AppUtility.showMyDialog(getActivity(), "您已註冊過此店家會員", "確認", null, new AppUtility.OnBtnClickListener()
-                            {
+                    public void run() {
+                        if (message.equals("0x0206")) {
+                            AppUtility.showMyDialog(getActivity(), "您已註冊過此店家會員", "確認", null, new AppUtility.OnBtnClickListener() {
                                 @Override
-                                public void onCheck()
-                                {
+                                public void onCheck() {
                                     //你已經是會員了，跳轉至店家頁面
                                     ProductFragment productFragment = ProductFragment.newInstance2(memberBeans.get(0), "1");
                                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, productFragment, null).addToBackStack(null).commit();
                                 }
 
                                 @Override
-                                public void onCancel()
-                                {
+                                public void onCancel() {
 
                                 }
                             });
-                        } else
-                        {
-                            AppUtility.showMyDialog(getActivity(), "連線異常，或輸入參數不正確", "確認", null, new AppUtility.OnBtnClickListener()
-                            {
+                        } else {
+                            AppUtility.showMyDialog(getActivity(), "連線異常，或輸入參數不正確", "確認", null, new AppUtility.OnBtnClickListener() {
                                 @Override
-                                public void onCheck()
-                                {
+                                public void onCheck() {
 
                                 }
 
                                 @Override
-                                public void onCancel()
-                                {
+                                public void onCancel() {
 
                                 }
                             });
@@ -1126,44 +964,36 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
     }
 
     //資策會大數據 使用者樣貌
-    private void sendIII(String storeName)
-    {
-        ApiConnection.getIIIAdd8(String.valueOf(Calendar.getInstance().getTimeInMillis() / 1000), AppUtility.DecryptAES2(UserBean.member_id), AppUtility.getIPAddress(getActivity()), "", MemberInfoBean.decryptAddress, "", storeName, new ApiConnection.OnConnectResultListener()
-        {
+    private void sendIII(String storeName) {
+        ApiConnection.getIIIAdd8(String.valueOf(Calendar.getInstance().getTimeInMillis() / 1000), AppUtility.DecryptAES2(UserBean.member_id), AppUtility.getIPAddress(getActivity()), "", MemberInfoBean.decryptAddress, "", storeName, new ApiConnection.OnConnectResultListener() {
             @Override
-            public void onSuccess(String jsonString)
-            {
+            public void onSuccess(String jsonString) {
                 Log.d("豪豪", "onSuccess: " + jsonString);
             }
 
             @Override
-            public void onFailure(String message)
-            {
+            public void onFailure(String message) {
 
             }
         });
     }
 
-    public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.NewsViewHolder>
-    {
+    public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.NewsViewHolder> {
 
         private ArrayList<NewsBean> newss;
 
-        public RecyclerAdapter(ArrayList<NewsBean> newss)
-        {
+        public RecyclerAdapter(ArrayList<NewsBean> newss) {
             this.newss = newss;
         }
 
-        class NewsViewHolder extends RecyclerView.ViewHolder
-        {
+        class NewsViewHolder extends RecyclerView.ViewHolder {
 
             View view;
             ImageView picture;
             TextView date;
             TextView subject;
 
-            public NewsViewHolder(@NonNull View itemView)
-            {
+            public NewsViewHolder(@NonNull View itemView) {
                 super(itemView);
                 view = itemView;
                 picture = itemView.findViewById(R.id.home_news_picture);
@@ -1175,8 +1005,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 
         @NonNull
         @Override
-        public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-        {
+        public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
             Context context = parent.getContext();
             View view = LayoutInflater.from(context)
@@ -1187,8 +1016,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
         }
 
         @Override
-        public void onBindViewHolder(@NonNull NewsViewHolder holder, int position)
-        {
+        public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
 
             String imagerUrl = ApiConstant.API_IMAGE + newss.get(position).getNewsPicture();
             Log.d("豪豪", imagerUrl);
@@ -1197,11 +1025,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 //            解決Picasso能下載https的圖片問題
             PicassoTrustAll.getInstance(getContext()).load(imagerUrl).into(holder.picture);
 
-            holder.view.setOnClickListener(new View.OnClickListener()
-            {
+            holder.view.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent in = new Intent(getContext(), NewsActivity.class);
                     in.putExtra("nId", newss.get(position).getNid());
                     startActivity(in);
@@ -1210,17 +1036,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
         }
 
         @Override
-        public int getItemCount()
-        {
+        public int getItemCount() {
             int a;
-            if (newss.size() == 1)
-            {
+            if (newss.size() == 1) {
                 a = 1;
-            } else if (newss.size() == 2)
-            {
+            } else if (newss.size() == 2) {
                 a = 2;
-            } else
-            {
+            } else {
                 a = 3;
             }
             return a;
@@ -1228,8 +1050,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 
     }
 
-    private void setupRecyclerView(ArrayList<NewsBean> newsBeans)
-    {
+    private void setupRecyclerView(ArrayList<NewsBean> newsBeans) {
 
         RecyclerView recyclerView = getActivity().findViewById(R.id.home_news_recycle);
         RecyclerAdapter adapter = new RecyclerAdapter(newsBeans);
@@ -1238,45 +1059,38 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
     }
 
     //解決要使用scroll與recycle的兼容滑動問題 改成nestscroll
-    public static class MyLinearLayoutManager extends LinearLayoutManager
-    {
+    public static class MyLinearLayoutManager extends LinearLayoutManager {
         private static final String TAG = MyLinearLayoutManager.class.getSimpleName();
 
         private boolean isScrollEnabled = true;
 
-        public MyLinearLayoutManager(Context context, boolean isScrollEnabled)
-        {
+        public MyLinearLayoutManager(Context context, boolean isScrollEnabled) {
             super(context);
             this.isScrollEnabled = isScrollEnabled;
         }
 
-        public MyLinearLayoutManager(Context context, int orientation, boolean reverseLayout)
-        {
+        public MyLinearLayoutManager(Context context, int orientation, boolean reverseLayout) {
             super(context, orientation, reverseLayout);
         }
     }
 
-    public class ShopViewPagerAdapter extends PagerAdapter
-    {
+    public class ShopViewPagerAdapter extends PagerAdapter {
         private Context context;
         private List<ShopBean> shopList;
 
-        public ShopViewPagerAdapter(final Context context, final List<ShopBean> shopList)
-        {
+        public ShopViewPagerAdapter(final Context context, final List<ShopBean> shopList) {
             this.context = context;
             this.shopList = shopList;
         }
 
         @Override
-        public int getCount()
-        {
+        public int getCount() {
             return 10;
         }
 
         // 來判斷顯示的是否是同一張圖片，這裡我们將兩個參數相比較返回即可
         @Override
-        public boolean isViewFromObject(@NonNull @NotNull View view, @NonNull @NotNull Object object)
-        {
+        public boolean isViewFromObject(@NonNull @NotNull View view, @NonNull @NotNull Object object) {
             return view.equals(object);
         }
 
@@ -1284,8 +1098,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
         @NonNull
         @NotNull
         @Override
-        public Object instantiateItem(@NonNull @NotNull ViewGroup container, int position)
-        {
+        public Object instantiateItem(@NonNull @NotNull ViewGroup container, int position) {
             View view = LayoutInflater.from(context).inflate(R.layout.slide_home_item, container, false);
 
             RoundedImageView imageView = view.findViewById(R.id.imageSlide);
@@ -1299,23 +1112,19 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
 
             int AAA = Integer.parseInt(shopList.get(position).getDistance());
 
-            if (AAA < 1000)
-            {
+            if (AAA < 1000) {
                 txtDistance.setText(shopList.get(position).getDistance() + "m");
 
-            } else
-            {
+            } else {
                 double BBB = AAA / 100;
                 BigDecimal bigDecimal = new BigDecimal(BBB);
                 double f1 = bigDecimal.setScale(1, BigDecimal.ROUND_HALF_DOWN).doubleValue() / 10;
                 txtDistance.setText(f1 + "Km");
             }
 
-            view.setOnClickListener(new View.OnClickListener()
-            {
+            view.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     ProductFragment productFragment = ProductFragment.newInstance(shopList.get(position), "1");
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, productFragment, null).addToBackStack(null).commit();
                 }
@@ -1327,8 +1136,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener
         }
 
         @Override
-        public void destroyItem(@NonNull @NotNull ViewGroup container, int position, @NonNull @NotNull Object object)
-        {
+        public void destroyItem(@NonNull @NotNull ViewGroup container, int position, @NonNull @NotNull Object object) {
 //        super.destroyItem(container, position, object);
             container.removeView((View) object);
         }
