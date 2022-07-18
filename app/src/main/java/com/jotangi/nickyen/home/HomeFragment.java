@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -69,7 +71,9 @@ import org.json.JSONTokener;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
@@ -87,6 +91,8 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener {
+    private String TAG = getClass().getSimpleName() + "(TAG)";
+    private static String memberId, memberPw;
     //banner
     private XBanner mXBanner;
     private ViewPager shopViewPager;
@@ -516,8 +522,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                     .add("member_pwd", AppUtility.DecryptAES2(UserBean.member_pwd))
                     .build();
 
-            Log.d("TAG", "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
-            Log.d("TAG", "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
+            Log.d(TAG, "member_id: " + AppUtility.DecryptAES2(UserBean.member_id));
+            Log.d(TAG, "member_pwd: " + AppUtility.DecryptAES2(UserBean.member_pwd));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -600,7 +606,17 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void handleWeb() {
+        String acc = AppUtility.DecryptAES2(UserBean.member_id); //原始內容
+        memberId = java.util.Base64.getEncoder().encodeToString(acc.getBytes(StandardCharsets.UTF_8));//資料加密
+        String pw = AppUtility.DecryptAES2(UserBean.member_pwd);
+        memberPw = java.util.Base64.getEncoder().encodeToString(pw.getBytes(StandardCharsets.UTF_8));//資料加密
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        Uri url = Uri.parse("https://tripspottest.jotangi.net/tours_web/login.php?i=" + memberId + "&p=" + memberPw);
+        Log.d("TAG", "url: " + url);
+        intent.setData(url);
+        startActivity(intent);
 
 
     }
@@ -712,6 +728,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -733,7 +750,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 //                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, new PointShopFragment(), null).addToBackStack(null).commit();
 //                Intent pointShopIntent = new Intent(getActivity(), PointShopActivity.class);
 //                startActivity(pointShopIntent);
-                Toast.makeText(getActivity(), "建置中\n敬請期待", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "建置中\n敬請期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_discount:
                 Intent myDiscountIntent = new Intent(getActivity(), MyDiscountNew2Activity.class);
@@ -1141,4 +1158,5 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             container.removeView((View) object);
         }
     }
+
 }
