@@ -746,11 +746,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(myPointIntent);
                 break;
             case R.id.iv_point_mall:
-                handleWeb();
+//                handleWeb();
 //                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeLayout, new PointShopFragment(), null).addToBackStack(null).commit();
 //                Intent pointShopIntent = new Intent(getActivity(), PointShopActivity.class);
 //                startActivity(pointShopIntent);
-//                Toast.makeText(getActivity(), "建置中\n敬請期待", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "建置中\n敬請期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_discount:
                 Intent myDiscountIntent = new Intent(getActivity(), MyDiscountNew2Activity.class);

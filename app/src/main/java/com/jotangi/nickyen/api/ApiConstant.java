@@ -9,8 +9,10 @@ public class ApiConstant
     public static final String API_MALL_URL ="https://tripspottest.jotangi.net/tours/api/";
     public static final String API_MALL_IMAGE ="https://tripspottest.jotangi.net/tours/";
     // formal url
-    public static final String API_URL = "https://tripspot.jotangi.net/api/";
+    public static final String API_URL = "https://ddotapp.com.tw/tours/api/";
     public static final String API_IMAGE = "https://tripspot.jotangi.net/";
+    // new formal url
+//    public static final String API_URL = "https://ddotapp.com.tw/tours/";
 
     /**
      * 首頁相關
